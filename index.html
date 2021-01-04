@@ -71,7 +71,7 @@
     });
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
-    var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+    var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs()[0]);
     document.getElementById("surf1").innerHTML = 'la surface rouge a une superficie de ' + surface1;
 
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
