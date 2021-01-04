@@ -59,6 +59,18 @@
     pointset.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
     });
+    pointset2.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map);
+    });
+    pointset3.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'green'}).addTo(map);
+    });
+    pointset4.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'yellow'}).addTo(map);
+    });
+    pointset5.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'brown'}).addTo(map);
+    });
 
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
