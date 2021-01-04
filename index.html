@@ -22,27 +22,64 @@
 	
 </head>
 <body>
+    <header>
+      <div class="inner">
+        <h1>Hull.js examples</h1>
+        <h2></h2>
+        <a href="https://github.com/AndriiHeonia/hull" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
 
+<!-- Example 4 -->
+<h3><a name="ex4" class="anchor" href="#ex4"><span class="octicon octicon-link"></span>Geo points</a></h3>
+<p>If your point format differs from the [x, y] then you can provide a custom format pattern:</p>
+<pre><code>var pointset = [
+    { lng: -0.2067, lat: 51.4911 },
+    { lng: -0.2070, lat: 51.4915 },
+    { lng: -0.2074, lat: 51.4912 },
+    ...
+];
 
-<div id="mapid" style="width: 600px; height: 400px;"></div>
-<script>
-
-	var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-	}).addTo(mymap);
-
-</script>
-
-
-
-</body>
+var pts = hull(pointset, 0.0011, ['.lng', '.lat']);
+// ... show pts on map</code></pre>
+<p>
+  <div id="map" style="width: 600px; height: 400px"></div>
+  <script>
+  function example4() {
+    var map = L.map('map').setView([51.4894, -0.209], 15);
+    pointset = dataGeo;
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    pointset.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2}).addTo(map);
+    });
+    var pts = hull(pointset, 0.0011, ['.lng', '.lat']);
+    L.polygon(pts, {weight: 2}).addTo(map);
+  }
+  </script>
+</p>
+<!-- END: Example 4 -->
+	      
+   </section>
+      </div>
+    </div>
+    <footer>
+      <div class="inner">
+        &copy; 2014-2020 <a href="https://www.linkedin.com/in/andriiheonia" target="_blank">Andrii Heonia</a>
+      </div>
+    </footer>
+    <script>
+    window.onload = function() {
+        example1();
+     
+    }
+    </script>
+  </body>
 </html>
 
