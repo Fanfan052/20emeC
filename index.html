@@ -80,13 +80,8 @@
     var poly4 = L.polygon(pts4, {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
-    function affiche_surf() {
     var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
-     console.log(surf1);
-     document.getElementById('surf').innerHTML = 'j aime les frites' + surf1;
-    };
-    
-   affiche_surf();
+    console.log(surf1);
     
    
   }
