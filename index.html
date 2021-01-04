@@ -92,7 +92,7 @@
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
     var surface5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + 'La surface jaune a une superficie de ' + (Math.round(surface5).ToLocaleString() +'.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + 'La surface jaune a une superficie de ' + (Math.round(surface5)).ToLocaleString() +'.';
    
     
    
