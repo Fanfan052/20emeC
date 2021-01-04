@@ -81,8 +81,12 @@
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
 	 
-    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
-    document.write('la surface jaune mesure ' + surf1 + ' mètres carrés');
+    function surf1() {
+   
+    document.getElementById('surface').innerHTML = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+    }
+   surf1();
+    
    
   }
   </script>
@@ -98,6 +102,7 @@
      
     }
     </script>
+< p id = 'surface' > </p>
 <p> - la surface jaune représente <var> surf1 </var> <br>
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
     - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
