@@ -80,11 +80,9 @@
     var poly4 = L.polygon(pts4, {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
-	 
-    function surf1() {
+    document.getElementById('surf1').innerHTML =  L.GeometryUtil.geodesicArea(poly1.getLatLngs());
    
-    alert(L.GeometryUtil.geodesicArea(poly1.getLatLngs()));
-    }
+    
    surf1();
     
    
@@ -102,7 +100,7 @@
      
     }
     </script>
-<p id='surface' > </p>
+<p id='surf1' > </p>
 <p> - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
     - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
     à la 20ème Chaise par Google Map API <br>
