@@ -72,7 +72,7 @@
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
     var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
-    document.getElementById('surf1') = surface1;
+    document.getElementById('surf1').innerHTML = 'la surface rouge a une superficie de ' + surface1;
 
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
