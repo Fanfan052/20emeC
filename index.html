@@ -58,7 +58,6 @@
 
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
-    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs())
    
   }
   </script>
