@@ -82,6 +82,7 @@
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
 	 
     var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+    document.write('la surface jaune mesure ' + surf1 + ' mètres carrés');
    
   }
   </script>
