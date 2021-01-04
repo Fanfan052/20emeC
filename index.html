@@ -69,11 +69,11 @@
     pointset5.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'brown'}).addTo(map);
     });
-
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
-    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs())
-    console.log(surf1);
+    var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+    console.log('area is: '+ L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
     var pts3 = hull(pointset3, 0.1, ['.lng', '.lat']);
