@@ -72,6 +72,8 @@
 
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
+    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs())
+    console.log(surf1);
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
     var pts3 = hull(pointset3, 0.1, ['.lng', '.lat']);
@@ -80,8 +82,7 @@
     var poly4 = L.polygon(pts4, {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
-    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
-    console.log(surf1);
+   
     
    
   }
