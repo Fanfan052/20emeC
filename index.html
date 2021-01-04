@@ -82,6 +82,7 @@
     var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
     function affiche_surf() {
     var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs());
+     console.log(surf1);
      document.getElementById('surf').innerHTML = 'j aime les frites' + surf1;
     };
     
