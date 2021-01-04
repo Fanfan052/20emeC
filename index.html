@@ -11,7 +11,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Test</title>
+    <title>Adherents selon distance à la 20eme C</title>
     <script src="./javascripts/hull.js"></script>
     <script src="./javascripts/dataGeo.js"></script>
 	
@@ -23,50 +23,78 @@
 </head>
 <body>
     <header>
-      <div class="inner">
-        <h1>Test</h1>
+      <h1>Adhérents de la 20ème Chaise - Saisons 2018-19 et 2019-2020 </h1>
         <h2></h2>
+        <a href="https://www.la20emechaise.org/" class="button"><small>Site internet du centre social</small></a>
       </div>
     </header>
 
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
+<pre><code>902 adresses extraites de Noe
+    récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv
+    récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) à la 20ème Chaise par Google Map API
+    utilisation des ressources Open Street Map
+    détermination des enveloppes convexes(-concaves) par algorithme externe
+   
+</code></pre>
+<!-- Exemple 1 -->
+<h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>Temps de trajet à pied</a></h3>
 
-<!-- Example 4 -->
-<h3><a name="ex4" class="anchor" href="#ex4"><span class="octicon octicon-link"></span>Geo points</a></h3>
-<p>If your point format differs from the [x, y] then you can provide a custom format pattern:</p>
-<pre><code>var pointset = [
-    { lng: -0.2067, lat: 51.4911 },
-    { lng: -0.2070, lat: 51.4915 },
-    { lng: -0.2074, lat: 51.4912 },
-    ...
-];
-
-var pts = hull(pointset, 0.0011, ['.lng', '.lat']);
-// ... show pts on map</code></pre>
 <p>
   <div id="map" style="width: 900px; height: 600px"></div>
   <script>
-  function example1() {
-    var map = L.map('map').setView([51.4894, -0.209], 15);
+ function exemple1() {
+    var map = L.map('map').setView([48.864891,2.389828], 15);
     pointset = dataGeo;
+    pointset2 = dataGeo2;
+    pointset3 = dataGeo3;
+    pointset4 = dataGeo4;
+    pointset5 = dataGeo5;
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
-    pointset = dataGeo;
-  
     pointset.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2}).addTo(map);
+        L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
     });
-    var pts = hull(pointset, 0.0011, ['.lng', '.lat']);
-    L.polygon(pts, {weight: 2}).addTo(map);
+   pointset2.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map);
+    });
+   pointset3.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'green'}).addTo(map);
+    });
+   pointset4.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'yellow'}).addTo(map);
+    });
+   pointset5.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'brown'}).addTo(map);
+    });
+
+    var pts = hull(pointset, 1, ['.lng', '.lat']);
+    var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
+    var surf1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs())
+    console.log(surf1);
+    var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
+    var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
+    var surf2 = L.GeometryUtil.geodesicArea(poly2.getLatLngs())
+    console.log(surf2);    
+    var pts3 = hull(pointset3, 0.1, ['.lng', '.lat']);
+    var poly3 = L.polygon(pts3, {weight: 2, color : 'green', fillopacity : 0.9}).addTo(map);
+    var surf3 = L.GeometryUtil.geodesicArea(poly3.getLatLngs())
+    console.log(surf3);
+    var pts4 = hull(pointset4, 0.1, ['.lng', '.lat']);
+    var poly4 = L.polygon(pts4, {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
+    var surf4 = L.GeometryUtil.geodesicArea(poly4.getLatLngs())
+    console.log(surf4);
+    var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
+    var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
+    var surf5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs())
+    console.log(surf5);
   }
   </script>
 </p>
-<!-- END: Example 4 -->
 	      
    </section>
       </div>
