@@ -79,7 +79,7 @@
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
     var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs()[0]);
 
-    var pts2 = hull(pointset2, 0.05, ['.lng', '.lat']);
+    var pts2 = hull(pointset2, 0.01, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
     var surface2 = L.GeometryUtil.geodesicArea(poly2.getLatLngs()[0]);
 	 
