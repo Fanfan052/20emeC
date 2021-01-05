@@ -58,16 +58,10 @@
     };
     return properties;
     });
- let dataDureePied6 = data.map( adresse => {
-    let properties = {
-   "valeur": adresse.duree_pied
-    };
-    return properties;
-    });
-    var Pied6_Max = Math.max(dataDureePied6.valeur);
-    var Pied6_Min = Math.min(dataDureePied6.valeur);
-    console.log(Pied6_Max);
-    console.log(Pied6_Min);
+    var Res_Max = Math.max.apply(Math,data.map(function(o){return o.duree_pied;}))
+    var Res_Min = Math.min.apply(Math,data.map(function(o){return o.duree_pied;}))
+    console.log(Res_Max);
+    console.log(Res_Min);
     pointset = dataGeo6;
     pointset2 = dataGeo2;
     pointset3 = dataGeo3;
