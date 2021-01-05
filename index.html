@@ -84,23 +84,23 @@
     });
 	 	 
     var pts5 = hull(pointset5, 0.01, ['.lng', '.lat']);
-    var poly5 = L.polygon(pts5, {weight: 2, color : 'orange', fillopacity : 0.9}).addTo(map);
+    var poly5 = L.polygon(pts5, {weight: 2, fillcolor : 'orange', fillopacity : 0.9}).addTo(map);
     var surface5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs()[0]);
 
     var pts4 = hull(pointset4, 0.01, ['.lng', '.lat']);
-    var poly4 = L.polygon([pts4,pts5], {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
+    var poly4 = L.polygon([pts4,pts5], {weight: 2, fillcolor : 'yellow', fillopacity : 0.9}).addTo(map);
     var surface4 = L.GeometryUtil.geodesicArea(poly4.getLatLngs()[0]);
 	 
     var pts3 = hull(pointset3, 0.005, ['.lng', '.lat']);
-    var poly3 = L.polygon([pts3,pts4,pts5], {weight: 2, color : 'green', fillopacity : 0.9}).addTo(map);
+    var poly3 = L.polygon([pts3,pts4,pts5], {weight: 2, fillcolor : 'green', fillopacity : 0.9}).addTo(map);
     var surface3 = L.GeometryUtil.geodesicArea(poly3.getLatLngs()[0]);
 
     var pts2 = hull(pointset2, 0.05, ['.lng', '.lat']);
-    var poly2 = L.polygon([pts2,pts3,pts4,pts5], {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
+    var poly2 = L.polygon([pts2,pts3,pts4,pts5], {weight: 2, fillcolor : 'blue', fillopacity : 0.9}).addTo(map);
     var surface2 = L.GeometryUtil.geodesicArea(poly2.getLatLngs()[0]);
 
     var pts = hull(pointset, 1, ['.lng', '.lat']);
-    var poly1 = L.polygon([pts, pts2,pts3,pts4,pts5], {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
+    var poly1 = L.polygon([pts, pts2,pts3,pts4,pts5], {weight: 2, fillcolor : 'red', fillopacity : 0.9}).addTo(map);
     var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs()[0]);
 
 
