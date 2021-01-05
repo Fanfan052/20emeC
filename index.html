@@ -78,30 +78,33 @@
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
     var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = 'La surface rouge a une superficie de ' + Separateur_Milliers(Math.round(surface1)) + ' mètres carrés ' +
-	    ' et contient ' + pointset.length + ' adresses.';
 
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
     var surface2 = L.GeometryUtil.geodesicArea(poly2.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML +' La surface bleue a une superficie de ' + Separateur_Milliers(Math.round(surface2)) +' mètres carrés.';
 	 
     var pts3 = hull(pointset3, 0.1, ['.lng', '.lat']);
     var poly3 = L.polygon(pts3, {weight: 2, color : 'green', fillopacity : 0.9}).addTo(map);
     var surface3 = L.GeometryUtil.geodesicArea(poly3.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface verte a une superficie de ' + Separateur_Milliers(Math.round(surface3)) + ' mètres carrés.';
 	 
     var pts4 = hull(pointset4, 0.1, ['.lng', '.lat']);
     var poly4 = L.polygon(pts4, {weight: 2, color : 'yellow', fillopacity : 0.9}).addTo(map);
     var surface4 = L.GeometryUtil.geodesicArea(poly4.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface jaune a une superficie de ' + Separateur_Milliers(Math.round(surface4)) +' mètres carrés.';
 	 
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
     var poly5 = L.polygon(pts5, {weight: 2, color : 'orange', fillopacity : 0.9}).addTo(map);
     var surface5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + 'La surface orange a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés.';
-   
-    
+	 
+    document.getElementById("surf").innerHTML = 'La surface orange a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés ' +
+	    ' et contient ' + pointset5.length + ' adresses.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface jaune a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface4)) +' mètres carrés.' + ' et contient ' + pointset4.length + ' adresses.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface verte a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface3)) +' mètres carrés.' + ' et contient ' + pointset3.length + ' adresses.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface bleue a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface2)) +' mètres carrés.' + ' et contient ' + pointset2.length + ' adresses.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface rouge a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface1)) +' mètres carrés.' + ' et contient ' + pointset.length + ' adresses.';
    
   }
   </script>
