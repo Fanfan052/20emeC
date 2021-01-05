@@ -101,7 +101,7 @@
     var surface5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs()[0]);
 
     var pts = hull(pointset, 1, ['.lng', '.lat']);
-    var poly1 = L.polygon({pts, pts2}, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
+    var poly1 = L.polygon([pts, pts2], {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
     var surface1 = L.GeometryUtil.geodesicArea(poly1.getLatLngs()[0]);
 	 
     document.getElementById("surf").innerHTML = 'La surface orange a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés' +
