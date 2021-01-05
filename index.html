@@ -73,7 +73,7 @@
         L.circleMarker(latlng, {radius: 2, color : 'yellow'}).addTo(map);
     });
     pointset5.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : 'brown'}).addTo(map);
+        L.circleMarker(latlng, {radius: 2, color : 'white'}).addTo(map);
     });
     var pts = hull(pointset, 1, ['.lng', '.lat']);
     var poly1 = L.polygon(pts, {weight: 2, color : 'red', fillopacity : 0.9}).addTo(map);
@@ -96,9 +96,9 @@
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface jaune a une superficie de ' + Separateur_Milliers(Math.round(surface4)) +' mètres carrés.';
 	 
     var pts5 = hull(pointset5, 0.1, ['.lng', '.lat']);
-    var poly5 = L.polygon(pts5, {weight: 2, color : 'brown', fillopacity : 0.9}).addTo(map);
+    var poly5 = L.polygon(pts5, {weight: 2, color : 'white', fillopacity : 0.9}).addTo(map);
     var surface5 = L.GeometryUtil.geodesicArea(poly5.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + 'La surface marron a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + 'La surface blanche a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés.';
    
     
    
