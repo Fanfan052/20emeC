@@ -25,6 +25,10 @@
         <a href="https://www.la20emechaise.org/" class="button">Site internet du centre social</a>
       </div>
     </header>
+   
+function Separateur_Milliers(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
 
     <div id="content-wrapper">
       <div class="inner clearfix">
@@ -77,7 +81,7 @@
     var pts2 = hull(pointset2, 0.1, ['.lng', '.lat']);
     var poly2 = L.polygon(pts2, {weight: 2, color : 'blue', fillopacity : 0.9}).addTo(map);
     var surface2 = L.GeometryUtil.geodesicArea(poly2.getLatLngs()[0]);
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML +' La surface bleue a une superficie de ' + (Math.round(surface2)) +' mètres carrés.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML +' La surface bleue a une superficie de ' + Separateur_Milliers(Math.round(surface2)) +' mètres carrés.';
 	 
     var pts3 = hull(pointset3, 0.1, ['.lng', '.lat']);
     var poly3 = L.polygon(pts3, {weight: 2, color : 'green', fillopacity : 0.9}).addTo(map);
