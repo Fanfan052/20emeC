@@ -108,13 +108,13 @@
     document.getElementById("surf").innerHTML = 'La surface orange a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés' +
 	    ' et contient ' + pointset5.length + ' adresses.';
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface jaune a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface4)) +' mètres carrés' + ' et contient ' + pointset4.length + ' adresses.';
+	    Separateur_Milliers(Math.round(surface4-surface5)) +' mètres carrés' + ' et contient ' + pointset4.length + ' adresses.';
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface verte a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface3)) +' mètres carrés' + ' et contient ' + pointset3.length + ' adresses.';
+	    Separateur_Milliers(Math.round(surface3-surface4-surface5)) +' mètres carrés' + ' et contient ' + pointset3.length + ' adresses.';
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface bleue a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface2)) +' mètres carrés' + ' et contient ' + pointset2.length + ' adresses.';
+	    Separateur_Milliers(Math.round(surface2-surface3-surface4-surface5)) +' mètres carrés' + ' et contient ' + pointset2.length + ' adresses.';
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface rouge a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface1)) +' mètres carrés' + ' et contient ' + pointset.length + ' adresses.';
+	    Separateur_Milliers(Math.round(surface1-surface2-surface3-surface4-surface5)) +' mètres carrés' + ' et contient ' + pointset.length + ' adresses.';
    
   }
   </script>
