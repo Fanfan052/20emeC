@@ -60,6 +60,7 @@
     });
     var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
     var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
+    console.log(data.length);
     console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
     console.log(Res_Max);
     console.log(Res_Min);
