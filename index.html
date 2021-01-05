@@ -51,7 +51,14 @@
   <script>
  function exemple1() {
     var map = L.map('map').setView([48.864891,2.389828], 15);
-    pointset = dataGeo;
+    let dataGeo6 = data.map( adresse => {
+    let properties = {
+   "lng": adresse.lng,
+   "lat": adresse.lat
+    };
+    return properties;
+    });
+    pointset = dataGeo6;
     pointset2 = dataGeo2;
     pointset3 = dataGeo3;
     pointset4 = dataGeo4;
