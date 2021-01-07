@@ -76,7 +76,7 @@
     }).addTo(map);
     
     PS.forEach(function(element){
-    element.forEach((function(latlng) {
+    element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
     });
     });
