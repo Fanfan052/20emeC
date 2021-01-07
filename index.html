@@ -75,13 +75,17 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     
-
-	 
+    var points = new Array();
+    var poly = new Array();
+    var surface = new Array();
 	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 4, color : 'red'}).addTo(map);
     });
+    points[points.length]= hull(element, 0.01, ['.lng', '.lat']);
+    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : 'orange', fillopacity : 0.9}).addTo(map);
+    surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
     pointset.forEach(function(latlng) {
