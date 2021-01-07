@@ -64,6 +64,7 @@
     console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
     console.log(Res_Max);
     console.log(Res_Min);
+    var PS = [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
     pointset = dataGeo6;
     pointset2 = dataGeo2;
     pointset3 = dataGeo3;
@@ -73,6 +74,13 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    
+    PS.forEach(function(element){
+    element.forEach((function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
+    });
+    });
+	 
     pointset.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
     });
