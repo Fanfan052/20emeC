@@ -74,6 +74,7 @@
     var poly = new Array();
     var surface = new Array();
     var color = ['red','blue','green','yellow','orange'];
+    var color_fr = ['rouge','bleue','verte','jaune','orange'];
     var convexite = [1.000,0.050,0.005,0.010,0.010];
 	 
     PS.forEach(function(element){
@@ -86,7 +87,7 @@
     });
 	 
     PS.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color[PS.length - PS.indexOf(element)-1] + ' a une superficie de ' +
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[PS.length - PS.indexOf(element)-1] + ' a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[PS.length - PS.indexOf(element)-1])) +' mètres carrés' + ' et contient ' + PS[PS.length - PS.indexOf(element)-1].length + ' adresses.';
     });
    
