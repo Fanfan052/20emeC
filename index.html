@@ -78,13 +78,15 @@
     var points = new Array();
     var poly = new Array();
     var surface = new Array();
+    var color = ['red','blue','green','yellow','orange'];
+    var convexite = [1.00,0.05,0.005,0.01,0.01];
 	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 4, color : 'red'}).addTo(map);
     });
-    points[points.length]= hull(element, 0.01, ['.lng', '.lat']);
-    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : 'orange', fillopacity : 0.9}).addTo(map);
+    points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
+    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map);
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
