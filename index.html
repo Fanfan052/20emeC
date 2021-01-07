@@ -65,11 +65,6 @@
     console.log(Res_Max);
     console.log(Res_Min);
     var PS = [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
-    pointset = dataGeo6;
-    pointset2 = dataGeo2;
-    pointset3 = dataGeo3;
-    pointset4 = dataGeo4;
-    pointset5 = dataGeo5;
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -83,7 +78,7 @@
 	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 4, color : 'red'}).addTo(map);
+        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map);
     });
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
     poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map);
