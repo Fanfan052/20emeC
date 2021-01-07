@@ -75,9 +75,12 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     
+
+	 
+	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : 'red'}).addTo(map);
+        L.circleMarker(latlng, {radius: 4, color : 'red'}).addTo(map);
     });
     });
 	 
