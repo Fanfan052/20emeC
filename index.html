@@ -86,8 +86,8 @@
     });
 	 
     PS.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color[PS.indexOf(element)] + ' a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface[PS.indexOf(element)])) +' mètres carrés' + ' et contient ' + element.length + ' adresses.';;
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color[PS.length - PS.indexOf(element)+1] + ' a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface[PS.length - PS.indexOf(element)+1])) +' mètres carrés' + ' et contient ' + PS[PS.length - PS.indexOf(element)+1].length + ' adresses.';;
     });
    
   }
