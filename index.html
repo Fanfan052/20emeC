@@ -85,10 +85,10 @@
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
-    
-
-
-	 
+    PS.forEach(function(element){
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color[PS.indexOf(element)] + ' a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface[PS.indexOf(element)])) +' mètres carrés' + ' et contient ' + element.length + ' adresses.';;
+    });
     document.getElementById("surf").innerHTML = 'La surface orange a une superficie de ' + Separateur_Milliers(Math.round(surface5)) +' mètres carrés' +
 	    ' et contient ' + pointset5.length + ' adresses.';
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface jaune a une superficie de ' +
