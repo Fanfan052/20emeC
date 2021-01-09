@@ -76,27 +76,11 @@
     });
     
 	 
-    //var PS = tableau_sortie.map( adresse => {
-    //let properties = {
-   //"lng": adresse.lng,
-   //"lat": adresse.lat
-    //};
-    //return properties;
-    //});
-
     var PS = tableau_sortie;
-    console.log(PS[0].length);
-    console.log(PS[1].length);
    
     //var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
     //var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
-    //console.log(data.length);
-    //console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
-    //console.log(Res_Max);
-    //console.log(Res_Min);
-    
-    console.log(PS.length);
-    // [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
+  
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -118,9 +102,9 @@
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
-    PS.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[PS.length - PS.indexOf(element)-1] + ' a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface[PS.length - PS.indexOf(element)-1])) +' mètres carrés' + ' et contient ' + PS[PS.length - PS.indexOf(element)-1].length + ' adresses.';
+    color_fr.forEach(function(element){
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.length - color_fr.indexOf(element)-1] + ' a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface[color_fr.length - color_fr.indexOf(element)-1])) +' mètres carrés' + ' et contient ' + PS[color_fr.length - color_fr.indexOf(element)-1].length + ' adresses.';
     });
    
   }
