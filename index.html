@@ -59,12 +59,6 @@
 
     decoupe(filtre_num,'duree_pieds', bornes);
     
-    for (let i = 0; i < tableau_sortie.length; i++)
-{
-  console.log(tableau_sortie.length + ' - ' +  tableau_sortie[i].length + ' - ' + Math.min.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;}))
-	      + ' - ' + Math.max.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;})) );
-}
-    
     tableau_sortie.forEach(function(element){
     element.map( adresse => {
     let properties = {
@@ -89,8 +83,8 @@
     var points = new Array();
     var poly = new Array();
     var surface = new Array();
-    var color = ['red','blue','green','yellow','orange'];
-    var color_fr = ['rouge','bleue','verte','jaune','orange'];
+    var color = ['blue','green','yellow','orange','red'];
+    var color_fr = ['bleue','verte','jaune','orange','rouge',];
     var convexite = [1.000,1.000,1.000,1.000,1.000];
 	 
     PS.forEach(function(element){
@@ -103,8 +97,8 @@
     });
 	 
     color_fr.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.length - color_fr.indexOf(element)-1] + ' a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface[color_fr.length - color_fr.indexOf(element)-1])) +' mètres carrés' + ' et contient ' + PS[color_fr.length - color_fr.indexOf(element)-1].length + ' adresses.';
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
    
   }
