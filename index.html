@@ -102,10 +102,8 @@
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
     
-  // load GeoJSON from an external file
-  $.getJSON("qpv_qva.geojson",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(map);
+  var geojsonLayer = L.geoJson(geojsonFeature);
+  geojsonLayer.addTo(map); 
   });
    
   }
