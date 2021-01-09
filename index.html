@@ -64,14 +64,25 @@
   console.log(tableau_sortie.length + ' - ' +  tableau_sortie[i].length + ' - ' + Math.min.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;}))
 	      + ' - ' + Math.max.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;})) );
 }
-	 
-    var PS = tableau_sortie.map( adresse => {
+    
+    tableau_sortie.forEach(function(element){
+    element.map( adresse => {
     let properties = {
    "lng": adresse.lng,
    "lat": adresse.lat
     };
     return properties;
     });
+    });
+    
+	 
+    //var PS = tableau_sortie.map( adresse => {
+    //let properties = {
+   //"lng": adresse.lng,
+   //"lat": adresse.lat
+    //};
+    //return properties;
+    //});
 	 
     console.log(PS[0].length);
     console.log(PS[1].length);
