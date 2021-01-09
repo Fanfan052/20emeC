@@ -1,0 +1,16 @@
+function filtrage(array,key) {
+filtre_num = array.filter(function(element) {
+  return (typeof element[key] === "number")
+});
+}
+
+var tableau_sortie = [];
+
+function decoupe(array,key,info_bornes) {
+
+for (let i = 0; i < info_bornes.length-1; i++) {
+    tableau_sortie[i] = filtre_num.filter(function(element)
+    { return element[key] <= info_bornes[i+1] &&
+    element[key] > info_bornes[i];})
+}
+}
