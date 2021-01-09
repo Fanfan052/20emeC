@@ -17,7 +17,6 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-    <script src="./javascripts/qpv_qva.js"></script>
 	
 </head>
 <body>
@@ -101,6 +100,12 @@
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
+    
+  // load GeoJSON from an external file
+  $.getJSON("qpv_qva.geojson",function(data){
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data).addTo(map);
+  });
    
   }
   </script>
