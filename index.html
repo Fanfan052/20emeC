@@ -58,7 +58,12 @@
     filtrage_num(data_b,key);
 
     decoupe(filtre_num,'Duree_pieds', bornes);
-    console.log(tableau_sortie.length);
+    
+    for (let i = 0; i < tableau_sortie.length; i++)
+{
+  console.log(tableau_sortie.length + ' - ' +  tableau_sortie[i].length + ' - ' + Math.min.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;}))
+	      + ' - ' + Math.max.apply(null,tableau_sortie[i].map(function(o){return o.duree_pieds;})) );
+}
 	 
     var PS = tableau_sortie.map( adresse => {
     let properties = {
