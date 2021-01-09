@@ -1,4 +1,4 @@
-function filtrage(array,key) {
+function filtrage_num(array,key) {
 filtre_num = array.filter(function(element) {
   return (typeof element[key] === "number")
 });
