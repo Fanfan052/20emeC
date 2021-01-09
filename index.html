@@ -60,7 +60,7 @@
     decoupe(filtre_num,'Duree_pieds', bornes);
      
 	 
-    let dataGeo6 = data.map( adresse => {
+    var PS = tableau_sortie.map( adresse => {
     let properties = {
    "lng": adresse.lng,
    "lat": adresse.lat
@@ -73,7 +73,7 @@
     //console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
     //console.log(Res_Max);
     //console.log(Res_Min);
-    var PS = tableau_sortie;
+    // var PS = tableau_sortie;
     console.log(PS.length);
     // [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
