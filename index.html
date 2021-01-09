@@ -67,13 +67,14 @@
     };
     return properties;
     });
-    var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
-    var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
-    console.log(data.length);
-    console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
-    console.log(Res_Max);
-    console.log(Res_Min);
-    var PS = [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
+    //var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
+    //var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
+    //console.log(data.length);
+    //console.log(data.map(function(o){return o.duree_pied;})[data.length - 1]);
+    //console.log(Res_Max);
+    //console.log(Res_Min);
+    var PS = tableau_sortie;
+    // [dataGeo6,dataGeo2,dataGeo3,dataGeo4,dataGeo5];
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
