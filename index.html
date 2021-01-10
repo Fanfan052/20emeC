@@ -104,8 +104,8 @@
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
     
-  var geojsonLayer = L.geoJson(geojsonFeature);
-  geojsonLayer, {filter: Filter}).addTo(map);
+  var geojsonLayer = L.geoJson(geojsonFeature, {filter: Filter});
+  geojsonLayer.addTo(map);
 
 function Filter(feature) {
   if (feature.properties.c_nat_qpv === 'NQPV') return true
