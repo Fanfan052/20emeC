@@ -96,7 +96,8 @@
 	 
 
 geojsonLayer.eachLayer(function (layer) {
-    console.log(layer.feature.properties.l_nqpv);
+// layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
+    layer.bindPopup('<h1>'+feature.properties.l_nqpv'</h1>');
   });
   
 	 
