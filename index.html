@@ -53,10 +53,10 @@
 </p>
 
 <p>
-  <div id="map" style="width: 840px; height: 560px"></div>
+  <div id="map_1" style="width: 840px; height: 560px"></div>
   <script>
  function exemple1() {
-    var map_1 = L.map('map').setView([48.864891,2.389828], 15);
+    var map_1 = L.map('map_1').setView([48.864891,2.389828], 15);
     var tableau_sortie = data;
   
     tableau_sortie.map( adresse => {
@@ -87,7 +87,7 @@
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
             case 'NQPV': return {color: "black","weight": 1.0};
-            default:   return {color: "gray","weight": 1.0};
+            default:   return {color: "brown","weight": 1.0};
 	}
         }
 	}
