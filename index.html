@@ -195,9 +195,8 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
     for (let i = 0; i < points.length; i++) {
     points_poly[i] = points[i];
     };
-    console.log(points_poly.length);
       
-    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
+    poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
