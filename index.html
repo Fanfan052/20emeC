@@ -107,22 +107,16 @@ layer.on('mouseover', function (e) {
   }); 
 	 
 
-var points_test = turf.points([
-    [-46.6318, -23.5523],
-    [-46.6246, -23.5325],
-    [-46.6062, -23.5513],
-    [-46.663, -23.554],
-    [-46.643, -23.557]
-]);
+var points_test = [[2.389885,48.865172],
+[[2.389885,48.865172],[2.388744,48.864032],
+[[2.389885,48.865172],[2.388744,48.864032],[2.401432,48.869688]];
 
-var toto = points_test.coordinates;
-
-toto.forEach(function(element)
+points_test.forEach(function(element)
     {
 	geojsonLayer.eachLayer(function(layer) {
   	var inside = 
       turf.booleanPointInPolygon(
-        element, 
+        element.toGeoJSON(), 
         layer.toGeoJSON()
       )
     ;
