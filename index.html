@@ -105,7 +105,11 @@
     });
     
   var geojsonLayer = L.geoJson(geojsonFeature);
-  geojsonLayer.addTo(map);
+  geojsonLayer, {filter: Filter}).addTo(map);
+
+function Filter(feature) {
+  if (feature.properties.c_nat_qpv === 'NQPV') return true
+}
   
 	 
   var points_test = turf.points([
