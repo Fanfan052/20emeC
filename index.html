@@ -115,9 +115,10 @@ var points_test = turf.points([
     [-46.643, -23.557]
 ]);
 
+var toto = points_test.coordinates;
+console.log(toto.length);
 
-
-points_test.coordinates.forEach(function(element)
+toto.forEach(function(element)
     {
 	geojsonLayer.eachLayer(function(layer) {
   	var inside = 
