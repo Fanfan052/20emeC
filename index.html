@@ -94,11 +94,10 @@
 );
   geojsonLayer.addTo(map_1);
 	 
-	 
-geojsonLayer.eachLayer(onEachFeature: function (feature, layer) {
+
+geojsonLayer.eachLayer(function (layer) {
     console.log(layer.feature.properties.l_nqpv);
-  })
-    ;
+  });
   
 	 
   var points_test = turf.points([
