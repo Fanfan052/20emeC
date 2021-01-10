@@ -93,10 +93,14 @@
 	}
 );
   geojsonLayer.addTo(map_1);
-  
-geojsonLayer.eachLayer(function(layer) {
-  	console.log(layer.l_nqpv);}
-      )
+	 
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>');
+  }
+	 
+geojsonLayer.eachLayer(onEachFeature: function (feature, layer) {
+    console.log(layer.feature.properties.l_nqpv);
+  })
     ;
   
 	 
