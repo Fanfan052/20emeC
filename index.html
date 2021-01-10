@@ -41,12 +41,108 @@
 <p> - extraction de 902 adresses de Noe <br>
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
     - on va étudier :  <br>
-	- la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
+	- Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
 	aux quartiers de veille active et aux anciens quartiers de veille;  <br>
-	- la répartition des adresses selon le temps de trajet à la 20ème Chaise.
+	- Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise.
 </p>
+		
 <!-- Exemple 1 -->
-<h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>Temps de trajet à pied</a></h3>
+<h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
+<p> - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON
+</p>
+<p>
+  <div id="map" style="width: 840px; height: 560px"></div>
+  <script>
+ function exemple2() {
+    var map = L.map('map').setView([48.864891,2.389828], 15);
+	 
+    var bornes = [0,5,10,15,30,10000];
+    var key = 'duree_pieds';
+
+    filtrage_num(data,key);
+
+    decoupe(filtre_num,'duree_pieds', bornes);
+    
+    tableau_sortie.forEach(function(element){
+    element.map( adresse => {
+    let properties = {
+   "lng": adresse.lng,
+   "lat": adresse.lat
+    };
+    return properties;
+    });
+    });
+    
+	 
+    var PS = tableau_sortie;
+   
+    //var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
+    //var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
+  
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    var points = new Array();
+    var poly = new Array();
+    var surface = new Array();
+    var color = ['blue','green','yellow','orange','red'];
+    var color_fr = ['bleue','verte','jaune','orange','rouge',];
+    var convexite = [1.000,1.000,1.000,1.000,1.000];
+	 
+    PS.forEach(function(element){
+    element.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map);
+    });
+    points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
+    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map);
+    surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
+    });
+	 
+    color_fr.forEach(function(element){
+    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
+	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
+    });
+   
+  var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
+        switch (feature.properties.c_nat_qpv) {
+            case 'NQPV': return {color: "black","weight": 1.0};
+            default:   return {color: "gray","weight": 1.0};
+	}
+        }
+	}
+);
+  geojsonLayer.addTo(map);
+  
+	 
+  var points_test = turf.points([
+    [-46.6318, -23.5523],
+    [-46.6246, -23.5325],
+    [-46.6062, -23.5513],
+    [-46.663, -23.554],
+    [-46.643, -23.557]
+]);
+
+var searchWithin = turf.polygon([[
+    [-46.653,-23.543],
+    [-46.634,-23.5346],
+    [-46.613,-23.543],
+    [-46.614,-23.559],
+    [-46.631,-23.567],
+    [-46.653,-23.560],
+    [-46.653,-23.543]
+]]);
+
+var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
+	 console.log(ptsWithin.length);
+	 
+  }
+  </script>
+</p>
+
+<!-- Exemple 2 -->
+<h3><a name="ex2" class="anchor" ><span class="octicon octicon-link"></span>Temps de trajet à pied</a></h3>
 <p> - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
     à la 20ème Chaise par Google Map API <br>
     - détermination des enveloppes convexes(-concaves) par algorithme externe
@@ -54,7 +150,7 @@
 <p>
   <div id="map" style="width: 840px; height: 560px"></div>
   <script>
- function exemple1() {
+ function exemple2() {
     var map = L.map('map').setView([48.864891,2.389828], 15);
 	 
     var bornes = [0,5,10,15,30,10000];
@@ -149,6 +245,7 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
     <script>
     window.onload = function() {
         exemple1();
+	exemple2();
      
     }
  </script>
