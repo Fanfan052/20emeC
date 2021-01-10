@@ -87,7 +87,7 @@
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
 		case 'NQPV': return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
-            default:   return {color: "brown","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
+            default:   return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
 	}
         }
 	}
