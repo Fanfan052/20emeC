@@ -114,7 +114,7 @@ console.log(points_test.length);
 points_test.forEach(function(element)
     {
   	var inside = 
-      turf.PointsWithinPolygon(
+      turf.pointsWithinPolygon(
         element, 
        geojsonLayer.toGeoJSON()
       );
