@@ -115,7 +115,7 @@ var points_test = turf.points([
     [-46.643, -23.557]
 ]);
 
-var toto = points_test.coordinates;
+var toto = turf.getCoords(points_test);
 console.log(toto.length);
 
 toto.forEach(function(element)
