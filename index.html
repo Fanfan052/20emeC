@@ -48,20 +48,16 @@
 		
 <!-- Exemple 1 -->
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
+
 <p> - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON
 </p>
+
 <p>
   <div id="map" style="width: 840px; height: 560px"></div>
   <script>
  function exemple1() {
-    var map = L.map('map').setView([48.864891,2.389828], 15);
-	 
-    var bornes = [0,5,10,15,30,10000];
-    var key = 'duree_pieds';
-
-    filtrage_num(data,key);
-
-    decoupe(filtre_num,'duree_pieds', bornes);
+    var map_1 = L.map('map').setView([48.864891,2.389828], 15);
+    var tableau_sortie = data;
     
     tableau_sortie.forEach(function(element){
     element.map( adresse => {
@@ -82,22 +78,15 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(map_1);
     
     var points = new Array();
-    var poly = new Array();
-    var surface = new Array();
-    var color = ['blue','green','yellow','orange','red'];
-    var color_fr = ['bleue','verte','jaune','orange','rouge',];
-    var convexite = [1.000,1.000,1.000,1.000,1.000];
 	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map);
+        L.circleMarker(latlng, {radius: 2, color : 'blue']}).addTo(map_1);
     });
-    points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
-    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map);
-    surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
+    
     });
 	 
     color_fr.forEach(function(element){
@@ -113,7 +102,7 @@
         }
 	}
 );
-  geojsonLayer.addTo(map);
+  geojsonLayer.addTo(map_1);
   
 	 
   var points_test = turf.points([
@@ -140,18 +129,22 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
   }
   </script>
 </p>
+<!-- FIN: Exemple 1 -->
 
 <!-- Exemple 2 -->
 <h3><a name="ex2" class="anchor" ><span class="octicon octicon-link"></span>Temps de trajet à pied</a></h3>
+
 <p> - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
     à la 20ème Chaise par Google Map API <br>
     - détermination des enveloppes convexes(-concaves) par algorithme externe
 </p>
+	      
+	      
 <p>
   <div id="map" style="width: 840px; height: 560px"></div>
   <script>
  function exemple2() {
-    var map = L.map('map').setView([48.864891,2.389828], 15);
+    var map_2 = L.map('map').setView([48.864891,2.389828], 15);
 	 
     var bornes = [0,5,10,15,30,10000];
     var key = 'duree_pieds';
@@ -179,7 +172,7 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(map_2);
     
     var points = new Array();
     var poly = new Array();
@@ -190,10 +183,10 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
 	 
     PS.forEach(function(element){
     element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map);
+        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);
     });
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
-    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map);
+    poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
 	 
@@ -202,41 +195,11 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
    
-  var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
-        switch (feature.properties.c_nat_qpv) {
-            case 'NQPV': return {color: "black","weight": 1.0};
-            default:   return {color: "gray","weight": 1.0};
-	}
-        }
-	}
-);
-  geojsonLayer.addTo(map);
-  
-	 
-  var points_test = turf.points([
-    [-46.6318, -23.5523],
-    [-46.6246, -23.5325],
-    [-46.6062, -23.5513],
-    [-46.663, -23.554],
-    [-46.643, -23.557]
-]);
-
-var searchWithin = turf.polygon([[
-    [-46.653,-23.543],
-    [-46.634,-23.5346],
-    [-46.613,-23.543],
-    [-46.614,-23.559],
-    [-46.631,-23.567],
-    [-46.653,-23.560],
-    [-46.653,-23.543]
-]]);
-
-var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
-	 console.log(ptsWithin.length);
 	 
   }
   </script>
 </p>
+<!-- FIN: Exemple 2 -->
 	      
    </section>
       </div>
