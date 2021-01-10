@@ -117,7 +117,7 @@ points_test.forEach(function(element)
         element, 
        geojsonLayer.toGeoJSON()
       );
-    	console.log(inside.coordinates);
+    	console.log(turf.getCoord(inside));
 		
 });
 
