@@ -113,9 +113,9 @@ console.log(points_test.length);
 
 points_test.forEach(function(element)
     {
-	geojsonLayer.eachLayer(function(layer) {
+	geojsonLayer(function(layer) {
   	var inside = 
-      turf.booleanPointInPolygon(
+      turf.PointsWithinPolygon(
         element, 
         layer.toGeoJSON()
       )
