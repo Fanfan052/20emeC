@@ -103,13 +103,23 @@
     document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
-    
-  var geojsonLayer = L.geoJson(geojsonFeature, {filter: Filter});
+   L.geoJSON(states, {
+    style: function(feature) {
+        switch (feature.properties.party) {
+            case 'Republican': return {color: "#ff0000"};
+            case 'Democrat':   return {color: "#0000ff"};
+        }
+    }
+}).addTo(map); 
+  var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
+        switch (feature.properties.c_nat_qpv) {
+            case 'NQPV': return {color: "black"};
+            default :   return {color: "grey"};
+	}
+        }
+	}
+);
   geojsonLayer.addTo(map);
-
-function Filter(feature) {
-  if (feature.properties.c_nat_qpv === 'NQPV') return true
-}
   
 	 
   var points_test = turf.points([
