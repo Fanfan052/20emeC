@@ -106,8 +106,8 @@
    
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
-            case 'NQPV': return {color: "black","weight": 1};
-            default:   return {color: "gray","weight": 0.8};
+            case 'NQPV': return {color: "black","weight": 1.0};
+            default:   return {color: "gray","weight": 1.0};
 	}
         }
 	}
