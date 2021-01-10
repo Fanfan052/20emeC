@@ -124,10 +124,10 @@ var searchWithin = turf.polygon([[
     [-46.631,-23.567],
     [-46.653,-23.560],
     [-46.653,-23.543]
-]]);
+]]);  
 
 var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
-	 console.log(ptsWithin.length);
+	 console.log(ptsWithin.features.length);
 	 
   }
   </script>
