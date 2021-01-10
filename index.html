@@ -79,17 +79,12 @@
     
     var points = new Array();
 	 
-    PS.forEach(function(element){
+    PS.forEach(
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1);
     });
     
-    });
 	 
-    color_fr.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
-	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
-    });
    
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
