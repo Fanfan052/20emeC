@@ -94,6 +94,11 @@
 );
   geojsonLayer.addTo(map_1);
   
+geojsonLayer.eachLayer(function(layer) {
+  	console.log(layer.l_nqpv);}
+      )
+    ;
+  
 	 
   var points_test = turf.points([
     [-46.6318, -23.5523],
