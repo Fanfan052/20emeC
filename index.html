@@ -119,12 +119,12 @@ layer.on('mouseover', function (e) {
     [-46.643, -23.557]
 ]);
 
-var points_test = turf.points([[2.389885,48.865172],[2.388744,48.864032],[2.401432,48.869688]]);
+var point_test = turf.point([2.389885,48.865172]);
 
  geojsonLayer.eachLayer(function(layer) {
   	var inside = 
       turf.booleanPointInPolygon(
-        points_test, 
+        point_test, 
         layer.toGeoJSON()
       )
     ;
