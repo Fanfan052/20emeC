@@ -76,13 +76,11 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
-    
-    var points = new Array();
 	 
     PS.forEach(
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1);
-    });
+    }));
     
 	 
    
