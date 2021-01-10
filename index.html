@@ -119,21 +119,31 @@ layer.on('mouseover', function (e) {
     [-46.643, -23.557]
 ]);
 
-var point_test = turf.point([2.389885,48.865172]);
+var point_test = turf.point([2.389885,48.865172],
+    [-46.6246, -23.5325],
+    [-46.6062, -23.5513],
+    [-46.663, -23.554],
+    [-46.643, -23.557]
+]);
 
- geojsonLayer.eachLayer(function(layer) {
+point_test.ForEach(function(element)
+    {
+	geojsonLayer.eachLayer(function(layer) {
   	var inside = 
       turf.booleanPointInPolygon(
-        point_test, 
+        element, 
         layer.toGeoJSON()
       )
     ;
     if (inside) {
-    	console.log('oui');
-    
-    }
+    	console.log('oui');}
+	else {
+    	console.log('non');}	
+		 
+    }}
   
-  });	 
+  });
+
 
 var searchWithin = turf.polygon([[
     [-46.653,-23.543],
