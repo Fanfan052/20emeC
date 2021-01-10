@@ -111,7 +111,7 @@ layer.on('mouseover', function (e) {
 
   
 	 
-  var points_test = turf.points([
+  var points_test = [
     [-46.6318, -23.5523],
     [-46.6246, -23.5325],
     [-46.6062, -23.5513],
@@ -126,12 +126,12 @@ var point_test = turf.points([[2.389885,48.865172],
     [-46.643, -23.557]
 ]);
 
-point_test.ForEach(function(element)
+points_test.ForEach(function(element)
     {
 	geojsonLayer.eachLayer(function(layer) {
   	var inside = 
       turf.booleanPointInPolygon(
-        element, 
+        element.toGeoJSON(), 
         layer.toGeoJSON()
       )
     ;
@@ -145,18 +145,6 @@ point_test.ForEach(function(element)
   });
 
 
-var searchWithin = turf.polygon([[
-    [-46.653,-23.543],
-    [-46.634,-23.5346],
-    [-46.613,-23.543],
-    [-46.614,-23.559],
-    [-46.631,-23.567],
-    [-46.653,-23.560],
-    [-46.653,-23.543]
-]]);  
-
-var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
-	 console.log(ptsWithin.features.length);
 	 
   }
   </script>
