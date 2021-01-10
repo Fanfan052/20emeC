@@ -189,6 +189,14 @@ var ptsWithin = turf.pointsWithinPolygon(points_test, searchWithin);
         L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);
     });
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
+    
+    var points_poly = [];
+    
+    for (let i = 0; i < points.length; i++) {
+    points_poly[i] = points[i];
+    };
+    console.log(points_poly.length);
+      
     poly[poly.length] = L.polygon(points[poly.length], {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
