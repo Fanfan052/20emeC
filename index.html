@@ -134,12 +134,9 @@ coords[1] = inside.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 };
 
-console.log('Found ' + inside.features.length + ' features');
-console.log('Found ' + layer_adresses.getLayers().length + ' adresses');
  document.getElementById("comment_1").innerHTML = inside.features.length +
 	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - inside.features.length) + ' n\'en relèvent pas (en bleu).'
 
-  
 
  }
 </script>
@@ -211,7 +208,7 @@ console.log('Found ' + layer_adresses.getLayers().length + ' adresses');
       
     poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
-    console.log( surface[surface.length]);
+    console.log( surface[surface.length]-1);
     });
 	 
     color_fr.forEach(function(element){
