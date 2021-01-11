@@ -215,7 +215,7 @@ console.log('Found ' + layer_adresses.getLayers().length + ' adresses');
 	 
     color_fr.forEach(function(element){
     document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)]
-	    + ' moins de ' + bornes[color_fr.indexOf(element)+1] + 'minutes de la 20ème Chaise) a une superficie de ' +
+	    + '(à moins de ' + bornes[color_fr.indexOf(element)+1] + ' minutes de la 20ème Chaise) a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.' ;
     });
    
