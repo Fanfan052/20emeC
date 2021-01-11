@@ -108,8 +108,14 @@ layer.on('mouseover', function (e) {
         });
   }); 
 	
-	 
+console.log(layer_adresses.length);
+layer_adresses.eachLayer(function(element)
+{
+console.log(element.getLatLng().lng);
+}
+)
 
+/*
 // layer_adresses.eachLayer(function(element)
   	var inside = 
       turf.pointsWithinPolygon(
@@ -118,6 +124,7 @@ layer.on('mouseover', function (e) {
       );
 	  console.log('Found ' + ptsWithin.features.length + ' features');  
            console.log("results "+JSON.stringify(ptsWithin));
+*/
   }
   </script>
 </p>
