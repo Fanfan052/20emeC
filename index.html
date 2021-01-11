@@ -118,7 +118,7 @@ points_turf.push(lnglat);
 
 var inside = 
 turf.pointsWithinPolygon(
- points_turf, 
+ turf.points(points_turf), 
  geojsonLayer.toGeoJSON()
   );
 console.log('Found ' + inside.features.length + ' features');  
