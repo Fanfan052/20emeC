@@ -122,8 +122,8 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  geojsonLayer.toGeoJSON()
   );
-console.log('Found ' + inside.features.length + ' features');  
-//console.log("results "+JSON.stringify(inside));
+  
+
 
 for (let i=0 ; i < inside.features.length; i++)
 {
@@ -133,8 +133,10 @@ coords[1] = inside.features[i].geometry.coordinates[0];
 layer_adresses.addLayer(L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1));
 };
  
+console.log('Found ' + inside.features.length + ' features');
+console.log('Found ' + layer_adresses.length + ' adresses');
  document.getElementById("comment_1").innerHTML = inside.features.length +
-	 ' adresses relèvent d\' un quartier prioritaire.' + layer_adresses.length - inside.features.length + ' n\' en relèvent pas.'
+	 ' adresses relèvent d\' un quartier prioritaire.' + (layer_adresses.length - inside.features.length) + ' n\' en relèvent pas.'
 
   
 
@@ -211,7 +213,7 @@ layer_adresses.addLayer(L.circleMarker(coords, {radius: 2, color : 'red'}).addTo
     });
 	 
     color_fr.forEach(function(element){
-    document.getElementById("surf").innerHTML = document.getElementById("surf").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
+    document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)] + ' a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.';
     });
    
@@ -219,7 +221,7 @@ layer_adresses.addLayer(L.circleMarker(coords, {radius: 2, color : 'red'}).addTo
   }
   </script>
 </p>
-<p id="surf"></p>
+<p id="comment_2"></p>
 <!-- FIN: Exemple 2 -->
 	      
    </section>
