@@ -202,8 +202,8 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     
     var points_poly = [];
     
-    for (let i = points.length-1; i=0  ; i--) {
-    points_poly[i] = points[i];
+    for (let i = 0 ; i < points.length  ; i++) {
+    points_poly[i] = points[points.length - i - 1];
     };
       
     poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
