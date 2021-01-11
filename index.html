@@ -136,7 +136,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 console.log('Found ' + inside.features.length + ' features');
 console.log('Found ' + layer_adresses.getLayers().length + ' adresses');
  document.getElementById("comment_1").innerHTML = inside.features.length +
-	 ' adresses relèvent d\' un quartier prioritaire.' + (layer_adresses.getLayers().length - inside.features.length) + ' n\' en relèvent pas.'
+	 ' adresses relèvent d\' un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - inside.features.length) + ' n\' en relèvent pas (en bleu).'
 
   
 
