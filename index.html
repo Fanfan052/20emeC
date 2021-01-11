@@ -109,10 +109,7 @@ layer.on('mouseover', function (e) {
   }); 
 	 
 
-var points_test = [[2.389885,48.865172],[2.388744,48.864032],[2.401432,48.869688]];
-console.log(points_test.length);
-
-points_test.forEach(function(element)
+markers_adresses.forEach(function(element)
     {
   	var inside = 
       turf.pointsWithinPolygon(
