@@ -111,7 +111,6 @@ layer.on('mouseover', function (e) {
 	 
 
 // layer_adresses.eachLayer(function(element)
-    {
   	var inside = 
       turf.pointsWithinPolygon(
         markers_adresses.toGeoJSON(), 
@@ -119,7 +118,6 @@ layer.on('mouseover', function (e) {
       );
     	console.log(turf.getCoord(inside));
 		
-});
 
 
 	 
