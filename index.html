@@ -76,13 +76,15 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
-	 
+ 
+    var layer_adresses = L.layerGroup().addTo(map);
     PS.forEach(
     function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1);
+        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
+	
     });
-    
-	 
+    var markers_adresses = {'markers': layer_adresses};
+    L.control.layers(null, markers_adresses).addTo(map_1);
    
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
