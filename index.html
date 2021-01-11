@@ -50,6 +50,7 @@
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
 
 <p> - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON
+    - recherche des adresses relevant d'un quartier prioritaire via fonction turf.js PointsWithinPolygon
 </p>
 
 <p>
@@ -131,6 +132,9 @@ coords[0] = inside.features[i].geometry.coordinates[1];
 coords[1] = inside.features[i].geometry.coordinates[0];	
 layer_adresses.addLayer(L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1));
 };
+
+ document.getElementById("comment_1").innerHTML = inside.features.length +
+	 ' adresses relèvent d\' un quartier prioritaire.' + layer_adresses.length - inside.features.length ' n\' en relèvent pas.'
 
   }
   </script>
@@ -220,9 +224,12 @@ layer_adresses.addLayer(L.circleMarker(coords, {radius: 2, color : 'red'}).addTo
   
     <script>
     window.onload = function() {
-        exemple1();
+        exemple1();}
+</script>    
+   <p id="comment_1"></p> 
+    <script>
+   window.onload = function() {	   
 	exemple2();
-     
     }
  </script>
 <p id="surf"></p>
