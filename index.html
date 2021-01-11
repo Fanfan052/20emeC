@@ -115,17 +115,15 @@ var lnglat = [element._latlng.lng, element._latlng.lat];
 points_turf.push(lnglat);
 }
 )
-console.log(points_turf.length);
-/*
-// layer_adresses.eachLayer(function(element)
-  	var inside = 
-      turf.pointsWithinPolygon(
-        layer_adresses.allPoints.toGeoJSON(), 
-       geojsonLayer.toGeoJSON()
-      );
-	  console.log('Found ' + ptsWithin.features.length + ' features');  
-           console.log("results "+JSON.stringify(ptsWithin));
-*/
+
+var inside = 
+turf.pointsWithinPolygon(
+ points_turf, 
+ geojsonLayer.toGeoJSON()
+  );
+console.log('Found ' + ptsWithin.features.length + ' features');  
+console.log("results "+JSON.stringify(ptsWithin));
+
   }
   </script>
 </p>
