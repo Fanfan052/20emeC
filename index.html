@@ -113,14 +113,11 @@ layer.on('mouseover', function (e) {
 // layer_adresses.eachLayer(function(element)
   	var inside = 
       turf.pointsWithinPolygon(
-        layer_adresses.toGeoJSON(), 
+        layer_adresses.allPoints.toGeoJSON(), 
        geojsonLayer.toGeoJSON()
       );
-    	console.log(turf.getCoord(inside));
-		
-
-
-	 
+	  console.log('Found ' + ptsWithin.features.length + ' features');  
+           console.log("results "+JSON.stringify(ptsWithin));
   }
   </script>
 </p>
