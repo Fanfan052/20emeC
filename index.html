@@ -109,7 +109,7 @@ layer.on('mouseover', function (e) {
   }); 
 	 
 
-markers_adresses.forEach(function(element)
+markers_adresses.getLayers().forEach(function(element)
     {
   	var inside = 
       turf.pointsWithinPolygon(
