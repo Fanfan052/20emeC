@@ -77,7 +77,7 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
  
-    var layer_adresses = L.layerGroup().addTo(map);
+    var layer_adresses = L.layerGroup().addTo(map_1);
     PS.forEach(
     function(latlng) {
         layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
