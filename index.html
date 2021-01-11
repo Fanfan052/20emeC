@@ -114,7 +114,7 @@ layer_adresses.eachLayer(function(element)
     {
   	var inside = 
       turf.pointsWithinPolygon(
-        element, 
+        turf.point(element), 
        geojsonLayer.toGeoJSON()
       );
     	console.log(turf.getCoord(inside));
