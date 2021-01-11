@@ -124,10 +124,10 @@ turf.pointsWithinPolygon(
 console.log('Found ' + inside.features.length + ' features');  
 //console.log("results "+JSON.stringify(inside));
 
-inside.forEach(function(element)
+for (let i=0 ; i < inside.features.length; i++)
 {
 console.log(inside.features.geometry.coordinates[0]);
-});
+};
 
   }
   </script>
