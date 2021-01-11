@@ -107,14 +107,15 @@ layer.on('mouseover', function (e) {
             this.closePopup();
         });
   }); 
-	
-console.log(layer_adresses.length);
+
+var points_turf = [];
 layer_adresses.eachLayer(function(element)
 {
-console.log(element.getLatLng().lng);
+var lnglat = [element._latlng.lng, element._latlng.lat];
+points_turf.push(lnglat);
 }
 )
-
+console.log(points_turf.length);
 /*
 // layer_adresses.eachLayer(function(element)
   	var inside = 
