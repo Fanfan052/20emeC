@@ -107,11 +107,10 @@ layer.on('mouseover', function (e) {
             this.closePopup();
         });
   }); 
+	
 	 
-console.log(markers_adresses.L.getLayers().length);
-	 
-/*
-markers_adresses.L.getLayers().forEach(function(element)
+
+markers_adresses.eachLayer(function(element)
     {
   	var inside = 
       turf.pointsWithinPolygon(
@@ -121,7 +120,7 @@ markers_adresses.L.getLayers().forEach(function(element)
     	console.log(turf.getCoord(inside));
 		
 });
-*/
+
 
 	 
   }
