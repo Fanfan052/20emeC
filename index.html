@@ -212,6 +212,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     
 // on insère les polygones dans le sens inverse pour avoir une frontière intérieure de la bonne couleur
     for (let i = points.length-1 ; i = 0  ; i--) {
+    console.log(poly[i].opacity);
     poly[i].addTo(map_2);
     };
     
