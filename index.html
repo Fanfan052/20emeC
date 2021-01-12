@@ -266,7 +266,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
  
     var layer_adresses = L.layerGroup().addTo(map_3);
     PS.forEach(
-    function(element) {
+    function(latlng) {
            layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_3));;
 	
     });
