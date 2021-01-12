@@ -206,11 +206,15 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     points_poly[i] = points[points.length - i - 1];
     };
       
-    poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9}).addTo(map_2);
+    poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9});
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
-    console.log(surface[surface.length-1]);
     });
-	 
+    
+// on insère les polygones dans le sens inverse pour avoir une frontière intérieure de la bonne couleur
+    for (let i = points.length-1 ; i = 0  ; i--) {
+    poly[i].addTo(map_2);
+    };
+    
     color_fr.forEach(function(element){
     document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)]
 	    + ' (moins de ' + bornes[color_fr.indexOf(element)+1] + ' minutes de la 20ème Chaise) a une superficie de ' +
