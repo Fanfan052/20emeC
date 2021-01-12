@@ -272,54 +272,9 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     var markers_adresses = {'markers': layer_adresses};
     L.control.layers(null, markers_adresses).addTo(map_3);
    
-  var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
-        switch (feature.properties.c_nat_qpv) {
-		case 'NQPV': return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
-            default:   return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
-	}
-        }
-	}
-);
-  geojsonLayer.addTo(map_3);
 	 
 
-geojsonLayer.eachLayer(function (layer) {
-// layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
-    layer.bindPopup('<h3>'+layer.feature.properties.c_nat_qpv + ' : ' + layer.feature.properties.l_nqpv + '</h3>');
-layer.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        layer.on('mouseout', function (e) {
-            this.closePopup();
-        });
-  }); 
 
-var points_turf = [];
-layer_adresses.eachLayer(function(element)
-{
-var lnglat = [element._latlng.lng, element._latlng.lat];
-points_turf.push(lnglat);
-}
-)
-
-var inside = 
-turf.pointsWithinPolygon(
- turf.points(points_turf), 
- geojsonLayer.toGeoJSON()
-  );
-  
-
-
-for (let i=0 ; i < inside.features.length; i++)
-{
-var coords = [];
-coords[0] = inside.features[i].geometry.coordinates[1];
-coords[1] = inside.features[i].geometry.coordinates[0];	
-L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_3);
-};
-
- document.getElementById("comment_3").innerHTML = inside.features.length +
-	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - inside.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
  }
