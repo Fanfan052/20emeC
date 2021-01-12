@@ -267,8 +267,8 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     var layer_adresses = L.layerGroup().addTo(map_3);
     PS.forEach(
     function(latlng) {
-           layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_3));
-	   layer_adresses[layer_adresses.length].bindTooltip(PS.feature.properties.nom_centre).addTo(map_3);
+           var marker_courant = layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_3));
+	   marker_courant.bindTooltip(PS.feature.properties.nom_centre).addTo(map_3);
 	
     });
     var markers_adresses = {'markers': layer_adresses};
