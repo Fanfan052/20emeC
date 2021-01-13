@@ -275,7 +275,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 
  var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fillopacity" : 0.7}});
   geojsonLayer.bindTooltip(function (layer) {
-    return layer.feature.properties.name; //merely sets the tooltip text
+    return 'test'; //merely sets the tooltip text
  }, {permanent: true, opacity: 0.5}  //then add your options
 ).addTo(map_3);
    
