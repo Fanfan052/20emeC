@@ -222,7 +222,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     
     color_fr.forEach(function(element){
     document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)]
-	    + ( (indexOf(element) < color_fr.length - 1) ? ' (moins de ' : ' (plus de ') + bornes[color_fr.indexOf(element)+1] + ' minutes de la 20ème Chaise) a une superficie de ' +
+	    + ( (color_fr.indexOf(element) < color_fr.length - 1) ? ' (moins de ' : ' (plus de ') + bornes[color_fr.indexOf(element)+1] + ' minutes de la 20ème Chaise) a une superficie de ' +
 	    Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' + ' et contient ' + PS[color_fr.indexOf(element)].length + ' adresses.'
 	    + '<br/>';
     });
