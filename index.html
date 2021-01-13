@@ -274,7 +274,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
    // L.control.layers(null, markers_adresses).addTo(map_3);
 
  var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fillopacity" : 0.7}}).bindTooltip(function (layer) {
-    return layer.feature.properties.C_IR + ' : ' + layer.feature.properties.L_IR; //merely sets the tooltip text
+    return 'IRIS' + '<br/>' + layer.feature.properties.C_IR + ' : ' + layer.feature.properties.L_IR; //merely sets the tooltip text
  }, {permanent: false, opacity: 0.8}  //then add your options
 ).addTo(map_3);
    
@@ -284,7 +284,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     var layer_adresses_CS = L.layerGroup().addTo(map_3);
     PS.forEach(
     function(element) {
-        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip(element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
+        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
     });
     var markers_adresses_CS = {'markers': layer_adresses_CS};
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
