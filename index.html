@@ -52,7 +52,7 @@
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
 
 <p> - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON <br>
-    - recherche des adresses relevant d'un NQPV (frontière noire), QVA ou AQV (frontière jaune) via fonction turf.js PointsWithinPolygon <br>
+    - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière orange) ou AQV (frontière jaune) via fonction turf.js PointsWithinPolygon <br>
     - survoler les quartiers prioritaires pour voir apparaître le nom de la zone
 </p>
 
@@ -93,6 +93,7 @@
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
 		case 'NQPV': return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
+		case 'QVA': return {color: "orange","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
             default:   return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
 	}
         }
@@ -290,7 +291,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     var markers_adresses_CS = {'markers': layer_adresses_CS};
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
 
-
+    
 
 
  }
