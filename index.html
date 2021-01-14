@@ -289,7 +289,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
 
     layer_adresses_CS.eachLayer(function(layer)
-    {console.log(layer.getTooltip());});
+    {console.log(layer.getTooltip()._content);});
 
 
  }
