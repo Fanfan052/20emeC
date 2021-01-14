@@ -279,7 +279,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 ).addTo(map_3);
 
     geojsonLayer.eachLayer(function(layer)
-    {console.log(layer.getTooltip()._content.replace('IRIS<br/>',''));});
+    {console.log(layer.getTooltip());});
    
    var PS = centres_sociaux;
  
