@@ -285,7 +285,8 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 // on construit le tableau contenant tous les numéros d'IRIS des layers
 var num_iris = [];
 geojsonLayer.eachLayer(function(layer)
-    {num_iris.push(layer.feature.properties.C_IR);});
+    {num_iris.push(layer.feature.properties.C_IR);
+    console.log(layer);});
 
 // on balaie les IRIS sous influence
 	 
