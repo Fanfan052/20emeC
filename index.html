@@ -286,7 +286,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 var num_iris = [];
 geojsonLayer.eachLayer(function(layer)
     {num_iris.push(layer.feature.properties.C_IR);
-    console.log(layer);});
+    console.log(layer._leaflet_id);});
 
 // on balaie les IRIS sous influence
 	 
