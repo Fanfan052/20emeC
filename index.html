@@ -276,35 +276,16 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     return 'IRIS' + '<br/>' + layer.feature.properties.C_IR + ' : ' + layer.feature.properties.L_IR; //merely sets the tooltip text
  }, {permanent: false, opacity: 0.8}  //then add your options
 ).addTo(map_3);
-
-
-
-// on recherche les IRIS qui sont dans des zones d'inluence des CS pour modifier la couleur et les infos du layer correspondant
-
-// on construit le tableau contenant tous les numéros d'IRIS des layers
-var num_iris = [];
-geojsonLayer.eachLayer(function(layer)
-    {num_iris.push(layer.feature.properties.C_IR);
-    console.log(layer._leaflet_id);});
-
-// on balaie les IRIS sous influence
-	 
-    for (i = 0; i < influence_IRIS.length ; i++) {
-    console.log(num_iris.indexOf(Object.values(influence_IRIS)[i].num_iris));
-    };
-   
-// Object.values(influence_IRIS)[i].num_iris
-	 
-//    geojsonLayer.eachLayer(function(layer)
-//    {console.log(layer.feature.properties.C_IR);});
     
    
    var PS = centres_sociaux;
  
     var layer_adresses_CS = L.layerGroup().addTo(map_3);
+    var layer_cercles_CS = L.layerGroup().addTo(map_3);
     PS.forEach(
     function(element) {
         layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
+        layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 1200, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
     });
     var markers_adresses_CS = {'markers': layer_adresses_CS};
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
