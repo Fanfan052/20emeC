@@ -288,10 +288,9 @@ geojsonLayer.eachLayer(function(layer)
     {num_iris.push(layer.feature.properties.C_IR);});
 
 // on balaie les IRIS sous influence
-const iris_cible = function(element) {Object.values(element.num_iris)} ;
 	 
     for (i = 0; i < influence_IRIS.length ; i++) {
-    console.log(num_iris.findIndex(iris_cible));
+    console.log(num_iris.indexOf(Object.values(influence_IRIS)[i].num_iris));
     };
    
 // Object.values(influence_IRIS)[i].num_iris
