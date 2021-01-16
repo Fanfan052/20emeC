@@ -313,6 +313,34 @@ layer_adresses_CS.eachLayer(function(layer) {
 });
 var circleUnion = unify(layer_cercles_CS.getLayers()).addTo(map_3);
 
+// on recherche les adresses dans la zone globale circleUnion
+	 
+var points_turf = [];
+layer_adresses.eachLayer(function(element)
+{
+var lnglat = [element._latlng.lng, element._latlng.lat];
+points_turf.push(lnglat);
+}
+)
+
+var inside = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ circleUnion.toGeoJSON()
+  );
+  
+
+
+for (let i=0 ; i < inside.features.length; i++)
+{
+var coords = [];
+coords[0] = inside.features[i].geometry.coordinates[1];
+coords[1] = inside.features[i].geometry.coordinates[0];	
+L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_3);
+};
+
+console.log(inside.features.length);
+
 
    
   
