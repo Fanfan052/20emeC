@@ -275,7 +275,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     var markers_adresses = {'markers': layer_adresses};
    // L.control.layers(null, markers_adresses).addTo(map_3);
 
- var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'transparent', "fillopacity" : 0.1}}).bindTooltip(function (layer) {
+ var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'transparent', "fillopacity" : 0.0}}).bindTooltip(function (layer) {
     return 'IRIS' + '<br/>' + layer.feature.properties.C_IR + ' : ' + layer.feature.properties.L_IR; //merely sets the tooltip text
  }, {permanent: false, opacity: 0.8}  //then add your options
 ).addTo(map_3);
