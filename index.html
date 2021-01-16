@@ -285,7 +285,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
     PS.forEach(
     function(element) {
         layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
-        layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 400, weight : 0.5, color : 'yellow', fill : false}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
+        layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 400, weight : 1.0, color : 'yellow', fill : false}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
     });
     var markers_adresses_CS = {'markers': layer_adresses_CS};
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
