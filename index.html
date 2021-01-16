@@ -281,13 +281,40 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
    var PS = centres_sociaux;
  
     var layer_adresses_CS = L.layerGroup().addTo(map_3);
-    var layer_cercles_CS = L.layerGroup().addTo(map_3);
+
+function unify(polyList) {
+  for (var i = 0; i < polyList.length; ++i) {
+    if (i == 0) {
+      var unionTemp = polyList[i].toGeoJSON();
+    } else {
+      unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
+    }
+  }
+  return L.geoJson(unionTemp, {style: unionStyle});
+}
+
+
+    var layer_cercles_CS = L.layerGroup()
+    var radius = 5000
+    var opts = {
+      parts: 144
+    };
+	 
     PS.forEach(
     function(element) {
         layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
-        layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 400, weight : 2.0, color : 'yellow', fill : false}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
+ //       layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 400, weight : 2.0, color : 'yellow', fill : false}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
     });
-    var markers_adresses_CS = {'markers': layer_adresses_CS};
+	 
+layer_adresses_CS.eachLayer(function(layer) {
+  LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
+});
+var circleUnion = unify(layer_cercles_CS.getLayers()).addTo(map_3);
+
+
+   
+  
+    // var markers_adresses_CS = {'markers': layer_adresses_CS};
     // L.control.layers(null, markers_adresses_CS).addTo(map_3);
 
     //layer_adresses_CS.eachLayer(function(layer)
