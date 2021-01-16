@@ -292,7 +292,7 @@ function unify(polyList) {
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
-  return L.geoJson(unionTemp, {style: {color: "yellow","weight": 1.5, "opacity" : 0.7, "fill" : true}});
+  return L.geoJson(unionTemp, {style: {color: "purple","weight": 1.5, "opacity" : 0.8, "fill" : true}});
 }
 
 
@@ -304,7 +304,7 @@ function unify(polyList) {
 	 
     PS.forEach(
     function(element) {
-        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'yellow'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
+        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'purple'}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
  //       layer_cercles_CS.addLayer(L.circle([element.lat, element.lng], {radius: 400, weight : 2.0, color : 'yellow', fill : false}).bindTooltip('Centre social' + '<br/>' + element.nom_centre_social,{permanent: false, opacity: 0.8, fillcolor : 'yellow'}).addTo(map_3));
     });
 	 
