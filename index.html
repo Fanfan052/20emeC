@@ -119,8 +119,8 @@ map_1.eachLayer(function (layer) {
 
 // on crée un array avec toutes les adresses source au format turf
 var adresses_turf = [];
-layer_adresses.eachLayer(function(element)
-{adresses_turf.push([element._latlng.lng, element._latlng.lat]);}
+PS.forEach(function(element)
+{adresses_turf.push([element.lng, element.lat]);}
 )
 
 // on passe à la recherche d'intersection des adresses avec les zones prioritaire
