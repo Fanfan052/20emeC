@@ -139,7 +139,7 @@ function inside(points,zone)
   
 PS.forEach(
     function(latlng) {
-        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
+ //       layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
 	
     });
    // var markers_adresses = {'markers': layer_adresses};
@@ -160,7 +160,7 @@ L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 };
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
-	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
+	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (adresses_turf.length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
  }
