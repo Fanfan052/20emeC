@@ -104,6 +104,8 @@ layer.on('mouseover', function (e) {
         });
   });
 
+ console.log(geojsonLayer.getLayers()[0]);
+
   var layer_adresses = L.layerGroup().addTo(map_1);
     PS.forEach(
     function(latlng) {
