@@ -123,6 +123,7 @@ PS.forEach(function(element)
 {adresses_turf.push([element.lng, element.lat]);}
 )
 
+console.log(adresses_turf);
 // on passe à la recherche d'intersection des adresses avec les zones prioritaire
 // et à la création des points de couleur dépendant du résultat
 
@@ -149,8 +150,7 @@ PS.forEach(
 
 
   
-var adresses_NQPV = inside(adresses_turf,layer_adresses_NQPV);
-console.log(adresses_NQPV);
+var adresses_NQPV = inside(adresses_turf,Layer_NQPV);
 
 for (let i=0 ; i < adresses_NQPV.features.length; i++)
 {
