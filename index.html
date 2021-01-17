@@ -107,21 +107,37 @@
 map_1.eachLayer(function (layer) {console.log(layer);});
 
 map_1.eachLayer(function (layer) {
-// layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
+    // on exclut le layer du fond de carte via un contrôle
     if(layer.hasOwnProperty('feature'))
     {
      layer.bindPopup('<h3>'+layer.feature.properties.c_nat_qpv + ' : ' + layer.feature.properties.l_nqpv + '</h3>');
-     layer.on('mouseover', function (e) {
-            this.openPopup();
-          });
-     layer.on('mouseout', function (e) {
-            this.closePopup();
-          });
+     layer.on('mouseover', function (e) {this.openPopup();});
+     layer.on('mouseout', function (e) {this.closePopup();});
     }
                                    });
 
-  var layer_adresses = L.layerGroup().addTo(map_1);
-    PS.forEach(
+
+// on crée un array avec toutes les adresses source au format turf
+var adresses_turf = [];
+layer_adresses.eachLayer(function(element)
+{adresses_turf.push([element._latlng.lng, element._latlng.lat]);}
+)
+
+// on passe à la recherche d'intersection des adresses avec les zones prioritaire
+// et à la création des points de couleur dépendant du résultat
+
+  var layer_adresses_NQPV = L.layerGroup().addTo(map_1);
+  var layer_adresses_QVA = L.layerGroup().addTo(map_1);
+  var layer_adresses_AQV = L.layerGroup().addTo(map_1);
+  var layer_adresses_autres = L.layerGroup().addTo(map_1);
+
+function inside(points,zone) = 
+{turf.pointsWithinPolygon(
+ turf.points(points), 
+ zone.toGeoJSON()
+  );}
+  
+PS.forEach(
     function(latlng) {
         layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
 	
@@ -129,32 +145,22 @@ map_1.eachLayer(function (layer) {
    // var markers_adresses = {'markers': layer_adresses};
    // L.control.layers(null, markers_adresses).addTo(map_1);
 
-var points_turf = [];
-layer_adresses.eachLayer(function(element)
-{
-var lnglat = [element._latlng.lng, element._latlng.lat];
-points_turf.push(lnglat);
-}
-)
 
-var inside = 
-turf.pointsWithinPolygon(
- turf.points(points_turf), 
- Layer_NQPV.toGeoJSON()
-  );
+
+
   
+var adresses_NQPV = inside(adresses_turf,layer_adresses_NQPV);
 
-
-for (let i=0 ; i < inside.features.length; i++)
+for (let i=0 ; i < adresses_NQPV.features.length; i++)
 {
 var coords = [];
-coords[0] = inside.features[i].geometry.coordinates[1];
-coords[1] = inside.features[i].geometry.coordinates[0];	
+coords[0] = adresses_NQPV.features[i].geometry.coordinates[1];
+coords[1] = adresses_NQPV.features[i].geometry.coordinates[0];	
 L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
 };
 
- document.getElementById("comment_1").innerHTML = inside.features.length +
-	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - inside.features.length) + ' n\'en relèvent pas (en bleu).'
+ document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
+	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (layer_adresses.getLayers().length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
  }
