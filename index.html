@@ -131,7 +131,7 @@ layer_adresses.eachLayer(function(element)
   var layer_adresses_AQV = L.layerGroup().addTo(map_1);
   var layer_adresses_autres = L.layerGroup().addTo(map_1);
 
-function inside(points,zone) = 
+function inside(points,zone)
 {turf.pointsWithinPolygon(
  turf.points(points), 
  zone.toGeoJSON()
