@@ -82,9 +82,9 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
    
-  var Layer_NQPV = L.geoJson(geojsonFeature,  filter : function(feature) {
+  var Layer_NQPV = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'NQPV'}, style : function(feature) {
-		return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}
+		return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
 );
 
 // case 'QVA': return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
