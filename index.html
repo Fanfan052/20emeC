@@ -105,7 +105,7 @@
  Layer_AQV.addTo(map_1);
 	 
 
-Layer_NQPV.eachLayer(function (layer) {
+map_1.eachLayer(function (layer) {
 // layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
     layer.bindPopup('<h3>'+layer.feature.properties.c_nat_qpv + ' : ' + layer.feature.properties.l_nqpv + '</h3>');
 layer.on('mouseover', function (e) {
@@ -115,8 +115,6 @@ layer.on('mouseover', function (e) {
             this.closePopup();
         });
   });
-
- console.log(map_1.getLayers());
 
   var layer_adresses = L.layerGroup().addTo(map_1);
     PS.forEach(
