@@ -123,7 +123,7 @@ PS.forEach(function(element)
 {adresses_turf.push([element.lng, element.lat]);}
 )
 
-console.log(adresses_turf);
+console.log(adresses_turf.length);
 // on passe à la recherche d'intersection des adresses avec les zones prioritaire
 // et à la création des points de couleur dépendant du résultat
 
@@ -157,11 +157,14 @@ for (let i=0 ; i < adresses_NQPV.features.length; i++)
 var coords = [];
 coords[0] = adresses_NQPV.features[i].geometry.coordinates[1];
 coords[1] = adresses_NQPV.features[i].geometry.coordinates[0];	
-L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_1);
+L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
+adresses_turf = adresses_turf.filter(element => !adresses_NQPV.includes(element));
+console.log(adresses_turf.length);
+
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
-	 ' adresses relèvent d\'un quartier prioritaire (en rouge).' + ' ' + (adresses_turf.length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
+	 ' adresses relèvent d\'un quartier NQPV (en noir).' + ' ' + (adresses_turf.length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
  }
