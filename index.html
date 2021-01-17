@@ -87,10 +87,23 @@
 		return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
 );
 
+  var Layer_QVA = L.geoJson(geojsonFeature,  {filter : function(feature) {
+        return feature.properties.c_nat_qpv == 'QVA'}, style : function(feature) {
+		return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
+);
+
+  var Layer_AQV = L.geoJson(geojsonFeature,  {filter : function(feature) {
+        return feature.properties.c_nat_qpv == 'AQV'}, style : function(feature) {
+		return {color: "purple","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
+);
+
 // case 'QVA': return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
 //            default:   return {color: "purple","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
   
- Layer_NQPV.addTo(map_1);	 
+ Layer_NQPV.addTo(map_1);
+ Layer_QVA.addTo(map_1);
+ Layer_AQV.addTo(map_1);
+	 
 
 Layer_NQPV.eachLayer(function (layer) {
 // layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
