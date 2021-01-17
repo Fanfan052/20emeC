@@ -103,7 +103,8 @@
  Layer_NQPV.addTo(map_1);
  Layer_QVA.addTo(map_1);
  Layer_AQV.addTo(map_1);
-	 
+ 
+map_1.eachLayer(function (layer) {console.log(layer);});
 
 map_1.eachLayer(function (layer) {
 // layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
