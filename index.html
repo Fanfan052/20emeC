@@ -81,15 +81,6 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
- 
-    var layer_adresses = L.layerGroup().addTo(map_1);
-    PS.forEach(
-    function(latlng) {
-        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
-	
-    });
-    var markers_adresses = {'markers': layer_adresses};
-   // L.control.layers(null, markers_adresses).addTo(map_1);
    
   var geojsonLayer = L.geoJson(geojsonFeature, { style: function(feature) {
         switch (feature.properties.c_nat_qpv) {
@@ -100,8 +91,7 @@
         }
 	}
 );
-  geojsonLayer.addTo(map_1);
-	 
+  geojsonLayer.addTo(map_1);	 
 
 geojsonLayer.eachLayer(function (layer) {
 // layer.bindPopup('<h1>'+feature.properties.f1+'</h1><p>name: '+feature.properties.f2+'</p>')
@@ -112,7 +102,16 @@ layer.on('mouseover', function (e) {
         layer.on('mouseout', function (e) {
             this.closePopup();
         });
-  }); 
+  });
+
+  var layer_adresses = L.layerGroup().addTo(map_1);
+    PS.forEach(
+    function(latlng) {
+        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
+	
+    });
+   // var markers_adresses = {'markers': layer_adresses};
+   // L.control.layers(null, markers_adresses).addTo(map_1);
 
 var points_turf = [];
 layer_adresses.eachLayer(function(element)
