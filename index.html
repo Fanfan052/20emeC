@@ -132,7 +132,7 @@ PS.forEach(function(element)
   var layer_adresses_autres = L.layerGroup().addTo(map_1);
 
 function inside(points,zone)
-{turf.pointsWithinPolygon(
+{return turf.pointsWithinPolygon(
  turf.points(points), 
  zone.toGeoJSON()
   );}
