@@ -81,7 +81,7 @@
         maxZoom: 18,
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map_1);
-   
+  
   var Layer_NQPV = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'NQPV'}, style : function(feature) {
 		return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
@@ -100,6 +100,7 @@
 // case 'QVA': return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
 //            default:   return {color: "purple","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7};
   
+ Layer_adresses.addTo(map_1); 
  Layer_NQPV.addTo(map_1);
  Layer_QVA.addTo(map_1);
  Layer_AQV.addTo(map_1);
@@ -121,14 +122,12 @@ PS.forEach(function(element)
 {adresses_turf.push([element.lng, element.lat]);}
 )
 
-console.log(adresses_turf.length);
 // on passe à la recherche d'intersection des adresses avec les zones prioritaire
 // et à la création des points de couleur dépendant du résultat
 
   var layer_adresses_NQPV = L.layerGroup().addTo(map_1);
   var layer_adresses_QVA = L.layerGroup().addTo(map_1);
   var layer_adresses_AQV = L.layerGroup().addTo(map_1);
-  var layer_adresses_autres = L.layerGroup().addTo(map_1);
 
 function inside(points,zone)
 {return turf.pointsWithinPolygon(
@@ -137,9 +136,9 @@ function inside(points,zone)
   );}
 	 
 // on génère dans un premier temps tous les marqueurs qu'on recouvrera ensuite selon les zones le cas échéant
-PS.forEach(
-    function(latlng) {
-        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));	
+PS.forEach(function(element){
+    element.forEach(function(latlng) {
+        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_1);
     });
    // var markers_adresses = {'markers': layer_adresses};
    // L.control.layers(null, markers_adresses).addTo(map_1);
