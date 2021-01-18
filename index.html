@@ -171,11 +171,12 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 };
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
-	 ' adresses relèvent d\'un quartier NQPV (en noir).' + ' ' +
+	 ' adresses relèvent d\'un quartier NQPV (en noir).' + '<br/>' +
 	 adresses_QVA.features.length +
-	 ' adresses relèvent d\'un quartier QVA (en jaune).' + ' ' +
+	 ' adresses relèvent d\'un quartier QVA (en jaune).' + '<br/>' +
 	 adresses_AQV.features.length +
-	 ' adresses relèvent d\'un quartier AQV (en violet).' + ' '+ (adresses_turf.length - adresses_NQPV.features.length
+	 ' adresses relèvent d\'un quartier AQV (en violet).' + '<br/>'+
+	 (adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
@@ -378,7 +379,9 @@ var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opa
  }, {permanent: false, opacity: 0.8}  //then add your options
 ).addTo(map_3);
 
-
+ document.getElementById("comment_3").innerHTML = inside.features.length +
+	 ' sont dans une zone d\'influence d\'un autre centre social (en noir).' + '<br/>' +
+	 (layer_adresses -inside.features.length) + 'n\'y sont pas.'
    
   
     // var markers_adresses_CS = {'markers': layer_adresses_CS};
