@@ -135,12 +135,7 @@ function inside(points,zone)
   );}
 	 
 // on génère dans un premier temps tous les marqueurs qu'on recouvrera ensuite selon les zones le cas échéant
-PS.forEach(function(element){
-    element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1);
-    });
-   // var markers_adresses = {'markers': layer_adresses};
-   // L.control.layers(null, markers_adresses).addTo(map_1);
+
 
   
 var adresses_NQPV = inside(adresses_turf,Layer_NQPV);
