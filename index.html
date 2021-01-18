@@ -161,7 +161,7 @@ L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
 // adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
-console.log(turf.PointsWithinPolygons(turf.point(adresses_turf[0]),Layer_NQPV.toGeoJSON()).length);
+console.log(turf.PointsWithinPolygon(turf.point(adresses_turf[0]),Layer_NQPV.toGeoJSON()).length);
 
 console.log(adresses_turf.length);
 
@@ -240,7 +240,6 @@ console.log(adresses_turf.length);
     poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9});
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
-     console.log(points.length);
 	 
 // on insère les polygones dans le sens inverse pour avoir une frontière intérieure de la bonne couleur
     for (let i = points.length-1 ; i >= 0  ; i--) {
@@ -368,8 +367,6 @@ coords[0] = inside.features[i].geometry.coordinates[1];
 coords[1] = inside.features[i].geometry.coordinates[0];	
 L.circleMarker(coords, {radius: 2, color : 'red'}).addTo(map_3);
 };
-
-console.log(inside.features.length);
 
 
    
