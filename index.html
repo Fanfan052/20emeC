@@ -160,8 +160,8 @@ coords[1] = adresses_NQPV.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
-adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
-
+// adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
+console.log(turf.point(adresses_turf[0]));
 
 console.log(adresses_turf.length);
 
