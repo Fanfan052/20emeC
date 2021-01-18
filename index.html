@@ -158,13 +158,6 @@ coords[1] = adresses_NQPV.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
-// adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
-adresses_turf.forEach(function(element)
-{
-if(turf.pointsWithinPolygon(turf.point(element),Layer_NQPV.toGeoJSON()).features.length>0)
-{adresses_turf.splice(adresses_turf.indexOf(element),1);}
-});
-
 console.log(adresses_turf.length);
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
