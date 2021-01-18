@@ -135,17 +135,14 @@ function inside(points,zone)
  turf.points(points), 
  zone.toGeoJSON()
   );}
-  
+	 
+// on génère dans un premier temps tous les marqueurs qu'on recouvrera ensuite selon les zones le cas échéant
 PS.forEach(
     function(latlng) {
- //       layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));
-	
+        layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_1));	
     });
    // var markers_adresses = {'markers': layer_adresses};
    // L.control.layers(null, markers_adresses).addTo(map_1);
-
-
-
 
   
 var adresses_NQPV = inside(adresses_turf,Layer_NQPV);
@@ -158,10 +155,36 @@ coords[1] = adresses_NQPV.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
-console.log(adresses_turf.length);
+var adresses_QVA = inside(adresses_turf,Layer_QVA);
+
+for (let i=0 ; i < adresses_QVA.features.length; i++)
+{
+var coords = [];
+coords[0] = adresses_QVA.features[i].geometry.coordinates[1];
+coords[1] = adresses_QVA.features[i].geometry.coordinates[0];	
+L.circleMarker(coords, {radius: 2, color : 'yellow'}).addTo(map_1);
+};
+
+var adresses_AQV = inside(adresses_turf,Layer_AQV);
+
+for (let i=0 ; i < adresses_AQV.features.length; i++)
+{
+var coords = [];
+coords[0] = adresses_AQV.features[i].geometry.coordinates[1];
+coords[1] = adresses_AQV.features[i].geometry.coordinates[0];	
+L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
+};
+
+
+
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
-	 ' adresses relèvent d\'un quartier NQPV (en noir).' + ' ' + (adresses_turf.length - adresses_NQPV.features.length) + ' n\'en relèvent pas (en bleu).'
+	 ' adresses relèvent d\'un quartier NQPV (en noir).' + ' ' +
+	 adresses_NQPV.features.length +
+	 ' adresses relèvent d\'un quartier QVA (en jaune).' + ' '
+	 adresses_NQPV.features.length +
+	 ' adresses relèvent d\'un quartier AQV (en violet).' + ' '+ (adresses_turf.length - adresses_NQPV.features.length
+	- - adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu).'
 
 
  }
