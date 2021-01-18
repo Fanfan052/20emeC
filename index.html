@@ -381,7 +381,7 @@ var geojsonLayer = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opa
 
  document.getElementById("comment_3").innerHTML = inside.features.length +
 	 ' sont dans une zone d\'influence d\'un autre centre social (en noir).' + '<br/>' +
-	 (layer_adresses -inside.features.length) + 'n\'y sont pas.'
+	 (layer_adresses.getLayers().length -inside.features.length) + 'n\'y sont pas.'
    
   
     // var markers_adresses_CS = {'markers': layer_adresses_CS};
