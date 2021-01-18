@@ -161,7 +161,7 @@ L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 // adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
 adresses_turf.forEach(function(element)
 {
-if(console.log(turf.pointsWithinPolygon(turf.point(element),Layer_NQPV.toGeoJSON()).features.length)>0)
+if(turf.pointsWithinPolygon(turf.point(element),Layer_NQPV.toGeoJSON()).features.length>0)
 {adresses_turf.splice(adresses_turf.indexOf(element),1);}
 });
 
