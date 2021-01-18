@@ -103,8 +103,6 @@
  Layer_NQPV.addTo(map_1);
  Layer_QVA.addTo(map_1);
  Layer_AQV.addTo(map_1);
- 
-map_1.eachLayer(function (layer) {console.log(layer);});
 
 map_1.eachLayer(function (layer) {
     // on exclut le layer du fond de carte via un contrôle
@@ -161,7 +159,7 @@ L.circleMarker(coords, {radius: 2, color : 'black'}).addTo(map_1);
 };
 
 // adresses_turf = adresses_turf.filter(element => turf.booleanPointInPolygon(turf.point(element),Layer_NQPV.toGeoJSON())==0);
-console.log(turf.pointsWithinPolygon(turf.point(adresses_turf[0]),Layer_NQPV.toGeoJSON()));
+console.log(turf.pointsWithinPolygon(turf.point(adresses_turf[0]),Layer_NQPV.toGeoJSON()).features.length);
 
 console.log(adresses_turf.length);
 
