@@ -380,10 +380,10 @@ var Layer_IRIS = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opaci
 ).addTo(map_3);
 
 
-var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'white', "fillopacity" : 0.0}}).addTo(map_3);
+var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.2}}).addTo(map_3);
 
 function Filtre_influence_20C(feature) {
-  if (feature.properties.C_IR === 751207911) return true
+  if ((feature.properties.C_IR >= 751207906 and feature.properties.C_IR <= 751207910) return true
 }
 
 console.log(Layer_ZI_20C);
