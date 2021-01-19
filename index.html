@@ -360,9 +360,9 @@ var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
 
 console.log(ZI_20C);
 	 
-layer_cercles_CS.eachLayer(function(layer)
+// layer_cercles_CS.eachLayer(function(layer)
 	 { // console.log(layer._latlngs);
-	   var poly = turf.difference( layer.getLatLngs().toGeoJSON(),ZI_20C.toGeoJSON() ) ;
+	   var poly = turf.difference(layer.getLayers().toGeoJSON(),ZI_20C.toGeoJSON() ) ;
 	   console.log(poly);
 	 });
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
