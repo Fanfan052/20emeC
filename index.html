@@ -354,6 +354,8 @@ layer_adresses_CS.eachLayer(function(layer) {
   LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
 });
 
+console.log(layer_cercles_CS);
+	
 var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
 
 console.log(ZI_20C);
