@@ -347,7 +347,9 @@ function Filtre_influence_20C(feature) {
 	}
     });
 
-console.log(turf.difference(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'purple'}).toGeoJSON(),Layer_ZI_20C.toGeoJSON()));
+For (let i=0; i < layer_adresses_CS.features.length; i++)
+(function(element) {console.log(turf.difference( element.toGeoJSON(),Layer_ZI_20C.toGeoJSON() ) );});
+
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
   LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
