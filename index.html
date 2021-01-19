@@ -347,13 +347,15 @@ function Filtre_influence_20C(feature) {
 	}
     });
 
-for (let i=0; i < layer_adresses_CS.features.length; i++)
-	 {function(element) {console.log(turf.difference( element.toGeoJSON(),Layer_ZI_20C.toGeoJSON() ) );};
+
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
   LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
 });
+	 
+for (let i=0; i < layer_cercles_CS.features.length; i++)
+	 {function(element) {console.log(turf.difference( element.toGeoJSON(),Layer_ZI_20C.toGeoJSON() ) );};
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
 
