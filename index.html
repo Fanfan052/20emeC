@@ -367,7 +367,8 @@ console.log(ZI_20C);
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
 
-var poly = turf.difference( layer_cercles_CS.getLayers().toGeoJSON(),ZI_20C.toGeoJSON() ) ;
+console.log(layer_cercles_CS.getLayers());
+var poly = turf.difference( layer_cercles_CS.getLayers(),ZI_20C.toGeoJSON() ) ;
 console.log(poly);
 		 
 var circleUnion = unify(layer_cercles_CS.getLayers(),'purple').addTo(map_3);
