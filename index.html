@@ -319,7 +319,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     var layer_adresses_CS = L.layerGroup().addTo(map_3);
 
 // fonction qui génère l'union de polygones
-function unify(polyList) {
+function unify(polyList,color) {
   for (var i = 0; i < polyList.length; ++i) {
     if (i == 0) {
       var unionTemp = polyList[i].toGeoJSON();
@@ -327,7 +327,7 @@ function unify(polyList) {
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
-  return L.geoJson(unionTemp, {style: {color: "purple","weight": 1.5, "opacity" : 0.8, "fill" : true}});
+  return L.geoJson(unionTemp, {style: {color: color,"weight": 1.5, "opacity" : 0.8, "fill" : true}});
 }
 
 
@@ -354,16 +354,16 @@ layer_adresses_CS.eachLayer(function(layer) {
   LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
 });
 
-var ZI_20C = unify(Layer_ZI_20C.getLayers()).addTo(map_3);
+var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
 
 
 	 
-for (let i=0; i < layer_cercles_CS.features.length; i++)
+for (let i=0; i < layer_cercles_CS.getLayers().length.length; i++)
 	 {(function(element) {console.log(turf.difference( element.toGeoJSON(),ZI_20C ) );})};
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
 
-var circleUnion = unify(layer_cercles_CS.getLayers()).addTo(map_3);
+var circleUnion = unify(layer_cercles_CS.getLayers(),'purple').addTo(map_3);
 
 // on recherche les adresses dans la zone globale circleUnion
 	 
