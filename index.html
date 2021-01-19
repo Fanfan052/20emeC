@@ -318,6 +318,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
  
     var layer_adresses_CS = L.layerGroup().addTo(map_3);
 
+// fonction qui génère l'union de polygones
 function unify(polyList) {
   for (var i = 0; i < polyList.length; ++i) {
     if (i == 0) {
@@ -332,20 +333,27 @@ function unify(polyList) {
 
     var layer_cercles_CS = L.layerGroup()
     var radius = 500
-    var opts = {
-      parts: 144
-    };
-	 
+    var opts = {parts: 144};
+
+var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.5}}).addTo(map_3);
+
+function Filtre_influence_20C(feature) {
+  if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
+}
     PS.forEach(
     function(element) {
 	if ( element.nom_centre_social != 'La 20eme Chaise') {
-        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'purple'}).bindTooltip(element.nom_centre_social,{permanent: true, opacity: 0.5, fillcolor : 'yellow'}).addTo(map_3));
+        layer_adresses_CS.addLayer(turf.difference(L.circleMarker([element.lat, element.lng], {radius: 3, color : 'purple'}).toGeoJSON(),Layer_ZI_20C.toGeoJSON()).bindTooltip(element.nom_centre_social,{permanent: true, opacity: 0.5, fillcolor : 'yellow'}).addTo(map_3));
 	}
     });
-	 
+
+// on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
   LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
 });
+// on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
+// on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
+
 var circleUnion = unify(layer_cercles_CS.getLayers()).addTo(map_3);
 
 // on recherche les adresses dans la zone globale circleUnion
@@ -379,14 +387,6 @@ var Layer_IRIS = L.geoJson(iris, { style:  {color: "black","weight": 1.5, "opaci
  }, {permanent: false, opacity: 0.8}  //then add your options
 ).addTo(map_3);
 
-
-var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.2}}).addTo(map_3);
-
-function Filtre_influence_20C(feature) {
-  if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
-}
-
-console.log(Layer_ZI_20C);
 
  document.getElementById("comment_3").innerHTML = inside.features.length +
 	 ' sont dans une zone d\'influence d\'un autre centre social (en violet).' + '<br/>' +
