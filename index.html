@@ -337,9 +337,12 @@ function unify(polyList,color) {
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.5}}).addTo(map_3);
 
+	 
 function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
 }
+var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
+	 
     PS.forEach(
     function(element) {
 	if ( element.nom_centre_social != 'La 20eme Chaise') {
@@ -353,13 +356,15 @@ function Filtre_influence_20C(feature) {
 layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);
   console.log(Test.toGeoJSON());
+  var poly = turf.difference(Test.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
+  console.log(poly);  
   Test.addTo(layer_cercles_CS);
 });
 
 console.log(layer_cercles_CS);
 
 	
-var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
+
 
 console.log(ZI_20C);
 	 
