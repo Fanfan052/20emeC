@@ -351,7 +351,9 @@ function Filtre_influence_20C(feature) {
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
-  LGeo.circle(layer.getLatLng(), radius, opts).addTo(layer_cercles_CS);
+  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
+  console.log(Test);
+  Test.addTo(layer_cercles_CS);
 });
 
 console.log(layer_cercles_CS);
