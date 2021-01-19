@@ -366,13 +366,13 @@ console.log(ZI_20C);
 	 // });
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
-
-console.log(layer_cercles_CS.getLayers());
-var poly = turf.difference( layer_cercles_CS.getLayers(),ZI_20C.toGeoJSON() ) ;
-console.log(poly);
-		 
 var circleUnion = unify(layer_cercles_CS.getLayers(),'purple').addTo(map_3);
 console.log(circleUnion);
+	 
+var poly = turf.difference(circleUnion.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
+console.log(poly);
+		 
+
 // on recherche les adresses dans la zone globale circleUnion
 	 
 var points_turf = [];
