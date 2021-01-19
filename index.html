@@ -348,7 +348,7 @@ function Filtre_influence_20C(feature) {
     });
 
 For (let i=0; i < layer_adresses_CS.features.length; i++)
-(function(element) {console.log(turf.difference( element.toGeoJSON(),Layer_ZI_20C.toGeoJSON() ) );});
+	 {function(element) {console.log(turf.difference( element.toGeoJSON(),Layer_ZI_20C.toGeoJSON() ) );};
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
