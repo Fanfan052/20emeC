@@ -362,7 +362,7 @@ console.log(ZI_20C);
 	 
 layer_cercles_CS.eachLayer(function(layer)
 	 { // console.log(layer._latlngs);
-	   var poly = turf.difference( layer._latlngs.toGeoJSON(),ZI_20C.toGeoJSON() ) ;
+	   var poly = turf.difference( layer._latlngs,ZI_20C ) ;
 	   console.log(poly);
 	 });
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
