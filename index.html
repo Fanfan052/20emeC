@@ -355,6 +355,7 @@ layer_adresses_CS.eachLayer(function(layer) {
 });
 
 console.log(layer_cercles_CS);
+
 	
 var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
 
@@ -369,7 +370,7 @@ console.log(ZI_20C);
 var circleUnion = unify(layer_cercles_CS.getLayers(),'purple').addTo(map_3);
 console.log(circleUnion);
 	 
-var poly = turf.difference(circleUnion.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
+var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
 console.log(poly);
 		 
 
