@@ -357,7 +357,7 @@ layer_adresses_CS.eachLayer(function(layer) {
 var ZI_20C = unify(Layer_ZI_20C.getLayers()).addTo(map_3);
 	 
 for (let i=0; i < layer_cercles_CS.features.length; i++)
-	 {function(element) {console.log(turf.difference( element.toGeoJSON(),ZI_20C ) );};
+	 {(function(element) {console.log(turf.difference( element.toGeoJSON(),ZI_20C ) );)};
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
 
