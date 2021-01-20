@@ -343,7 +343,6 @@ function Filtre_influence_20C(feature) {
 }
 var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange')
 ZI_20C.addTo(map_3);
-console.log(ZI_20C.toGeoJSON());
 	 
     PS.forEach(
     function(element) {
@@ -354,13 +353,10 @@ console.log(ZI_20C.toGeoJSON());
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
-  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
-  console.log(Test.toGeoJSON());
-  console.log(turf.polygon(Test.toGeoJSON().geometry.coordinates));
-  console.log(turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates));	
+  var Test = LGeo.circle(layer.getLatLng(), radius, opts);	
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
  console.log(poly);  
-  Test.addTo(layer_cercles_CS);
+  poly.addTo(layer_cercles_CS);
 });
 
 console.log(layer_cercles_CS);
