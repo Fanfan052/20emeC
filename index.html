@@ -356,10 +356,11 @@ layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);	
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
  console.log(poly);
-L.geoJson(poly.toGeoJSON(), {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true}}).addTo(layer_cercles_CS);
+L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true}}).addTo(layer_cercles_CS);
 //  poly.addTo(layer_cercles_CS);
 });
 
+console.log(Layer_ZI_20C.getLayers());
 console.log(layer_cercles_CS.getLayers());
 
 	
