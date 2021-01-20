@@ -355,8 +355,9 @@ ZI_20C.addTo(map_3);
 layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);	
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
- console.log(poly);  
-  poly.addTo(layer_cercles_CS);
+ console.log(poly);
+L.geoJson(poly, {style: {color: color,"weight": 1.5, "opacity" : 0.8, "fill" : true}}).addTo(layer_cercles_CS);
+//  poly.addTo(layer_cercles_CS);
 });
 
 console.log(layer_cercles_CS);
