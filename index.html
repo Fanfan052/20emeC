@@ -358,8 +358,8 @@ layer_adresses_CS.eachLayer(function(layer) {
   console.log(Test.toGeoJSON());
   console.log(turf.polygon(Test.toGeoJSON().geometry.coordinates));
   console.log(turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates));	
- //  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),ZI_20C.toGeoJSON()).addTo(map_3) ;
- //  console.log(poly);  
+ var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)).addTo(map_3) ;
+ console.log(poly);  
   Test.addTo(layer_cercles_CS);
 });
 
