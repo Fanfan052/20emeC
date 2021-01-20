@@ -350,36 +350,11 @@ var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange').addTo(map_3);
 	}
     });
 
-var polygon1 = turf.polygon([[
-  [128, -26],
-  [141, -26],
-  [141, -21],
-  [128, -21],
-  [128, -26]
-]], {
-  "fill": "#F00",
-  "fill-opacity": 0.1
-});
-var polygon2 = turf.polygon([[
-  [126, -28],
-  [140, -28],
-  [140, -20],
-  [126, -20],
-  [126, -28]
-]], {
-  "fill": "#00F",
-  "fill-opacity": 0.1
-});
-
-var difference = turf.difference(polygon1, polygon2);
-console.log(polygon1);
-console.log(difference);
-
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);
   console.log(Test.toGeoJSON());
-  console.log(Test.toGeoJSON().geometry.coordinates);
+  console.log(turf.polygon(Test.toGeoJSON().geometry.coordinates));
   console.log(Test.toGeoJSON());
   // var poly = turf.difference(Test.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
   // console.log(poly);  
