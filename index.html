@@ -378,7 +378,8 @@ console.log(difference);
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);
-  console.log(turf.polygon(turf.polygon(Test.toGeoJSON().features.polygon)));
+  console.log(Test.toGeoJSON());
+  console.log(Test.toGeoJSON().features.geometry.polygon);
   console.log(Test.toGeoJSON());
   // var poly = turf.difference(Test.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
   // console.log(poly);  
