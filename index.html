@@ -379,7 +379,7 @@ console.log(difference);
 layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);
   console.log(Test.toGeoJSON());
-  console.log(Test.toGeoJSON().features.geometry.polygon);
+  console.log(Test.toGeoJSON().feature.geometry.polygon);
   console.log(Test.toGeoJSON());
   // var poly = turf.difference(Test.toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
   // console.log(poly);  
