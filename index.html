@@ -336,8 +336,6 @@ function unify(polyList,color) {
     var opts = {parts: 144};
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.5}}).addTo(map_3);
-
-console.log(Layer_ZI_20C);
 	 
 function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
@@ -354,19 +352,15 @@ ZI_20C.addTo(map_3);
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
-  var Test = LGeo.circle(layer.getLatLng(), radius, opts);	
+  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
+Test.addTo(map_3);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
- console.log(Test);
- console.log(poly);
  var cercle_mange = L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 0.8}}).addTo(layer_cercles_CS);
 //  poly.addTo(layer_cercles_CS);
 cercle_mange.addTo(map_3);
+console.log(cercle_mange);
 });
 
-// console.log(Layer_ZI_20C.getLayers());
-console.log(layer_cercles_CS);
-
-console.log(ZI_20C);
 	 
 // layer_cercles_CS.eachLayer(function(layer)
 	 // {  console.log(layer._latlngs);
