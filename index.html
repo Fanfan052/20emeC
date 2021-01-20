@@ -358,7 +358,7 @@ layer_adresses_CS.eachLayer(function(layer) {
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
  console.log(Test);
  console.log(poly);
-L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true}}).addTo(layer_cercles_CS);
+L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 0.8}}).addTo(layer_cercles_CS);
 //  poly.addTo(layer_cercles_CS);
 });
 
@@ -376,7 +376,8 @@ console.log(ZI_20C);
 	 // });
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
-var circleUnion = unify(layer_cercles_CS.getLayers()._Layer,'grey').addTo(map_3);
+var circleUnion = unify(layer_cercles_CS.getLayers(),'grey').addTo(map_3);
+
 console.log(circleUnion.toGeoJSON());
 	 
 //var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
