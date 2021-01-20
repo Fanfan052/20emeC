@@ -360,6 +360,7 @@ layer_adresses_CS.eachLayer(function(layer) {
  console.log(poly);
  var cercle_mange = L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 0.8}}).addTo(layer_cercles_CS);
 //  poly.addTo(layer_cercles_CS);
+cercle_mange.addTo(map_3);
 });
 
 // console.log(Layer_ZI_20C.getLayers());
@@ -373,7 +374,8 @@ console.log(ZI_20C);
 	 // });
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
-var circleUnion = unify(layer_cercles_CS.getLayers(),'grey').addTo(map_3);
+var circleUnion = unify(layer_cercles_CS.getLayers(),'grey');
+circleUnion.addTo(map_3);	 
 
 console.log(circleUnion.toGeoJSON());
 	 
