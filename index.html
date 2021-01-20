@@ -337,6 +337,7 @@ function unify(polyList,color) {
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.5}}).addTo(map_3);
 
+console.log(Layer_ZI_20C);
 	 
 function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
