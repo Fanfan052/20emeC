@@ -331,7 +331,7 @@ function unify(polyList,color) {
 }
 
 
-    var layer_cercles_CS = L.layerGroup()
+    var layer_cercles_CS = L.layerGroup().addTo(map_3);
     var radius = 500
     var opts = {parts: 144};
 
@@ -359,13 +359,11 @@ layer_adresses_CS.eachLayer(function(layer) {
  console.log(Test);
  console.log(poly);
  var cercle_mange = L.geoJson(poly, {style: {"weight": 1.5, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 0.8}}).addTo(layer_cercles_CS);
- cercle_mange.addTo(map_3);
 //  poly.addTo(layer_cercles_CS);
 });
 
 // console.log(Layer_ZI_20C.getLayers());
 console.log(layer_cercles_CS);
-layer_cercles_CS.addTo(map_3);
 
 console.log(ZI_20C);
 	 
