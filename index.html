@@ -370,7 +370,9 @@ lng_lat_poly.push(lng_lat);
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'pink');
  circleUnion.addTo(map_3);
-
+	 
+ // on supprime le layer group dont on n'a plus besoin
+map_3.removeLayer(layer_cercles_CS);
 // console.log(circleUnion.toGeoJSON());
 	 
 //var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
