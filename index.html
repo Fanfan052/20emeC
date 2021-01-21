@@ -340,7 +340,7 @@ var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color
 function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
 }
-var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange')
+var ZI_20C = unify(Layer_ZI_20C.getLayers(),'blue')
 Layer_ZI_20C.clearLayers();
 ZI_20C.addTo(Layer_ZI_20C);
 console.log(ZI_20C);
