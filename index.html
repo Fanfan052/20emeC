@@ -377,9 +377,11 @@ lng_lat_poly.push(lng_lat);
  var circleUnion = unify(layer_cercles_CS.getLayers(),'pink');
  circleUnion.addTo(map_3);
  console.log(circleUnion);
- layer_cercles_CS.clearLayers();
- circleUnion.addTo(layer_cercles_CS);
 console.log(layer_cercles_CS);
+ layer_cercles_CS.clearLayers();
+console.log(layer_cercles_CS);
+ circleUnion.addTo(layer_cercles_CS);
+
 	 
 //var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
 // console.log(poly);
