@@ -84,17 +84,17 @@
   
   var Layer_NQPV = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'NQPV'}, style : function(feature) {
-		return {color: "black","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
+		return {color: 'black', weight: 2.0, opacity : 0.7, fillOpacity : 0.7}}}
 );
 
   var Layer_QVA = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'QVA'}, style : function(feature) {
-		return {color: "yellow","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
+		return {color: 'yellow', weight : 2.0, opacity : 0.7, fillOpacity : 0.7}}}
 );
 
   var Layer_AQV = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'AQV'}, style : function(feature) {
-		return {color: "purple","weight": 2.0, "opacity" : 0.7, "fillopacity" : 0.7}}}
+		return {color: 'purple', weight : 2.0, opacity : 0.7, fillOpacity : 0.7}}}
 );
   
  Layer_NQPV.addTo(map_1);
@@ -328,15 +328,15 @@ function unify(polyList,color) {
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
-  return L.geoJson(unionTemp, {style: {color: color, weight: 2.0, opacity : 0.8, fill : true, fillcolor : color , fillopacity : 0.4}});
+  return L.geoJson(unionTemp, {style: {color: color, weight: 2.0, opacity : 0.8, fill : true, fillColor : color , fillOpacity : 0.4}});
 }
 
 
     var layer_cercles_CS = L.layerGroup().addTo(map_3);
     var radius = 750
-    var opts = {parts: 144, fill : 'blue' , fillcolor : 'blue', fillopacity : 0.9};
+    var opts = {parts: 144, fill : 'blue' , fillcolor : 'blue', fillOpacity : 0.9};
 
-var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: "black","weight": 1.5, "opacity" : 0.7, "fill" : true, "fillcolor" : 'orange', "fillopacity" : 0.5}}).addTo(map_3);
+var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: 'black',weight: 1.5, opacity : 0.7, fill : true, fillColor : 'orange', fillOpacity : 0.5}}).addTo(map_3);
 	 
 function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
@@ -369,7 +369,7 @@ layer_adresses_CS.eachLayer(function(layer) {
 var lng_lat = [poly.geometry.coordinates[0][i][1], poly.geometry.coordinates[0][i][0]];
 lng_lat_poly.push(lng_lat);
 }
- var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'black',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'black', "fillopacity" : 1.0}});
+ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 cercle_mange.addTo(layer_cercles_CS) ;
 });
 
@@ -411,7 +411,7 @@ coords[1] = inside.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
 };
 
- var Layer_IRIS = L.geoJson(iris, { style:  {color: 'black', weight: 0.5, opacity : 0.7, fillColor : 'white', fillOpacity : 0.0}}).bindTooltip(function (layer) {
+ var Layer_IRIS = L.geoJson(iris, { style:  {color: 'black', weight: 1.0, opacity : 0.7, fillColor : 'white', fillOpacity : 0.0}}).bindTooltip(function (layer) {
     return 'IRIS' + '<br/>' + layer.feature.properties.C_IR + ' : ' + layer.feature.properties.L_IR; //merely sets the tooltip text
  }, {permanent: false, opacity: 0.8}  //then add your options
  ).addTo(map_3);
