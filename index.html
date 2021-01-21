@@ -355,7 +355,16 @@ layer_adresses_CS.eachLayer(function(layer) {
   var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
  console.log(poly) ;
- var cercle_mange = new L.Polygon(poly.geometry.coordinates[0].reverse(), {style: {"weight": 5.0, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 1.0}}).addTo(layer_cercles_CS);
+	
+ // on doit inverser les coordonnées de poly issue de turf
+ var lng_lat_poly = [];
+ for (i=0 ; i < poly.geometry.coordinates[0].length ; i++)
+ {
+var lng_lat = [poly.geometry.coordinates[0][i][1], poly.geometry.coordinates[0][i][0]];
+lng_lat_poly.push(lng_lat);
+}
+
+ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillopacity" : 1.0}}).addTo(layer_cercles_CS);
 cercle_mange.addTo(map_3);
 console.log(Test);	
 console.log(cercle_mange);
