@@ -275,9 +275,10 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 <h3><a name="ex3" class="anchor" ><span class="octicon octicon-link"></span>IRIS et zones d'influence des centres sociaux parisiens</a></h3>
 
 <p> - récupération des polygones définissant les IRIS via une source de type GeoJSON <br>
-    - on exclut les adresses relevant de la zone d'influence de la 20ème Chaise  <br>
-    - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 500 mètres <br>			
+    - on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS)  <br>
+    - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres <br>			
     - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br>
+    - la réunion des cercles d'influence appraît en mauve ainsi que les points correspondants <br>
     - survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS
 </p>
 
@@ -369,20 +370,14 @@ var lng_lat = [poly.geometry.coordinates[0][i][1], poly.geometry.coordinates[0][
 lng_lat_poly.push(lng_lat);
 }
  var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'black',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'black', "fillopacity" : 1.0}});
-cercle_mange.addTo(layer_cercles_CS) ;	
-console.log(cercle_mange); 
-console.log(layer_cercles_CS);
+cercle_mange.addTo(layer_cercles_CS) ;
 });
 
 	 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
- // circleUnion.addTo(map_3);
- console.log(circleUnion);
-console.log(layer_cercles_CS);
  layer_cercles_CS.clearLayers();
-console.log(layer_cercles_CS);
  circleUnion.addTo(layer_cercles_CS);
 
 	 
