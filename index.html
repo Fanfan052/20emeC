@@ -341,8 +341,9 @@ function Filtre_influence_20C(feature) {
   if ((feature.properties.C_IR >= 751207906 && feature.properties.C_IR <= 751207910)) return true
 }
 var ZI_20C = unify(Layer_ZI_20C.getLayers(),'orange')
-ZI_20C.addTo(map_3);
-map_3.removeLayer(Layer_ZI_20C);
+ZI_20C.addTo(Layer_ZI_20C);
+console.log(ZI_20C);
+// map_3.removeLayer(Layer_ZI_20C);
 	 
 console.log(ZI_20C);
 	 
