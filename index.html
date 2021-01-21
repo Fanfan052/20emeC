@@ -369,6 +369,7 @@ lng_lat_poly.push(lng_lat);
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'pink');
+ circleUnion.addTo(map_3);
  console.log(circleUnion);
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);
