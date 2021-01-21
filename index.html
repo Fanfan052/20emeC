@@ -358,7 +358,7 @@ console.log(layer_cercles_CS);
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
-  var Test = LGeo.circle(layer.getLatLng(), radius, opts).addTo(map_3);
+  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
 	
  // on doit inverser les coordonnées de poly issue de turf
