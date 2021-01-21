@@ -327,7 +327,7 @@ function unify(polyList,color) {
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
-  return L.geoJson(unionTemp, {style: {color: color,"weight": 5.0, "opacity" : 0.8, "fill" : true, "fillcolor" : 'orange' , "fillopacity" : 1.0}});
+  return L.geoJson(unionTemp, {style: {color: color,"weight": 5.0, "opacity" : 0.8, "fill" : true, fillcolor : color , "fillopacity" : 1.0}});
 }
 
 
@@ -368,7 +368,7 @@ layer_adresses_CS.eachLayer(function(layer) {
 var lng_lat = [poly.geometry.coordinates[0][i][1], poly.geometry.coordinates[0][i][0]];
 lng_lat_poly.push(lng_lat);
 }
- var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'purple', "fillopacity" : 1.0}});
+ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'black',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'black', "fillopacity" : 1.0}});
 cercle_mange.addTo(layer_cercles_CS) ;	
 console.log(cercle_mange); 
 console.log(layer_cercles_CS);
@@ -377,7 +377,7 @@ console.log(layer_cercles_CS);
 	 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
- var circleUnion = unify(layer_cercles_CS.getLayers(),'pink');
+ var circleUnion = unify(layer_cercles_CS.getLayers(),'black');
  // circleUnion.addTo(map_3);
  console.log(circleUnion);
 console.log(layer_cercles_CS);
