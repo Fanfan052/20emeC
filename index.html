@@ -328,7 +328,7 @@ function unify(polyList,color) {
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
-  return L.geoJson(unionTemp, {style: {color: color, weight: 1.0, opacity : 0.8, fill : true, fillColor : color , fillOpacity : 0.1}});
+  return L.geoJson(unionTemp, {style: {color: color, weight: 1.0, opacity : 0.8, fill : true, fillColor : color , fillOpacity : 0.2}});
 }
 
 
