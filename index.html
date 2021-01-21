@@ -368,7 +368,8 @@ layer_adresses_CS.eachLayer(function(layer) {
 var lng_lat = [poly.geometry.coordinates[0][i][1], poly.geometry.coordinates[0][i][0]];
 lng_lat_poly.push(lng_lat);
 }
- var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'purple', "fillopacity" : 1.0}}).addTo(layer_cercles_CS);
+ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {"weight": 5.0, "color" : 'pink',  "opacity" : 0.8, "fill" : true, "fillcolor" : 'purple', "fillopacity" : 1.0}});
+Test.addTo(layer_cercles_CS);
 console.log(cercle_mange); 
 console.log(layer_cercles_CS);
 });
