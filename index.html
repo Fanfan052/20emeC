@@ -49,13 +49,22 @@
 	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
-< form name="e">
+< form name="filtre">
+<fieldset>
+  <legend>Vous pouvez filtrer les données selon les critères suivants :</legend>
 
-Choix 1 <input type="checkbox" name="checkbox1" value="checkbox">
-Choix 2 <input type="checkbox" name="checkbox2" value="checkbox">
-
-<input type="button" name="bout" value="Tester" onClick="test()">
-
+<div>
+<input type="checkbox" id ="asl1" name="asl" value="asl1">
+<label for="asl1">inscrits uniquement aux ASL</label>
+</div>
+<div>
+<input type="checkbox" id ="asl2" name="asl" value="asl2">
+<label for="asl2">pas de filtre ASL</label>
+</div>
+<div>	
+<input type="button" name="bout" value="Générer l'analyse" onClick="test()">
+</div>
+</fieldset>
 </form>
 
 function test() {
