@@ -317,7 +317,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     var layer_adresses = L.layerGroup().addTo(map_3);
     PS.forEach(
     function(latlng) {
-           layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'blue'}).addTo(map_3));
+           layer_adresses.addLayer(L.circleMarker(latlng, {radius: 2, color : 'green'}).addTo(map_3));
     });
     var markers_adresses = {'markers': layer_adresses};
    // L.control.layers(null, markers_adresses).addTo(map_3);
@@ -354,11 +354,7 @@ function Filtre_influence_20C(feature) {
 var ZI_20C = unify(Layer_ZI_20C.getLayers(),'blue')
 Layer_ZI_20C.clearLayers();
 ZI_20C.addTo(Layer_ZI_20C);
-console.log(ZI_20C);
-// map_3.removeLayer(Layer_ZI_20C);
-	 
-console.log(Layer_ZI_20C);
-console.log(layer_cercles_CS);
+
 	 
     PS.forEach(
     function(element) {
@@ -405,14 +401,29 @@ points_turf.push(lnglat);
 }
 )
 
+
+// identification des points dans zone 20eme Chaise
+var inside_20C = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ ZI_20C.toGeoJSON()
+  );
+  
+for (let i=0 ; i < inside_20C.features.length; i++)
+{
+var coords = [];
+coords[0] = inside_20C.features[i].geometry.coordinates[1];
+coords[1] = inside_20C.features[i].geometry.coordinates[0];	
+L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
+};
+
+// identification des points hors zone 20eme Chaise dans zone influence autres CS
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
  circleUnion.toGeoJSON()
   );
   
-
-
 for (let i=0 ; i < inside.features.length; i++)
 {
 var coords = [];
