@@ -216,11 +216,11 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     var bornes = [0,5,10,15,30,10000];
     var key = 'duree_pieds';
 
-    filtrage_num(data,key);
+    filtrage_num(tableau_sortie,key);
 
     decoupe(filtre_num,'duree_pieds', bornes);
     
-    tableau_sortie.forEach(function(element){
+    tableau_filtre.forEach(function(element){
     element.map( adresse => {
     let properties = {
    "lng": adresse.lng,
@@ -231,7 +231,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     });
     
 	 
-    var PS = tableau_sortie;
+    var PS = tableau_filtre;
    
     //var Res_Max = Math.max.apply(null,data.map(function(o){return o.duree_pied;}));
     //var Res_Min = Math.min.apply(null,data.map(function(o){return o.duree_pied;}));
@@ -299,7 +299,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
   <script>
  function exemple3() {
     var map_3 = L.map('map_3').setView([48.864891,2.389828], 15);
-    var tableau_sortie = data;
+    // var tableau_sortie = data;
   
     tableau_sortie.map( adresse => {
     let properties = {
