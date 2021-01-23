@@ -438,9 +438,11 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
  ).addTo(map_3);
 
 
- document.getElementById("comment_3").innerHTML = inside.features.length +
+ document.getElementById("comment_3").innerHTML = inside_20C.features.length +
+	 ' sont dans la zone d\'influence de la 20ème Chaise.' + '<br/>' +
+	 inside.features.length +
 	 ' sont dans une zone d\'influence d\'un autre centre social.' + '<br/>' +
-	 (layer_adresses.getLayers().length -inside.features.length) + ' n\'y sont pas.'
+	 (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) + ' sont hors zones d.'
    
   
     // var markers_adresses_CS = {'markers': layer_adresses_CS};
