@@ -66,6 +66,9 @@
 console.log(tableau_sortie_int.length);
 	  
 var tableau_sortie = tableau_sortie_int;
+var tableau_sortie = tableau_sortie_int.filter(function(element) {
+    return (element.asl == 1) || (element.asl == 0);
+});
 console.log(tableau_sortie.length);
 	  
  function exemple1() {
@@ -451,8 +454,8 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
     window.onload = function()
     {
         exemple1();
-	// exemple2();
-	// exemple3();
+	exemple2();
+	exemple3();
     }
     
  </script>
