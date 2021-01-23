@@ -4,7 +4,7 @@ filtre_num = array.filter(function(element) {
 });
 }
 
-var tableau_sortie = [];
+var tableau_filtre = [];
 
 function decoupe(array,key,info_bornes) {
 
