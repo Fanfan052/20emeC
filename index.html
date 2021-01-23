@@ -48,7 +48,16 @@
 	- Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise. <br>
 	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
-		
+
+<script>
+// on gère le filtrage des données en amont de tous les exemples
+var tableau_sortie_int = data;
+	  
+var tableau_sortie = tableau_sortie_int.filter(function(element) {
+    return (element.nb_diff_act >= 2);
+});
+</script>
+
 <!-- Exemple 1 -->
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
 
@@ -60,15 +69,6 @@
 <p>
   <div id="map_1" style="width: 840px; height: 560px"></div>
   <script>
- 
- // on gère le filtrage des données en amont de tous les exemples
-  var tableau_sortie_int = data;
-console.log(tableau_sortie_int.length);
-	  
-var tableau_sortie = tableau_sortie_int.filter(function(element) {
-    return (element.nb_diff_act >= 2);
-});
-console.log(tableau_sortie.length);
 	  
  function exemple1() {
     var map_1 = L.map('map_1').setView([48.864891,2.389828], 15);
