@@ -378,7 +378,7 @@ function unify(polyList,color) {
 
 
     var layer_cercles_CS = L.layerGroup().addTo(map_3);
-    var radius = 750
+    var radius = 1200
     var opts = {parts: 144, fill : 'blue' , fillcolor : 'blue', fillOpacity : 0.9};
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: 'black',weight: 1.5, opacity : 0.7, fill : true, fillColor : 'orange', fillOpacity : 0.5}}).addTo(map_3);
@@ -499,7 +499,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   
     <script>
     window.onload = function()
-    { if (lancer == true)
+    { if (lancer != true)
     {
         exemple1();
 	exemple2();
