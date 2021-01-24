@@ -68,7 +68,9 @@
 </form>
 
 <script>
+var lancer = false ;
 function test() {
+  lancer = true ;
   var m=0;
   for (i=1;i<=2;i++) {
   if (eval("document.forms.filtre.asl"+i+".checked == true")){
@@ -496,10 +498,12 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   
     <script>
     window.onload = function()
+    { if (lancer == true)
     {
         exemple1();
 	exemple2();
 	exemple3();
+    }
     }
     
  </script>
