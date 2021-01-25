@@ -49,6 +49,7 @@
 	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
+<!--
 <form id="filtre">
 <fieldset>
   <legend>Vous pouvez filtrer les données selon les critères suivants :</legend>
@@ -83,6 +84,7 @@ function test() {
   }
 }
 </script>
+-->
 
 <script>
 // on gère le filtrage des données en amont de tous les exemples
@@ -378,7 +380,7 @@ function unify(polyList,color) {
 
 
     var layer_cercles_CS = L.layerGroup().addTo(map_3);
-    var radius = 1200
+    var radius = 750
     var opts = {parts: 144, fill : 'blue' , fillcolor : 'blue', fillOpacity : 0.9};
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: 'black',weight: 1.5, opacity : 0.7, fill : true, fillColor : 'orange', fillOpacity : 0.5}}).addTo(map_3);
