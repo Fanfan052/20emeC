@@ -90,9 +90,9 @@ window.location.reload();
 </script>
 
 <script>
-console.log(btn_click);
+console.log(localStorage.getItem("btn_click"));
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
-if (btn_click == false) {  
+if (JSON.parse(localStorage.getItem("btn_click")) === false) {  
 var tableau_sortie = data.filter(function(element) {
     return (element.asl >= 0);
 });}
