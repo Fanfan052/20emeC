@@ -70,7 +70,6 @@
 
 <script>
 var tableau_sortie = [] ;
-localStorage.setItem("filtre_ASL", false) ;
 	
 function test() {
 localStorage.setItem("btn_click", true) ;
@@ -530,6 +529,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
 	exemple2();
 	exemple3();
         localStorage.setItem("btn_click", false);
+	localStorage.setItem("filtre_ASL", false);
     }
     
  </script>
