@@ -76,8 +76,9 @@ var tableau_sortie = [] ;
 function test() {
 localStorage.setItem("btn_click", true) ;
 window.location.reload();
+console.log(localStorage.getItem("btn_click"));
   if (eval("document.forms.filtre.asl"+1+".checked == true")){
-    
+    console.log(localStorage.getItem("btn_click"));
     alert("Vous avez sélectionné le public ASL");
     tableau_sortie = data.filter(function(element) {
     return element.asl >= 1;})
