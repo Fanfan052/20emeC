@@ -92,7 +92,7 @@ tableau_sortie = data.filter(function(element) {
 	else
 	{
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
-	if (document.getElementsByName('asl2').cj == checked)
+	if (document.getElementsByName('asl2').checked == true)
 		{tableau_sortie = data.filter(function(element) {
     		return (element.asl >= 1);});
 		}
