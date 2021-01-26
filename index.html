@@ -69,12 +69,15 @@
 </form>
 
 <script>
+var btn_click ;
+var tableau_sortie = [] ;
+	
 function test() {
-var btn_click = true ;
+btn_click = true ;
   if (eval("document.forms.filtre.asl"+1+".checked == true")){
     
     alert("Vous avez sélectionné le public ASL");
-    var tableau_sortie = data.filter(function(element) {
+    tableau_sortie = data.filter(function(element) {
     return (element.asl >= 1);
       exemple1();
       exemple2();
@@ -87,11 +90,12 @@ var btn_click = true ;
 </script>
 
 <script>
-// on gère le filtrage des données en amont de tous les exemples
-	  
+// on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
+if (btn_click == false) {  
 var tableau_sortie = data.filter(function(element) {
     return (element.asl >= 0);
-});
+});}
+	
 </script>
 
 <!-- Exemple 1 -->
