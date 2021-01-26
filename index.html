@@ -517,13 +517,12 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   
     <script>
   window.onload = function()
-    { console.log(localStorage.getItem("btn_click"));
+    {
     	chargement_donnees();
         exemple1();
 	exemple2();
 	exemple3();
-     localStorage.setItem("btn_click", false);
-     console.log(localStorage.getItem("btn_click"));
+        localStorage.setItem("btn_click", false);
     }
     
  </script>
