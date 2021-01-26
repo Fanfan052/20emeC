@@ -69,11 +69,11 @@
 </form>
 
 <script>
-var btn_click ;
 var tableau_sortie = [] ;
 	
 function test() {
 localStorage.setItem("btn_click", true) ;
+localStorage.setItem("filtre_ASL", document.getElementsByName('asl2').checked) ;
 window.location.reload();
 console.log(localStorage.getItem("btn_click"));
 };
@@ -92,7 +92,7 @@ tableau_sortie = data.filter(function(element) {
 	else
 	{
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
-	if (document.getElementsByName('asl2').checked == true)
+	if ( localStorage.getItem("filtre_ASL") == true)
 		{tableau_sortie = data.filter(function(element) {
     		return (element.asl >= 1);});
 		}
