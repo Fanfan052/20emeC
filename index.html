@@ -88,9 +88,8 @@ function test() {
 
 <script>
 // on gère le filtrage des données en amont de tous les exemples
-var tableau_sortie_int = data;
 	  
-var tableau_sortie = tableau_sortie_int.filter(function(element) {
+var tableau_sortie = data.filter(function(element) {
     return (element.asl >= 0);
 });
 </script>
