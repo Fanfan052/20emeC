@@ -93,7 +93,7 @@ tableau_sortie = data.filter(function(element) {
 	else
 	{
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
-	if ( localStorage.getItem("filtre_ASL") == true)
+	if (JSON.parse(localStorage.getItem("filtre_ASL")) === true)
 		{tableau_sortie = data.filter(function(element) {
     		return (element.asl >= 1);});
 		}
