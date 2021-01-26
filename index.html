@@ -74,12 +74,8 @@ localStorage.setItem("filtre_ASL", false) ;
 	
 function test() {
 localStorage.setItem("btn_click", true) ;
-console.log(document.getElementById('asl2').checked);
-localStorage.setItem("filtre_ASL", document.getElementsByName('asl2').checked) ;
-console.log(localStorage.getItem("filtre_ASL"));
-window.location.reload();
-console.log(localStorage.getItem("btn_click"));
-console.log(localStorage.getItem("filtre_ASL"));
+localStorage.setItem("filtre_ASL", document.getElementById('asl2').checked) ;
+window.location.reload()
 };
      
 </script>
