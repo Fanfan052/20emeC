@@ -509,7 +509,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   
     <script>
   window.onload = function()
-    { if (btn_click != true)
+    { if ((JSON.parse(localStorage.getItem("btn_click")) === false))
     {
         exemple1();
 	exemple2();
