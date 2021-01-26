@@ -70,33 +70,32 @@
 
 <script>
 var btn_click ;
-// localStorage.setItem("btn_click", false);
 var tableau_sortie = [] ;
 	
 function test() {
 localStorage.setItem("btn_click", true) ;
 window.location.reload();
 console.log(localStorage.getItem("btn_click"));
-  if (eval("document.forms.filtre.asl"+1+".checked == true")){
-    console.log(localStorage.getItem("btn_click"));
-    alert("Vous avez sélectionné le public ASL");
-    tableau_sortie = data.filter(function(element) {
-    return element.asl >= 1;})
-      exemple1();
-      exemple2();
-      exemple3();
-  }
 };
      
 </script>
 
 <script>
+function chargement_donnees()
+{
 console.log(localStorage.getItem("btn_click"));
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
-if (JSON.parse(localStorage.getItem("btn_click")) === false) {  
+if (JSON.parse(localStorage.getItem("btn_click")) === false)
+	{  
 var tableau_sortie = data.filter(function(element) {
-    return (element.asl >= 0);
-});}
+    return (element.asl >= 0);});
+	}
+	else
+	{  
+var tableau_sortie = data.filter(function(element) {
+    return (element.asl >= 1);});
+	}
+}
 	
 </script>
 
@@ -511,12 +510,10 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
     <script>
   window.onload = function()
     { console.log(localStorage.getItem("btn_click"));
-	  if ((JSON.parse(localStorage.getItem("btn_click")) === false))
-    {
+    	chargement_donnees();
         exemple1();
 	exemple2();
 	exemple3();
-    }
     }
     
  </script>
