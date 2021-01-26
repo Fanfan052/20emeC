@@ -83,7 +83,6 @@ console.log(localStorage.getItem("btn_click"));
 <script>
 function chargement_donnees()
 {
-console.log(localStorage.getItem("btn_click"));
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
@@ -91,9 +90,16 @@ tableau_sortie = data.filter(function(element) {
     return (element.asl >= 0);});
 	}
 	else
-	{  
-tableau_sortie = data.filter(function(element) {
-    return (element.asl >= 1);});
+	{
+// on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
+	if (document.getElementsByName('asl2').cj == checked)
+		{tableau_sortie = data.filter(function(element) {
+    		return (element.asl >= 1);});
+		}
+		else
+		{tableau_sortie = data.filter(function(element) {
+    		return (element.asl >= 0);});
+		}
 	}
 }
 	
