@@ -108,9 +108,11 @@ cases.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
     if (checkbox.checked === true)
 	    
-    {console.log('oui '+ this.getAttribute("num_cb"))  ;}
+    {for (i=0 ; i < document.getElementsByClassName('radio_'+(this.getAttribute("num_cb") - 1).length ; i++)
+{document.getElementsByClassName('radio_'+(this.getAttribute("num_cb") - 1)[i].style = "display : inline" ;}   ;}
     else
-    {console.log('non ' + this.getAttribute("num_cb")) ;}	    
+    {for (i=0 ; i < document.getElementsByClassName('radio_'+(this.getAttribute("num_cb") - 1).length ; i++)
+{document.getElementsByClassName('radio_'+(this.getAttribute("num_cb") - 1)[i].style = "display : none" ;}  ;}	    
   })
 });
 
