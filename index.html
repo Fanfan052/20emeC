@@ -94,7 +94,13 @@
 
 <script>
 var cases = document.querySelectorAll('input[name="type_filtre"]');
-console.log(cases.length);
+cases.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});
 </script>
 
 <script>
