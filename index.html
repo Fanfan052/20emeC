@@ -106,11 +106,10 @@ var valeurs_check_boxes = [] ;
 var cases = document.querySelectorAll('input[name="type_filtre"]');
 cases.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
-    valeurs_check_boxes = 
-      Array.from(cases) // Convert checkboxes to an array to use filter and map.
-      // .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
-      .map(i => i.checked); // Use Array.map to extract only the checkbox values from the array of objects.
-   
+    if (checkbox.checked === true)
+    {console.log('oui') ;}
+    else
+    {console.log('non') ;}	    
   })
 });
 
