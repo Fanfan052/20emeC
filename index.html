@@ -110,16 +110,17 @@ cases.forEach(function(checkbox) {
       Array.from(cases) // Convert checkboxes to an array to use filter and map.
       // .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map(i => i.checked); // Use Array.map to extract only the checkbox values from the array of objects.
-	 console.log(valeurs_check_boxes.length) ; 
     valeurs_check_boxes.forEach(function(element)
-{console.log('hello') ;
+{
 if (element === true)
 	{for (let i=0 ; i < document.getElementsByClassName('radio_' + element.index).length ; i++)
-		{document.getElementsByClassName('radio' + element.index)[i].style = "display : inline" ;} ;
+		{console.log(document.getElementsByClassName('radio' + element.index)[i].style) ;
+		document.getElementsByClassName('radio' + element.index)[i].style = "display : inline" ;} ;
 	}
 	else
 	{for (let i=0 ; i < document.getElementsByClassName('radio' + element.index).length ; i++)
-		{document.getElementsByClassName('radio' + element.index)[i].style = "display : none" ;} ;
+		{console.log(document.getElementsByClassName('radio' + element.index)[i].style) ;
+		document.getElementsByClassName('radio' + element.index)[i].style = "display : none" ;} ;
 	}
 
 })
