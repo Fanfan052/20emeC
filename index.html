@@ -108,9 +108,9 @@ cases.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
     if (checkbox.checked === true)
 	    
-    {console.log('oui '+ this.class)  ;}
+    {console.log('oui '+ this.getAttribute("num_cb"))  ;}
     else
-    {console.log('non ' + this.class) ;}	    
+    {console.log('non ' + this.getAttribute("num_cb")) ;}	    
   })
 });
 
