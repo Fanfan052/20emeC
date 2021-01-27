@@ -110,9 +110,21 @@ cases.forEach(function(checkbox) {
       Array.from(cases) // Convert checkboxes to an array to use filter and map.
       // .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map(i => i.checked) // Use Array.map to extract only the checkbox values from the array of objects.
-    console.log(valeurs_check_boxes)
   })
 });
+
+valeurs_check_boxes.forEach(function(element))
+{
+if (element == true) then
+	{for (let i=0 ; i < document.getElementsByClassName('radio_0').length ; i++)
+		{document.getElementsByClassName('radio_0')[i].style = "display : inline" ;} ;
+	}
+	else
+	{for (let i=0 ; i < document.getElementsByClassName('radio_0').length ; i++)
+		{document.getElementsByClassName('radio_0')[i].style = "display : none" ;} ;
+	}
+
+}
 </script>
 
 <script>
