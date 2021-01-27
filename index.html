@@ -59,7 +59,7 @@
 <input type="checkbox" num_cb="1" id ="filtre_ASL" name="type_filtre"/>
 <label for="filtre_ASL">ASL</label>
 </div>
-<div class="radio_0" style="display: none;">
+<div class="radio_1" style="display: none;">
 <input type="radio" id ="asl1" name="asl"/ checked>
 <label for="asl1">pas de filtre ASL</label>
 <input type="radio" id ="asl2" name="asl"/>
@@ -69,7 +69,7 @@
 <input type="checkbox" num_cb="2" id ="filtre_benevole" name="type_filtre"/>
 <label for="filtre_benevole">Bénévoles</label>
 </div>
-<div class="radio_1" style="display: none;">
+<div class="radio_2" style="display: none;">
 <input type="radio" id ="bene1" name="bene"/ checked>
 <label for="asl1">pas de filtre bénévole</label>
 <input type="radio" id ="bene2" name="bene"/>
@@ -79,7 +79,7 @@
 <input type="checkbox" num_cb="3" id ="filtre_type_act" name="type_filtre"/>
 <label for="filtre_type_act">Types d'activités auxquelles le public s'est inscrit</label>
 </div>
-<div class="radio_2" style="display: none;">
+<div class="radio_3" style="display: none;">
 <input type="radio" id ="type_act_1" name="type_act"/ checked>
 <label for="type_act_1">pas de filtre</label>
 <input type="radio" id ="type_act_2" name="type_act"/>
@@ -88,7 +88,7 @@
 <input type="checkbox" num_cb="4" id ="filtre_nb_act" name="type_filtre"/>
 <label for="filtre_nb_act">Nombre d'activités auxquelles le public s'est inscrit</label>
 </div>
-<div class="radio_3" style="display: none;">
+<div class="radio_4" style="display: none;">
 <input type="radio" id ="nb_act_1" name="nb_act"/ checked>
 <label for="nb_act_1">pas de filtre</label>
 <input type="radio" id ="nb_act_2" name="nb_act"/>
@@ -106,9 +106,10 @@ var valeurs_check_boxes = [] ;
 var cases = document.querySelectorAll('input[name="type_filtre"]');
 cases.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
-    if (checkbox.checked === true)
-	    
-    {}
+    if (checkbox.checked === true)    
+    {for (i=0 ; i < document.getElementsByClassName('radio_'+ this.getAttribute("num_cb")).length ; i++)
+	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : inline" ;} ;
+    }
     else
     {}	    
   })
@@ -118,8 +119,8 @@ cases.forEach(function(checkbox) {
 </script>
 
 <script>
-for (i=0 ; i < document.getElementsByClassName('radio_0').length ; i++)
-{document.getElementsByClassName('radio_0')[i].style = "display : inline" ;} ;
+for (i=0 ; i < document.getElementsByClassName('radio_1').length ; i++)
+{document.getElementsByClassName('radio_1')[i].style = "display : inline" ;} ;
 </script>
 	      
 <script>
