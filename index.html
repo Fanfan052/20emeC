@@ -59,11 +59,11 @@
 <input type="checkbox" id ="filtre_ASL" name="type_filtre"/>
 <label for="filtre_ASL">ASL</label>
 </div>
-<div style="display: none;">
+<div class="radio_asl" style="display: none;">
 <input type="radio" id ="asl1" name="asl" value="asl1"/ checked>
 <label for="asl1">pas de filtre ASL</label>
 </div>
-<div style="display: none;">
+<div class="radio_asl" style="display: none;">
 <input type="radio" id ="asl2" name="asl" value="asl2"/>
 <label for="asl2">inscrits uniquement aux ASL</label>
 </div>
@@ -71,11 +71,11 @@
 <input type="checkbox" id ="filtre_benevole" name="type_filtre"/>
 <label for="filtre_benevole">Bénévoles</label>
 </div>
-<div style="display: none;">
+<div class="radio_bene" style="display: none;">
 <input type="radio" id ="bene1" name="bene" value="bene1"/ checked>
 <label for="asl1">pas de filtre bénévole</label>
 </div>
-<div style="display: none;">
+<div class="radio_bene" style="display: none;">
 <input type="radio" id ="bene2" name="bene" value="bene2"/>
 <label for="asl2">bénévole sur au moins un type d'activité</label>
 </div>
@@ -95,12 +95,7 @@
 <input type="button" id = "bouton_filtre_asl" name="bout" value="Générer l'analyse" onClick="test()"
        style="height:50px; width:50%; margin-left:25%; margin-right:25%;margin-top: 0.5cm;margin-bottom: 0.5cm; background-color:#B0C4DE" />
 </div>
-
-<script>
-for (let i=0 ; i < document.getElementsByName('asl').length ; i++)
-{document.getElementsByName('asl')[i].style.display = "none" ;
- document.getElementsByName('asl')[i].label.style.display = "none" ;};
-</script>      
+    
 	   
 <script>
 /*
