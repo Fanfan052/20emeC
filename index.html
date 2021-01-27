@@ -111,7 +111,7 @@ cases.forEach(function(checkbox) {
       // .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map(i => i.checked); // Use Array.map to extract only the checkbox values from the array of objects.
     valeurs_check_boxes.forEach(function(element)
-{
+{console.log(document.getElementsByClassName('radio_' + element.index)[0].style) ;
 if (element === true)
 	{for (let i=0 ; i < document.getElementsByClassName('radio_' + element.index).length ; i++)
 		{console.log(document.getElementsByClassName('radio_' + element.index)[i].style) ;
