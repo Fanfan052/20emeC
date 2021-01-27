@@ -73,7 +73,8 @@
 var tableau_sortie = [] ;
 	
 function test() {
-document.getElementById('bouton_filtre_asl').value = "Génération de l'analyse en cours" ;
+document.getElementById('bouton_filtre_asl').value = "Génération de l'analyse en cours..." ;
+document.getElementById('bouton_filtre_asl').style.backgroundColor = "#FF8C00" ;
 localStorage.setItem("btn_click", true) ;
 if (document.getElementById('asl2').checked)
 {
