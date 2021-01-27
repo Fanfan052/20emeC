@@ -107,9 +107,9 @@ var cases = document.querySelectorAll('input[name="type_filtre"]');
 cases.forEach(function(checkbox) {
   checkbox.addEventListener('change', function() {
     if (checkbox.checked === true)
-    {console.log('oui' + checkbox.index) ;}
+    {console.log('oui' + cases.index) ;}
     else
-    {console.log('non' + checkbox.index) ;}	    
+    {console.log('non' + cases.index) ;}	    
   })
 });
 
