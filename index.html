@@ -114,13 +114,13 @@ cases.forEach(function(checkbox) {
 {
 if (element === true)
 	{for (let i=0 ; i < document.getElementsByClassName('radio_' + element.index).length ; i++)
-		{console.log(document.getElementsByClassName('radio' + element.index)[i].style) ;
-		document.getElementsByClassName('radio' + element.index)[i].style = "display : inline" ;} ;
+		{console.log(document.getElementsByClassName('radio_' + element.index)[i].style) ;
+		document.getElementsByClassName('radio_' + element.index)[i].style = "display : inline" ;} ;
 	}
 	else
-	{for (let i=0 ; i < document.getElementsByClassName('radio' + element.index).length ; i++)
-		{console.log(document.getElementsByClassName('radio' + element.index)[i].style) ;
-		document.getElementsByClassName('radio' + element.index)[i].style = "display : none" ;} ;
+	{for (let i=0 ; i < document.getElementsByClassName('radio_' + element.index).length ; i++)
+		{console.log(document.getElementsByClassName('radio_' + element.index)[i].style) ;
+		document.getElementsByClassName('radio_' + element.index)[i].style = "display : none" ;} ;
 	}
 
 })
