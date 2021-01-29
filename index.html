@@ -81,11 +81,15 @@ const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','cult
 <label for="filtre_type_act">Types d'activités auxquelles le public s'est inscrit</label><br>
 </div>
 <div class="radio_3" style="display: none;">
+<script>
 type_act.forEach(function(element,index)
 {
-<input type="checkbox" id ="type_act_" + index name="type_act_" + index/>
-<label for="type_act_" + index>type_act[index]</label>
+var id_checkox = document.createElement("id");
+id_checkbox.innerHTML += '<input type="checkbox" id ="type_act_" + index name="type_act_" + index/>' ;
+id_checkbox.innerHTML += '<label for="type_act_" + index>type_act[index]</label>' ;
+document.getElementsByClassName('radio_3').appendChild(id_checkbox);
 }) ;
+</script>
 </div>
 <div>
 <input type="checkbox" num_cb="4" id ="filtre_nb_act" name="type_filtre"/>
