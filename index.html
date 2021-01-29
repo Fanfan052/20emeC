@@ -51,7 +51,7 @@
 	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
-
+const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','culture','paniers_bio','asl','paniers_bio','reveillon','autres'] ;
 
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
@@ -81,10 +81,11 @@
 <label for="filtre_type_act">Types d'activités auxquelles le public s'est inscrit</label><br>
 </div>
 <div class="radio_3" style="display: none;">
-<input type="radio" id ="type_act_1" name="type_act"/ checked>
-<label for="type_act_1">pas de filtre</label>
-<input type="radio" id ="type_act_2" name="type_act"/>
-<label for="type_act_2">filtre</label>
+type_act.forEach(function(element,index)
+{
+<input type="checkbox" id ="type_act_" + index name="type_act_" + index/>
+<label for="type_act_" + index>type_act[index]</label>
+}) ;
 </div>
 <div>
 <input type="checkbox" num_cb="4" id ="filtre_nb_act" name="type_filtre"/>
@@ -142,47 +143,6 @@ noUiSlider.create(slider, {
     }
 });
 console.log(slider) ;
-</script>
-	
-<script>
-/*
-    var range = document.getElementById('type_act');
-
-    noUiSlider.create(range, {
-        start: [ 20, 80 ], // Handle start position
-        step: 10, // Slider moves in increments of '10'
-        margin: 20, // Handles must be more than '20' apart
-        connect: true, // Display a colored bar between the handles
-        direction: 'rtl', // Put '0' at the bottom of the slider
-        orientation: 'vertical', // Orient the slider vertically
-        behaviour: 'tap-drag', // Move handle on tap, bar is draggable
-        range: { // Slider can select '0' to '100'
-            'min': 0,
-            'max': 100
-        },
-        pips: { // Show a scale with the slider
-            mode: 'steps',
-            density: 2
-        }
-    });
-
-    var valueInput = document.getElementById('value-input'),
-            valueSpan = document.getElementById('value-span');
-
-    // When the slider value changes, update the input and span
-    range.noUiSlider.on('update', function( values, handle ) {
-        if ( handle ) {
-            valueInput.value = values[handle];
-        } else {
-            valueSpan.innerHTML = values[handle];
-        }
-    });
-
-    // When the input changes, set the slider value
-    valueInput.addEventListener('change', function(){
-        range.noUiSlider.set([null, this.value]);
-    });
-*/
 </script>
 
 <script>
