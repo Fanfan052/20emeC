@@ -51,8 +51,6 @@
 	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
-const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','culture','paniers_bio','asl','paniers_bio','reveillon','autres'] ;
-
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
   <legend>Vous pouvez filtrer les données selon les critères suivants (cocher les cases pour fixer les critères) :</legend>
@@ -82,6 +80,7 @@ const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','cult
 </div>
 <div class="radio_3" style="display: none;">
 <script>
+const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','culture','paniers_bio','asl','paniers_bio','reveillon','autres'] ;
 type_act.forEach(function(element,index)
 {
 var id_checkox = document.createElement("id");
