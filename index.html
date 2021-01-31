@@ -83,10 +83,10 @@
 const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','culture','paniers_bio','asl','paniers_bio','reveillon','autres'] ;
 type_act.forEach(function(element,index)
 {
-var id_checkbox = document.createElement("id");
+var id_checkbox = document.createElement('div');
 id_checkbox.innerHTML += '<input type="checkbox" id ="type_act_" + index name="type_act_" + index/>' ;
 id_checkbox.innerHTML += '<label for="type_act_" + index>type_act[index]</label>' ;
-id_checkbox.className = 'radio_3' ;
+id_checkbox.classList.add('radio_3') ;
 }) ;
 </script>
 </div>
