@@ -87,10 +87,11 @@ var checkbox = document.createElement('input');
 checkbox.type = "checkbox"; 
 checkbox.id = "type_act_"+index ;
 var label = document.createElement('label'); 
-label.htmlFor = "type_act_"+index ;              
+label.htmlFor = "type_act_"+index ; 
+console.log(document.getElementsByClassName('radio_3').length) ;
 // label.appendChild(document.createTextNode('This is the label for checkbox.')); 
- document.getElementsByClassName('radio_3').appendChild(checkbox); 
- document.getElementsByClassName('radio_3').appendChild(label); 
+// document.getElementsByClassName('radio_3').appendChild(checkbox); 
+// document.getElementsByClassName('radio_3').appendChild(label); 
 }) ;
 </script>
 </div>
