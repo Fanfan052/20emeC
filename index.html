@@ -178,10 +178,7 @@ cases.forEach(function(checkbox) {
 <script>
 
 var diff_nb_act = data.map( element => {
-    let properties = {
-   "nb_tot_act": element.nb_tot_act
-    };
-    return properties;
+    element.nb_tot_act
     });
 var unique = diff_nb_act.filter(function(value, index, self) {
   return self.indexOf(value) === index;
