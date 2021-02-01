@@ -173,11 +173,18 @@ cases.forEach(function(checkbox) {
 
 
 </script>
-		
+
+// script qui recherche le nombre minimum et maximum d'activité puis crée le slider
 <script>
 
-var slider = document.getElementById('slider');
+var a = ['a', 1, 'a', 2, '1'];
+var unique = a.filter(function(value, index, self) {
+  return self.indexOf(value) === index;
+});
+console.log(unique) ;
 
+
+var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
     start: [20, 80],
     step: 1,
