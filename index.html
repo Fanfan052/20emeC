@@ -79,7 +79,7 @@
 <label for="filtre_type_act">Types d'activités auxquelles le public s'est inscrit</label><br>
 </div>
 <div class="radio_3" style="display: none;">
-<p> choix des activités </p>
+<p><b>choix des activités</b></p>
 <script>
 const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cartes_blanches','culture','sport','asl','paniers_bio','reveillon','autres'] ;
 type_act.forEach(function(element,index)
@@ -94,8 +94,8 @@ document.getElementsByClassName('radio_3')[0].appendChild(checkbox);
 document.getElementsByClassName('radio_3')[0].appendChild(label); 
 }) ;
 </script>
-<p> inscriptions à l'ensemble des activités sélectionnées ou au moins à une des activités </p>
-<p> inscriptions uniquement aux activités sélectionnées ou au moins aux activités sélectionnées </p>
+<p><b>inscriptions à au moins une des activités sélectionnées OU à l'ensemble des activités sélectionnées</b></p>
+<p><b>inscriptions au moins aux activités sélectionnées OU uniquement aux activités sélectionnées</b></p>
 </div>
 <div>
 <input type="checkbox" num_cb="4" id ="filtre_nb_act" name="type_filtre"/>
