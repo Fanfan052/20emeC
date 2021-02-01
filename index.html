@@ -151,10 +151,10 @@ noUiSlider.create(slider, {
     start: [20, 80],
     step: 1,
     connect: true,
-    tooltips: [format: {
+    tooltips: [{
         to: (v) => parseFloat(v).toFixed(0),
         from: (v) => parseFloat(v).toFixed(0)
-    },format: {
+    }, {
         to: (v) => parseFloat(v).toFixed(0),
         from: (v) => parseFloat(v).toFixed(0)
     }]
