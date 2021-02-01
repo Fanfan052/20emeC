@@ -177,8 +177,8 @@ cases.forEach(function(checkbox) {
 // script qui recherche le nombre minimum et maximum d'activité puis crée le slider
 <script>
 
-var diff_nb_act = data.map( element => {
-    element.nb_tot_act
+var diff_nb_act = data.map(function(element) {
+    return element.nb_tot_act ;
     });
 var unique = diff_nb_act.filter(function(value, index, self) {
   return self.indexOf(value) === index;
