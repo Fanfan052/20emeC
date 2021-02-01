@@ -195,7 +195,7 @@ for (i = 0; i < unique.length; ++i) {
   else if ( i < unique.length-1 ) { rangers[pourcent +'%'] = [ unique[i],  unique[i+1] - unique[i] ] ;}
   else if ( i == unique.length-1 ) { rangers['max'] = [unique[unique.length-1]]; }
 }
-
+console.log(rangers) ;
 var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
     start: [unique[0], unique[unique.length-1]],
