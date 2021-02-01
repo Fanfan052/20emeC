@@ -188,11 +188,16 @@ unique.sort(function(a, b) {
   return a - b;}) ;
 console.log(unique) ;
 
+var rangers = {}
+for (i = 0; i < unique.length; ++i) {
+  var pourcent = Math.ceil((100/unique.length) * i)
+  if ( i < unique.length-1 ) { rangers[pourcent +'%'] = [ unique[i],  unique[i+1] - unique[i] ] }
+  if ( i == unique.length-1 ) { rangers['max'] = [unique[unique.length-1]]; }
+}
 
 var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
-    start: [20, 80],
-    step: 1,
+    start: [unique[0], unique[unique.length-1]],
     connect: true,
     tooltips: [{
         to: (v) => parseFloat(v).toFixed(0),
@@ -201,10 +206,7 @@ noUiSlider.create(slider, {
         to: (v) => parseFloat(v).toFixed(0),
         from: (v) => parseFloat(v).toFixed(0)
     }],
-    range: {
-        'min': 0,
-        'max': 100
-    }
+    range: rangers
 });
 console.log(slider) ;
 </script>
