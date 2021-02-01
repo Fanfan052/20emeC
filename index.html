@@ -80,14 +80,14 @@
 </div>
 <div class="radio_3" style="display: none;">
 <script>
-const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cb','culture','paniers_bio','asl','paniers_bio','reveillon','autres'] ;
+const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cartes_blanches','culture','sport','asl','paniers_bio','reveillon','autres'] ;
 type_act.forEach(function(element,index)
 {
 var checkbox = document.createElement('input');
 checkbox.type = "checkbox"; 
-checkbox.id = "type_act_"+index ;
+checkbox.id = "type_act_"+ (index+1) ;
 var label = document.createElement('label'); 
-label.htmlFor = "type_act_"+index ; 
+label.htmlFor = "type_act_"+ (index+1) ; 
 label.appendChild(document.createTextNode(element)); 
 document.getElementsByClassName('radio_3')[0].appendChild(checkbox); 
 document.getElementsByClassName('radio_3')[0].appendChild(label); 
@@ -117,7 +117,7 @@ document.getElementsByClassName('radio_3')[0].appendChild(label);
 
 
 
-
+// on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre
 <script>
 var cases = document.querySelectorAll('input[name="type_filtre"]');
 cases.forEach(function(checkbox) {
@@ -128,7 +128,14 @@ cases.forEach(function(checkbox) {
     }
     else
     {for (i=0 ; i < document.getElementsByClassName('radio_'+ this.getAttribute("num_cb")).length ; i++)
-	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : none" ;} ;
+	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : none" ;
+	// on remet les choix de filtre à zéro si on désélectionne un filtre
+	 switch(i) {
+	            
+		
+		   }
+		 
+	} ;
     }	    
   })
 });
@@ -142,6 +149,7 @@ var slider = document.getElementById('slider');
 
 noUiSlider.create(slider, {
     start: [20, 80],
+    step: 1,
     connect: true,
     tooltips: [true, true],
     range: {
