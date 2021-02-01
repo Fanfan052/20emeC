@@ -174,12 +174,13 @@ cases.forEach(function(checkbox) {
 
 </script>
 
-// script qui recherche le nombre minimum et maximum d'activité puis crée le slider
+<!-- script qui recherche le nombre minimum et maximum d'activité puis crée le slider -->
 <script>
 
 var diff_nb_act = data.map(function(element) {
     return element.nb_tot_act ;
     });
+console.log(diff_nb_act) ;
 var unique = diff_nb_act.filter(function(value, index, self) {
   return self.indexOf(value) === index;
 });
