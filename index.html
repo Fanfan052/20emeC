@@ -241,6 +241,7 @@ if (document.getElementById('choix_aumoins').checked)
 	{
 	val_autres_act = '== 0' ;
 	}
+// on traite le filtre tout d'abord avec les activités non sélectionnées pour avoir les bons opérateurs logiques
 for (let i=0 ; i < type_act.length ; i++)
 {
 if (document.getElementById('type_act_' + (i+1)).checked)
@@ -253,14 +254,18 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 		string_filtre += lien_act_select + 'element.' + type_act[i] + ' >0 ' ;
 		}			
 	}
-else
+}
+string_filtre = '(' + string_filtre + ')' ;
+// on traite ensuite les activités non sélectionnées
+for (let i=0 ; i < type_act.length ; i++)
+{
+if (!document.getElementById('type_act_' + (i+1)).checked)
 	{
 	if (val_autres_act == '== 0')
 		{
 		string_filtre += ' && ' + 'element.' + type_act[i] + ' ==0 ' ;
 		}
 	}
-}
 localStorage.setItem("filtre_final", string_filtre ) ;
 
 if (document.getElementById('asl2').checked)
