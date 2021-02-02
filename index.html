@@ -276,8 +276,7 @@ window.location.reload();
 var tableau_test = [] ;
 	
 function chargement_donnees()
-{
-console.log(eval(localStorage.getItem("filtre_final"))) ;   
+{ 
 tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
 	
