@@ -243,7 +243,7 @@ if (document.getElementById('choix_au_moins').checked)
 	}
 for (let i=0 ; i < type_act.length ; i++)
 {
-if (document.getElementById('type_act_' + i).checked)
+if (document.getElementById('type_act_' + (i+1).checked)
 	{
 	string_filtre += string_filtre + type_act[i] + ' >0 ' + lien_act_select ;
 	}
