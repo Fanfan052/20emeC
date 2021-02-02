@@ -142,7 +142,7 @@ document.getElementsByClassName('radio_3')[0].appendChild(label);
 </fieldset>
 
 <div>	
-<input type="button" id = "bouton_envoi" name="bout" value="Générer l'analyse" onClick="test()"
+<input type="button" id = "bouton_envoi" name="bout" value="Générer l'analyse" onClick="envoi_analyse()"
        style="height:50px; width:50%; margin-left:25%; margin-right:25%;margin-top: 0.5cm;margin-bottom: 0.5cm; background-color:#B0C4DE" />
 </div>
 
@@ -215,7 +215,7 @@ console.log(slider) ;
 <script>
 var tableau_sortie = [] ;
 	
-function test() {
+function envoi_analyse() {
 document.getElementById('bouton_envoi').value = "Génération de l'analyse en cours..." ;
 document.getElementById('bouton_envoi').style.backgroundColor = "#FF8C00" ;
 localStorage.setItem("btn_click", true) ;
