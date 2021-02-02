@@ -244,10 +244,22 @@ if (document.getElementById('choix_aumoins').checked)
 for (let i=0 ; i < type_act.length ; i++)
 {
 if (document.getElementById('type_act_' + (i+1)).checked)
-	{
-	string_filtre += type_act[i] + ' >0 ' + lien_act_select ;
+	{if (string_filtre == '')
+		{
+		string_filtre += type_act[i] + ' >0 ' ;
+		}
+	 	else
+		{
+		string_filtre += lien_act_select + type_act[i] + ' >0 ' ;
+		}			
 	}
-
+else
+	{
+	if (val_autres_act == '== 0')
+		{
+		string_filtre += ' && ' type_act[i] + ' ==0 ' ;
+		}
+	}
 }
 localStorage.setItem("filtre_final", string_filtre) ;
 
