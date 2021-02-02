@@ -279,7 +279,7 @@ function chargement_donnees()
 {
 console.log(JSON.parse(localStorage.getItem("filtre_final"))) ;   
 tableau_test = data.filter(function(element) {
-    return (JSON.parse(localStorage.getItem("filtre_final")));});
+    return (JSON.parse(localStorage.getItem("filtre_final")).replace(""";"");});
 	
 console.log(tableau_test) ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
