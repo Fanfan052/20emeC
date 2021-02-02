@@ -273,8 +273,14 @@ window.location.reload();
 </script>
 
 <script>
+var tableau_test = [] ;
+	
 function chargement_donnees()
 {
+tableau_test = data.filter(function(element) {
+    return (filtre_final);});
+	}
+console.log(tableau_test) ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
