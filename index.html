@@ -272,6 +272,7 @@ tableau_sortie = data.filter(function(element) {
 	else
 	{
  console.log(localStorage.getItem("filtre_ASL"));
+console.log(localStorage.getItem("filtre_final"));
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
 	if (JSON.parse(localStorage.getItem("filtre_ASL")) === true)
 		{tableau_sortie = data.filter(function(element) {
@@ -698,7 +699,6 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   window.onload = function()
     {
     	chargement_donnees();
-	localStorage.getItem("filtre_final") ;
         exemple1();
 	exemple2();
 	exemple3();
