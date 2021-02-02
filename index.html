@@ -261,7 +261,7 @@ else
 		}
 	}
 }
-localStorage.setItem("filtre_final", JSON.stringify(string_filtre )) ;
+localStorage.setItem("filtre_final", string_filtre ) ;
 
 if (document.getElementById('asl2').checked)
 {
@@ -277,7 +277,7 @@ var tableau_test = [] ;
 	
 function chargement_donnees()
 {
-console.log(localStorage.getItem("filtre_final")) ;   
+console.log(eval(localStorage.getItem("filtre_final"))) ;   
 tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
 	
