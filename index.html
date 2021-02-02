@@ -277,9 +277,9 @@ var tableau_test = [] ;
 	
 function chargement_donnees()
 {
-console.log(JSON.parse(localStorage.getItem("filtre_final")).replace('"','')) ;   
+console.log(JSON.parse(localStorage.getItem("filtre_final")).replaceAll('"','')) ;   
 tableau_test = data.filter(function(element) {
-    return (JSON.parse(localStorage.getItem("filtre_final")).replace('"',''));});
+    return (JSON.parse(localStorage.getItem("filtre_final")).replaceAll('"',''));});
 	
 console.log(tableau_test) ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
