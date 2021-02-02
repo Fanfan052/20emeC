@@ -227,11 +227,11 @@ var lien_act_select ;
 var val_autres_act ;
 if (document.getElementById('choix_ou').checked)
 	{
-	lien_act_select = '&&' ;
+	lien_act_select = ' || ' ;
 	}
         else
 	{
-	lien_act_select = '||' ;
+	lien_act_select = ' && ' ;
 	}
 if (document.getElementById('choix_aumoins').checked)
 	{
@@ -245,7 +245,7 @@ for (let i=0 ; i < type_act.length ; i++)
 {
 if (document.getElementById('type_act_' + (i+1)).checked)
 	{
-	string_filtre += string_filtre + type_act[i] + ' >0 ' + lien_act_select ;
+	string_filtre += type_act[i] + ' >0 ' + lien_act_select ;
 	}
 
 }
