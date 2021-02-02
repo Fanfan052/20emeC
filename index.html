@@ -214,11 +214,43 @@ console.log(slider) ;
 
 <script>
 var tableau_sortie = [] ;
+var string_filtre ;
+// fonction appelée par le clique du bouton
+// on stocke tous les filtres saisis par l'utilisateur avant de rafraichier la page
 	
 function envoi_analyse() {
 document.getElementById('bouton_envoi').value = "Génération de l'analyse en cours..." ;
 document.getElementById('bouton_envoi').style.backgroundColor = "#FF8C00" ;
 localStorage.setItem("btn_click", true) ;
+// on récupère le et/ou et le au moins/uniquement
+var lien_act_select ;
+var val_autres_act ;
+if (document.getElementById('choix_ou_').checked)
+	{
+	lien_act_select = '&&' ;
+	}
+        else
+	{
+	lien_act_select = '||' ;
+	}
+if (document.getElementById('choix_au_moins').checked)
+	{
+	val_autres_act = '>= 0' ;
+	}
+        else
+	{
+	val_autres_act = '== 0' ;
+	}
+for (let i=0 ; i < type_act.length ; i++)
+{
+if (document.getElementById('type_act_' + i).checked)
+	{
+	string_filtre += string_filtre + type_act[i] + ' >0 ' + lien_act_select ;
+	}
+
+}
+localStorage.setItem("filtre_final", string_filtre) ;
+
 if (document.getElementById('asl2').checked)
 {
 localStorage.setItem("filtre_ASL", true) ;
@@ -666,6 +698,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
   window.onload = function()
     {
     	chargement_donnees();
+	localStorage.getItem("filtre_final") ;
         exemple1();
 	exemple2();
 	exemple3();
