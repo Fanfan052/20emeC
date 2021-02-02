@@ -246,18 +246,18 @@ for (let i=0 ; i < type_act.length ; i++)
 if (document.getElementById('type_act_' + (i+1)).checked)
 	{if (string_filtre == '')
 		{
-		string_filtre += type_act[i] + ' >0 ' ;
+		string_filtre += 'element.' + type_act[i] + ' >0 ' ;
 		}
 	 	else
 		{
-		string_filtre += lien_act_select + type_act[i] + ' >0 ' ;
+		string_filtre += lien_act_select + 'element.' + type_act[i] + ' >0 ' ;
 		}			
 	}
 else
 	{
 	if (val_autres_act == '== 0')
 		{
-		string_filtre += ' && ' + type_act[i] + ' ==0 ' ;
+		string_filtre += ' && ' + 'element.' + type_act[i] + ' ==0 ' ;
 		}
 	}
 }
@@ -283,7 +283,6 @@ tableau_sortie = data.filter(function(element) {
 	}
 	else
 	{
- console.log(localStorage.getItem("filtre_ASL"));
 console.log(localStorage.getItem("filtre_final"));
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
 	if (JSON.parse(localStorage.getItem("filtre_ASL")) === true)
