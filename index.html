@@ -245,7 +245,7 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	}
 }
 // si la chaine de filtre est non vide, on l'entoure de parenthèses pour isoler les éventuels liens logiques OR
-if (!string_filtre == '')
+if (!(string_filtre === ''))
 {string_filtre = '(' + string_filtre + ')' ;}
 
 // on traite ensuite les activités non sélectionnées
