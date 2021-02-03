@@ -246,7 +246,8 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	{if (string_filtre == '')
 		{
 		string_filtre += 'element.' + type_act[i] + ' >0 ' ;
-		string_comment_act += 'inscriptions à : ' + type_act[i];
+		string_comment_act += 'inscriptions' + (val_autres_act === '== 0' ? " uniquement " : " au moins ") + 'à'
+			+ (lien_act_select === ' && ' ? " toutes les activités suivantes : " : " l'une des activités suivantes : ") + type_act[i];
 		}
 	 	else
 		{
