@@ -303,9 +303,10 @@ window.location.reload();
 
 <script>
 var tableau_test = [] ;
-console.log(localStorage.getItem("filtre_final")) ;
-console.log(slider.noUiSlider.get()[0]);
-console.log(slider.noUiSlider.get()[1]);
+var chaine_modif = localStorage.getItem("filtre_final") ;
+chaine_modif = chaine_modif.replace(new RegExp("element.[^(a-z0-9_\.\-)]>0", "g"), ' vu '));
+console.log(chaine_modif) ;
+
 	
 function chargement_donnees()
 {
@@ -314,7 +315,7 @@ tableau_test = data.filter(function(element) {
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
-document.getElementById('resume_requete').innerHTML = localStorage.getItem("filtre_final") ;
+document.getElementById('resume_requete').innerHTML = chaine_modif ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
