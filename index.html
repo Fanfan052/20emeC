@@ -304,8 +304,6 @@ window.location.reload();
 <script>
 var tableau_test = [] ;
 var chaine_modif = localStorage.getItem("filtre_final") ;
-chaine_modif = chaine_modif.replace(new RegExp("element.[^(a-z0-9_\.\-)]>0", "g"), ' vu '));
-console.log(chaine_modif) ;
 
 	
 function chargement_donnees()
