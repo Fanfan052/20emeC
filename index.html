@@ -132,6 +132,12 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
        style="height:50px; width:50%; margin-left:25%; margin-right:25%;margin-top: 0.5cm;margin-bottom: 0.5cm; background-color:#B0C4DE" />
 </div>
 
+// on place un div de commentaire pour informer l'utilisateur de la requête envoyée et le nombre de données
+// le texte du div est rempli une fois la requete connue
+<div id="resume_requete">
+
+</div>
+
 
 
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
@@ -289,13 +295,6 @@ if (document.getElementById('bene_oui').checked)
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
 
-/*
-if (document.getElementById('asl2').checked)
-{
-localStorage.setItem("filtre_ASL", true) ;
-}
-*/
-
 // après toute la récupération, on rafraichit la page
 window.location.reload();
 };
@@ -309,11 +308,13 @@ console.log(slider.noUiSlider.get()[0]);
 console.log(slider.noUiSlider.get()[1]);
 	
 function chargement_donnees()
-{ 
+{
 tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
-	
+// on génère un test sur la longueur du tableau
+// si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
+document.getElementById('resume_requete').innerHTML = localStorage.getItem("filtre_final") ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
