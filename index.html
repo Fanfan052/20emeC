@@ -210,6 +210,7 @@ noUiSlider.create(slider, {
 <script>
 var tableau_sortie = [] ;
 var string_filtre = '';
+var string_comment = '';
 // fonction appelée par le clique du bouton
 // on stocke tous les filtres saisis par l'utilisateur avant de rafraichier la page
 	
@@ -243,10 +244,19 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	{if (string_filtre == '')
 		{
 		string_filtre += 'element.' + type_act[i] + ' >0 ' ;
+		string_comment += 'inscriptions à : ' + type_act[i];
 		}
 	 	else
 		{
 		string_filtre += lien_act_select + 'element.' + type_act[i] + ' >0 ' ;
+		if (lien_act_select = '||')
+			{
+			string_comment += ' ou ' + type_act[i] ;
+			}
+			else
+			{
+			string_comment += ' et ' + type_act[i] ;
+			}	
 		}			
 	}
 }
@@ -294,6 +304,7 @@ if (document.getElementById('bene_oui').checked)
 }
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
+localStorage.setItem("comment_final", string_comment ) ;
 
 // après toute la récupération, on rafraichit la page
 window.location.reload();
@@ -304,7 +315,7 @@ window.location.reload();
 <script>
 var tableau_test = [] ;
 var chaine_modif = localStorage.getItem("filtre_final") ;
-
+console.log(localStorage.getItem("filtre_comment")) ;
 	
 function chargement_donnees()
 {
