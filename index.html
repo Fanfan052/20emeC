@@ -257,7 +257,19 @@ if (!document.getElementById('type_act_' + (i+1)).checked)
 	}
 }
 // on traite maintenant le nombre d'activités
-
+if (string_filtre == '')
+		{
+		string_filtre += 'element.nb_tot_act' + ' >= ' + parseInt(slider.noUiSlider.get()[0]) ;
+		string_filtre += ' && ' ;
+		string_filtre += 'element.nb_tot_act' + ' <= ' + parseInt(slider.noUiSlider.get()[1]) ;	
+		}
+	 	else
+		{
+		string_filtre += ' && ' ;
+		string_filtre += 'element.nb_tot_act' + ' >= ' + parseInt(slider.noUiSlider.get()[0]) ;
+		string_filtre += ' && ' ;
+		string_filtre += 'element.nb_tot_act' + ' <= ' + parseInt(slider.noUiSlider.get()[1]) ;	
+		}
 
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
