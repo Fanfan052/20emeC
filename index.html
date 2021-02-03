@@ -257,8 +257,7 @@ if (!document.getElementById('type_act_' + (i+1)).checked)
 	}
 }
 // on traite maintenant le nombre d'activités
-console.log(slider.noUiSlider.get()[0]);
-console.log(slider.noUiSlider.get()[1]);
+
 
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
@@ -275,6 +274,9 @@ window.location.reload();
 <script>
 var tableau_test = [] ;
 console.log(localStorage.getItem("filtre_final")) ;
+console.log(slider.noUiSlider.get()[0]);
+console.log(slider.noUiSlider.get()[1]);
+	
 function chargement_donnees()
 { 
 tableau_test = data.filter(function(element) {
