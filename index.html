@@ -244,7 +244,10 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 		}			
 	}
 }
-string_filtre = '(' + string_filtre + ')' ;
+// si la chaine de filtre est non vide, on l'entoure de parenthèses pour isoler les éventuels liens logiques OR
+if (!string_filtre == '')
+{string_filtre = '(' + string_filtre + ')' ;}
+
 // on traite ensuite les activités non sélectionnées
 for (let i=0 ; i < type_act.length ; i++)
 {
@@ -274,10 +277,14 @@ if (string_filtre == '')
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
 
+/*
 if (document.getElementById('asl2').checked)
 {
 localStorage.setItem("filtre_ASL", true) ;
 }
+*/
+
+// après toute la récupération, on rafraichit la page
 window.location.reload();
 };
      
