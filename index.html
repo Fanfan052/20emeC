@@ -193,9 +193,12 @@ noUiSlider.create(slider, {
         to: (v) => parseFloat(v).toFixed(0),
         from: (v) => parseFloat(v).toFixed(0)
     }],
-    range: rangers
+    range: rangers,
+    pips: {
+        mode: 'steps',
+        density: 3
+          }
 });
-console.log(slider) ;
 </script>
 
 <script>
@@ -254,6 +257,8 @@ if (!document.getElementById('type_act_' + (i+1)).checked)
 	}
 }
 // on traite maintenant le nombre d'activités
+console.log(slider.noUiSlider.get()[0]);
+console.log(slider.noUiSlider.get()[1]);
 
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
