@@ -118,10 +118,10 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
 <label for="filtre_benevole">Contribution bénévole<br>(au moins un membre de <b><u>la famille</b></u> a été bénévole) </label><br>
 </div>
 <div class="radio_3" style="display: none;">
-<input type="radio" id ="bene1" name="bene"/ checked>
-<label for="bene1">pas de filtre bénévole</label>
-<input type="radio" id ="bene2" name="bene"/>
-<label for="bene2">bénévole sur au moins un type d'activité</label>
+<input type="radio" id ="bene_non" name="bene"/ checked>
+<label for="bene_non">pas de filtre bénévole</label>
+<input type="radio" id ="bene_oui" name="bene"/>
+<label for="bene_oui">bénévole sur au moins un type d'activité</label>
 </div>
 </fieldset>
 	
@@ -274,6 +274,18 @@ if (string_filtre == '')
 		string_filtre += 'element.nb_tot_act' + ' <= ' + parseInt(slider.noUiSlider.get()[1]) ;	
 		}
 
+// on traite maintenant le filtre bénévoles
+if (document.getElementById('bene_oui').checked)	
+{if (string_filtre == '')
+		{
+		string_filtre += 'element.bene' + ' > ' + '0' ;	
+		}
+	 	else
+		{
+		string_filtre += ' && ' ;
+		string_filtre += 'element.bene' + ' > ' + '0' ;		
+		}
+}
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
 
