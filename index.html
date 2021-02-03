@@ -54,29 +54,14 @@
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
   <legend><b>Vous pouvez filtrer les données selon les critères suivants (cocher les cases pour fixer les critères) :</b></legend>
-
 	
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
 <div>
-<input type="checkbox" num_cb="1" id ="filtre_benevole" name="type_filtre"/>
-<label for="filtre_benevole">Bénévoles</label><br>
-</div>
-<div class="radio_1" style="display: none;">
-<input type="radio" id ="bene1" name="bene"/ checked>
-<label for="bene1">pas de filtre bénévole</label>
-<input type="radio" id ="bene2" name="bene"/>
-<label for="bene2">bénévole sur au moins un type d'activité</label>
-</div>
-</fieldset>
-	
-<fieldset style= "border: 1px solid #666;
-  border-radius: 8px">
-<div>
-<input type="checkbox" num_cb="2" id ="filtre_type_act" name="type_filtre"/>
+<input type="checkbox" num_cb="1" id ="filtre_type_act" name="type_filtre"/>
 <label for="filtre_type_act">Types d'activités auxquelles le public s'est inscrit</label><br>
 </div>
-<div class="radio_2" style="display: none;">
+<div class="radio_1" style="display: none;">
 <p><b><u>1- choix des activités</u></b></p>
 <script>
 const type_act = ['clas','acm','jeunesse','famille','sorties_famille','cartes_blanches','culture','sport','asl','paniers_bio','reveillon','autres'] ;
@@ -88,8 +73,8 @@ checkbox.id = "type_act_"+ (index+1) ;
 var label = document.createElement('label'); 
 label.htmlFor = "type_act_"+ (index+1) ; 
 label.appendChild(document.createTextNode(element)); 
-document.getElementsByClassName('radio_2')[0].appendChild(checkbox); 
-document.getElementsByClassName('radio_2')[0].appendChild(label); 
+document.getElementsByClassName('radio_1')[0].appendChild(checkbox); 
+document.getElementsByClassName('radio_1')[0].appendChild(label); 
 }) ;
 </script>
 <p><b><u>2- inscriptions à au moins une des activités sélectionnées OU à l'ensemble des activités sélectionnées</u></b></p>
@@ -112,10 +97,10 @@ document.getElementsByClassName('radio_2')[0].appendChild(label);
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
 <div>
-<input type="checkbox" num_cb="3" id ="filtre_nb_act" name="type_filtre"/>
+<input type="checkbox" num_cb="2" id ="filtre_nb_act" name="type_filtre"/>
 <label for="filtre_nb_act">Nombre total d'inscriptions aux activités sur la période (choisir nombre minimum et maximum)</label><br>
 </div>
-<div class="radio_3" style="display: none;">
+<div class="radio_2" style="display: none;">
 <div style="height:80px">
 <div style="height:40px">
 </div>
@@ -123,6 +108,20 @@ document.getElementsByClassName('radio_2')[0].appendChild(label);
 
 </div>
 </div>
+</div>
+</fieldset>
+
+<fieldset style= "border: 1px solid #666;
+  border-radius: 8px">
+<div>
+<input type="checkbox" num_cb="3" id ="filtre_benevole" name="type_filtre"/>
+<label for="filtre_benevole">Bénévoles</label><br>
+</div>
+<div class="radio_3" style="display: none;">
+<input type="radio" id ="bene1" name="bene"/ checked>
+<label for="bene1">pas de filtre bénévole</label>
+<input type="radio" id ="bene2" name="bene"/>
+<label for="bene2">bénévole sur au moins un type d'activité</label>
 </div>
 </fieldset>
 	
