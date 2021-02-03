@@ -210,7 +210,9 @@ noUiSlider.create(slider, {
 <script>
 var tableau_sortie = [] ;
 var string_filtre = '';
-var string_comment = '';
+var string_comment_act = '';
+var string_comment_nb_act = '';
+var string_bene = '';	
 // fonction appelée par le clique du bouton
 // on stocke tous les filtres saisis par l'utilisateur avant de rafraichier la page
 	
@@ -244,18 +246,18 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	{if (string_filtre == '')
 		{
 		string_filtre += 'element.' + type_act[i] + ' >0 ' ;
-		string_comment += 'inscriptions à : ' + type_act[i];
+		string_comment_act += 'inscriptions à : ' + type_act[i];
 		}
 	 	else
 		{
 		string_filtre += lien_act_select + 'element.' + type_act[i] + ' >0 ' ;
 		if (lien_act_select = '||')
 			{
-			string_comment += ' ou ' + type_act[i] ;
+			string_comment_act += ' ou ' + type_act[i] ;
 			}
 			else
 			{
-			string_comment += ' et ' + type_act[i] ;
+			string_comment_act += ' et ' + type_act[i] ;
 			}	
 		}			
 	}
@@ -304,8 +306,9 @@ if (document.getElementById('bene_oui').checked)
 }
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
-localStorage.setItem("comment_final", string_comment ) ;
-
+localStorage.setItem("comment_final_act", string_comment_act ) ;
+localStorage.setItem("comment_final_nb_act", string_comment_nb_act ) ;
+localStorage.setItem("comment_final_bene", string_comment_bene ) ;
 // après toute la récupération, on rafraichit la page
 window.location.reload();
 };
@@ -314,8 +317,7 @@ window.location.reload();
 
 <script>
 var tableau_test = [] ;
-var chaine_modif = localStorage.getItem("filtre_final") ;
-console.log(localStorage.getItem("comment_final")) ;
+console.log(localStorage.getItem("comment_final_act")) ;
 	
 function chargement_donnees()
 {
@@ -324,7 +326,8 @@ tableau_test = data.filter(function(element) {
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
-document.getElementById('resume_requete').innerHTML = chaine_modif ;
+document.getElementById('resume_requete').innerHTML = localStorage.getItem("comment_final_act")
+	+ <br> + localStorage.getItem("comment_final_nb_act") + <br> + localStorage.getItem("comment_bene");
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
