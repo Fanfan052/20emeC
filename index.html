@@ -344,6 +344,7 @@ tableau_test = data.filter(function(element) {
 console.log(tableau_test) ;
 document.getElementById('resume_requete').innerHTML = localStorage.getItem("comment_final_act")
 	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene");
+document.getElementById('resume_requete').style.color = 'red' ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
