@@ -360,20 +360,14 @@ document.getElementById('resume_requete').style.color = 'red' ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	{  
-tableau_sortie = data.filter(function(element) {
-    return (element.asl >= 0);});
+	tableau_sortie = data ;
 	}
 	else
 	{
 // on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
-	if (JSON.parse(localStorage.getItem("filtre_ASL")) === true)
-		{tableau_sortie = data.filter(function(element) {
-    		return (element.asl >= 1);});
-		}
-		else
-		{tableau_sortie = data.filter(function(element) {
-    		return (element.asl >= 0);});
-		}
+	tableau_sortie = tableau_test ;
+	}
+
 	}
 }
 	
