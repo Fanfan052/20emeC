@@ -251,7 +251,7 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	{if (string_filtre == '')
 		{
 		string_filtre += 'element.' + type_act[i] + ' >0 ' ;
-		string_comment_act += 'Inscriptions' + ' à' + (lien_act_select === ' && ' ? " chacune des activités suivantes : " : " l'une des activités suivantes : ")
+		string_comment_act += '- Inscriptions' + ' à' + (lien_act_select === ' && ' ? " chacune des activités suivantes : " : " l'une des activités suivantes : ")
 			+ type_act[i];
 		}
 	 	else
@@ -269,10 +269,13 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 	}
 }
 
+if (string_comment != '')
+{
 string_comment_act += (val_autres_act === '== 0' ? " mais aucune autre activé." : " et éventuellement d'autres activités.") ;
+}
 	
 // si la chaine de filtre est non vide, on l'entoure de parenthèses pour isoler les éventuels liens logiques OR
-if (!(string_filtre === ''))
+if (string_filtre != '')
 {string_filtre = '(' + string_filtre + ')' ;}
 
 // on traite ensuite les activités non sélectionnées
@@ -301,7 +304,7 @@ if (string_filtre == '')
 		string_filtre += 'element.nb_tot_act' + ' <= ' + parseInt(slider.noUiSlider.get()[1]) ;	
 		}
 
-string_comment_nb_act = 'Nombre d\'inscriptions total compris entre ' + parseInt(slider.noUiSlider.get()[0]) + ' et ' + parseInt(slider.noUiSlider.get()[1]) + '.' ;
+string_comment_nb_act = '- Nombre d\'inscriptions total de la famille compris entre ' + parseInt(slider.noUiSlider.get()[0]) + ' et ' + parseInt(slider.noUiSlider.get()[1]) + '.' ;
 
 // on traite maintenant le filtre bénévoles
 if (document.getElementById('bene_oui').checked)	
@@ -314,11 +317,11 @@ if (document.getElementById('bene_oui').checked)
 		string_filtre += ' && ' ;
 		string_filtre += 'element.bene' + ' > ' + '0' ;
 		}
-string_comment_bene = 'Au moins un membre de la famille bénévole.' ; 
+string_comment_bene = '- Au moins un membre de la famille bénévole.' ; 
 }
 else
 {
-string_comment_bene = 'Pas de membre de la famille bénévole.' ;
+string_comment_bene = '- Pas de membre de la famille bénévole.' ;
 }
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
