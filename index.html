@@ -336,7 +336,6 @@ window.location.reload();
 
 <script>
 var tableau_test = [] ;
-console.log(localStorage.getItem("comment_final_act")) ;
 	
 function chargement_donnees()
 {
@@ -364,7 +363,7 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	}
 	else
 	{
-// on place des filtres fonction de ce qui a été sélectionné par l'utilisateur
+// on place les filtres fonction de ce qui a été sélectionné par l'utilisateur
 	tableau_sortie = tableau_test ;
 	}
 
@@ -382,7 +381,7 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 </p>
 
 <p>
-  <div id="map_1" style="width: 840px; height: 560px"></div>
+  <div id="map_1" style="width: 100%; height: 560px"></div>
   <script>
 	  
  function exemple1() {
@@ -521,7 +520,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	      
 	      
 <p>
-  <div id="map_2" style="width: 840px; height: 560px"></div>
+  <div id="map_2" style="width: 100%; height: 560px"></div>
   <script>
  function exemple2() {
     var map_2 = L.map('map_2').setView([48.864891,2.389828], 15);
@@ -608,7 +607,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 </p>
 
 <p>
-  <div id="map_3" style="width: 840px; height: 560px"></div>
+  <div id="map_3" style="width: 100%; height: 560px"></div>
   <script>
  function exemple3() {
     var map_3 = L.map('map_3').setView([48.864891,2.389828], 15);
@@ -790,6 +789,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
 	exemple3();
         localStorage.setItem("btn_click", false);
 	localStorage.setItem("filtre_final", '');
+
     }
     
  </script>
