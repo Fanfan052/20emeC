@@ -568,6 +568,9 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);
     });
+    console.log(PS.length) ;
+    console.log(element.length) ;
+	    
 
     // on ajoute un test sur la longueur de la chaine
     // elle doit être au moins égale à 3 pour générer un polygone
