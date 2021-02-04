@@ -574,8 +574,8 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	    
 
     // on ajoute un test sur la longueur de la chaine
-    // elle doit être au moins égale à 3 pour générer un polygone
-    if (element.length > 0)
+    // elle doit être au moins égale à 2 pour générer un polygone sans erreur
+    if (element.length > 2)
     {
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
     
@@ -595,6 +595,12 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     if (poly[i].getLatLngs().length > 0)
     {
     poly[i].addTo(map_2);
+    }
+    else
+    // cas où nombre de points inférieur ou égal à 2
+    {
+    poly[poly.length] = [] ;
+    surface[surface.length] = 0 ;   
     }
     };
     
