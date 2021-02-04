@@ -345,7 +345,7 @@ tableau_test = data.filter(function(element) {
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
-document.getElementById('resume_requete').innerHTML = localStorage.getItem("comment_final_act")
+document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
 	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene");
 document.getElementById('resume_requete').style.color = 'red' ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
