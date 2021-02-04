@@ -44,6 +44,7 @@
         <section id="main-content">
 <p> - extraction de 902 adresses de Noe <br>
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
+    - on travaille au niveau familles et non au niveau individus <br>
     - on va étudier :  <br>
 	- Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
 	aux quartiers de veille active et aux anciens quartiers de veille  <br>
@@ -271,7 +272,7 @@ if (document.getElementById('type_act_' + (i+1)).checked)
 
 if (string_comment_act != '')
 {
-string_comment_act += (val_autres_act === '== 0' ? " mais aucune autre activé." : " et éventuellement d'autres activités.") ;
+string_comment_act += (val_autres_act === '== 0' ? " mais aucune autre activité." : " et éventuellement d'autres activités.") ;
 }
 	
 // si la chaine de filtre est non vide, on l'entoure de parenthèses pour isoler les éventuels liens logiques OR
@@ -342,9 +343,14 @@ function chargement_donnees()
 if (localStorage.getItem("filtre_final").length == 0)
 {
 tableau_test = data ;
+document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
+	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
 }
 else
 {
+document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
+	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene")
+	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
 tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
 }
@@ -352,9 +358,7 @@ tableau_test = data.filter(function(element) {
 // si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
 
-document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
-	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene")
-	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
+
 document.getElementById('resume_requete').style.color = 'red' ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
 if (JSON.parse(localStorage.getItem("btn_click")) === false)
