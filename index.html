@@ -340,8 +340,15 @@ console.log(localStorage.getItem("comment_final_act")) ;
 	
 function chargement_donnees()
 {
+if (localStorage.getItem("filtre_final").length == 0)
+{
+tableau_test = data ;
+}
+else
+{
 tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
+}
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
 console.log(tableau_test) ;
