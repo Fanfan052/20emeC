@@ -303,14 +303,17 @@ if (document.getElementById('bene_oui').checked)
 {if (string_filtre == '')
 		{
 		string_filtre += 'element.bene' + ' > ' + '0' ;	
-		string_comment_bene = 'Au moins un membre de la famille bénévole.' ;
 		}
 	 	else
 		{
 		string_filtre += ' && ' ;
 		string_filtre += 'element.bene' + ' > ' + '0' ;
-		string_comment_bene = 'Pas de membre de la famille bénévole.' ;
 		}
+string_comment_bene = 'Au moins un membre de la famille bénévole.' ; 
+}
+else
+{
+string_comment_bene = 'Pas de membre de la famille bénévole.' ;
 }
 console.log(string_filtre) ;
 localStorage.setItem("filtre_final", string_filtre ) ;
