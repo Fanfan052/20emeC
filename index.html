@@ -348,11 +348,11 @@ document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
 }
 else
 {
+tableau_test = data.filter(function(element) {
+    return (eval(localStorage.getItem("filtre_final")));});
 document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
 	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene")
 	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
-tableau_test = data.filter(function(element) {
-    return (eval(localStorage.getItem("filtre_final")));});
 }
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
