@@ -564,17 +564,19 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     var color_fr = ['bleue','verte','jaune','orange','rouge',];
     var convexite = [1.000,1.000,1.000,1.000,1.000];
 	 
-    PS.forEach(function(element){
-    element.forEach(function(latlng) {
-        L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);
-    });
+    PS.forEach(function(element)
+    {
+    element.forEach(function(latlng)
+		    {L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);});
+
     console.log(PS.length) ;
     console.log(element.length) ;
 	    
 
     // on ajoute un test sur la longueur de la chaine
     // elle doit être au moins égale à 3 pour générer un polygone
-   
+    if (element.length > 0)
+    {
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
     
     var points_poly = [];
@@ -592,6 +594,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     poly[i].addTo(map_2);
     };
     
+    }
     color_fr.forEach(function(element){
     document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + ' La surface ' + color_fr[color_fr.indexOf(element)]
 	    + ( (color_fr.indexOf(element) < color_fr.length - 1) ? ' (moins de ' + bornes[color_fr.indexOf(element)+1] : ' (plus de ' + bornes[color_fr.indexOf(element)])  + ' minutes de la 20ème Chaise) a une superficie de ' +
