@@ -568,6 +568,11 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     element.forEach(function(latlng) {
         L.circleMarker(latlng, {radius: 2, color : color[PS.indexOf(element)]}).addTo(map_2);
     });
+
+    // on ajoute un test sur la longueur de la chaine
+    // elle doit être au moins égale à 3 pour générer un polygone
+    if (element.length >= 3)
+    {
     points[points.length]= hull(element, convexite[points.length], ['.lng', '.lat']);
     
     var points_poly = [];
@@ -575,10 +580,12 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     for (let i = 0 ; i < points.length  ; i++) {
     points_poly[i] = points[points.length - i - 1];
     };
-      
+    
     poly[poly.length] = L.polygon(points_poly, {weight: 2, color : color[poly.length], fillopacity : 0.9});
     surface[surface.length] = L.GeometryUtil.geodesicArea(poly[surface.length].getLatLngs()[0]);
     });
+    
+    }
 	 
 // on insère les polygones dans le sens inverse pour avoir une frontière intérieure de la bonne couleur
     for (let i = points.length-1 ; i >= 0  ; i--) {
