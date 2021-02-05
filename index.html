@@ -573,7 +573,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     console.log(PS.length) ;
     console.log(element.length) ;
     // on développe une autre approche via la construction du plus grand cercle contenant les points
-    var rayon_max ;
+    var rayon_max = 0 ;
     var adresse_ref = L.latLng(48.864891,2.389828) ;
     element.forEach(function(latlng)
     { rayon_max = Math.max(rayon_max, L.GeometryUtil.length([map_2.latLngToLayerPoint(latlng),map_2.latLngToLayerPoint(adresse_ref)])) ;})
