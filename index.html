@@ -575,7 +575,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     // on développe une autre approche via la construction du plus grand cercle contenant les points
     var rayon_max ;
     element.forEach(function(latlng)
-    { console.log(L.GeometryUtil.length([(latlng.latLngToLayerPoint),(L.LatLng(48.864891,2.389828).latLngToLayerPoint)])) ;})
+    { console.log(L.GeometryUtil.length([(latlng.latLngToLayerPoint),((L.LatLng(48.864891,2.389828)).latLngToLayerPoint)])) ;})
 
     // on ajoute un test sur la longueur de la chaine
     // elle doit être au moins égale à 2 pour générer un polygone sans erreur
