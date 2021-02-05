@@ -574,8 +574,8 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     console.log(element.length) ;
     // on développe une autre approche via la construction du plus grand cercle contenant les points
     var rayon_max ;
-    element.forEach(function(latlng)
-    var Ligne_Poly = L.polyline([element.lat,element.lng],[48.864891,2.389828]) ;
+    element.forEach(function(element)
+    var Ligne_Poly = L.polyline([element.lat, element.lng],[48.864891,2.389828]) ;
     { console.log(L.GeometryUtil.length(Ligne_Poly)) ;})
 
     // on ajoute un test sur la longueur de la chaine
