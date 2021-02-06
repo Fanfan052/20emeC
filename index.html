@@ -741,9 +741,8 @@ ZI_20C.addTo(Layer_ZI_20C);
     });
 
 // on crée le layer des cercles d'influence des autres CS
-layer_adresses_CS.eachLayer(function(layer) {
- 
- 
+layer_adresses_CS.eachLayer(function(layer)
+{ 
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
 console.log(poly.geometry.type) ;
@@ -756,37 +755,40 @@ var nb_poly ;
 if (poly.geometry.type = 'Polygon')
 { // cas d'un polygone unique, éventuellement à trous
 for (i=0 ; i < poly.geometry.coordinates.length ; i++)
-{var lng_lat_tmp = [];
- // on doit inverser les coordonnées de poly issue de turf
- for (j=0 ; j < poly.geometry.coordinates[i].length ; j++)
- {
-var lng_lat = [poly.geometry.coordinates[i][j][1], poly.geometry.coordinates[i][j][0]];
-lng_lat_tmp.push(lng_lat);
-}
-lng_lat_poly[i] = lng_lat_tmp;
-}
+	{var lng_lat_tmp = [];
+ 	// on doit inverser les coordonnées de poly issue de turf
+ 	for (j=0 ; j < poly.geometry.coordinates[i].length ; j++)
+ 		{
+		var lng_lat = [poly.geometry.coordinates[i][j][1], poly.geometry.coordinates[i][j][0]];
+		lng_lat_tmp.push(lng_lat);
+		}
+	lng_lat_poly[i] = lng_lat_tmp;
+	}
 }
 else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
 for (k=0 ; k < poly.geometry.coordinates.length ; k++)
-{ // boucle sur chaque polygone
-for (i=0 ; i < poly.geometry.coordinates[k].length ; i++)
-{var lng_lat_tmp = [];
- // on doit inverser les coordonnées de poly issue de turf
- for (j=0 ; j < poly.geometry.coordinates[k][i].length ; j++)
- {
-var lng_lat = [poly.geometry.coordinates[k][i][j][1], poly.geometry.coordinates[k][i][j][0]];
-lng_lat_tmp.push(lng_lat);
-}
-lng_lat_poly[k][i] = lng_lat_tmp;
+	{ // boucle sur chaque polygone
+	for (i=0 ; i < poly.geometry.coordinates[k].length ; i++)
+		{var lng_lat_tmp = [];
+ 	// on doit inverser les coordonnées de poly issue de turf
+ 		for (j=0 ; j < poly.geometry.coordinates[k][i].length ; j++)
+ 			{
+			var lng_lat = [poly.geometry.coordinates[k][i][j][1], poly.geometry.coordinates[k][i][j][0]];
+			lng_lat_tmp.push(lng_lat);
+			}
+		lng_lat_poly[k][i] = lng_lat_tmp;
+		}
+
+	}
 }
 
-}
-}
- var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
+var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
+// fin de la boucle sur chaque layer
 
- }
+			  
 cercle_mange.addTo(layer_cercles_CS) ;
+// fin de la boucle sur chaque layer
 });
 	 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
