@@ -337,7 +337,7 @@ localStorage.setItem("filtre_final", string_filtre ) ;
 localStorage.setItem("comment_final_act", string_comment_act ) ;
 localStorage.setItem("comment_final_nb_act", string_comment_nb_act ) ;
 localStorage.setItem("comment_final_bene", string_comment_bene ) ;
-localStorage.setItem("rayon_cercles",document.getElementById("rayon_cercles_influence").value) ;
+localStorage.setItem("rayon_cercles",document.getElementById(JSON.stringify("rayon_cercles_influence").value)) ;
 // après toute la récupération, on rafraichit la page
 window.location.reload();
 };
@@ -363,7 +363,7 @@ tableau_test = data.filter(function(element) {
 document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
 	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene")
 	+ '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
-	+ '<br>' + ' - Rayon des cercles d\'influence des centres sociaux : ' + localStorage.getItem("rayon_cercles") + ' mètres' ;
+	+ '<br>' + ' - Rayon des cercles d\'influence des centres sociaux : ' + JSON.parse(localStorage.getItem("rayon_cercles")) + ' mètres' ;
 }
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
@@ -721,7 +721,7 @@ function unify(polyList,color) {
 
 
     var layer_cercles_CS = L.layerGroup().addTo(map_3);
-    var radius = localStorage.getItem("rayon_cercles") ;
+    var radius = JSON.parse(localStorage.getItem("rayon_cercles")) ;
     var opts = {parts: 144, fill : 'blue' , fillcolor : 'blue', fillOpacity : 0.9};
 
 var Layer_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: 'black',weight: 1.5, opacity : 0.7, fill : true, fillColor : 'orange', fillOpacity : 0.5}}).addTo(map_3);
