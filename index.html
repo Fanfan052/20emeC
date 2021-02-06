@@ -588,9 +588,11 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     surface[surface.length] = 0 ;
     // on développe une autre approche via la construction du plus grand cercle contenant les points
     var rayon_max = 0 ;
-    var adresse_ref = L.latLng(48.864891,2.389828) ;
+    var adresse_from = L.latLng(48.864891,2.389828) ;
     element.forEach(function(latlng)
-    { rayon_max = Math.max(rayon_max, latlng.distanceTo(adresse_ref)) ;})
+    {
+    var adresse_to = L.latLng(latlng.lat,latlng.lng) ;
+    rayon_max = Math.max(rayon_max, adresse_from.distanceTo(adresse_to)) ;})
     var circle = L.circle([48.864891,2.389828], {weight: 2, color : color[poly.length], fillopacity : 0.9, radius: rayon_max}).addTo(map_2);
 		}
     });
