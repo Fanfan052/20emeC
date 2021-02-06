@@ -712,6 +712,8 @@ function unify(polyList,color) {
     if (i == 0) {
       var unionTemp = polyList[i].toGeoJSON();
     } else {
+      console.log(i) ;
+      console.log(polyList[i]) ;	    
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
@@ -766,7 +768,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
- console.log('hello') ;
+ 
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);
 
