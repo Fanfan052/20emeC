@@ -520,7 +520,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_AQV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 (adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu).'
-	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_turf.length - adresses_NQPV.features.length
+	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat((adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) / adresses_turf.length * 100).toFixed(0)+ ' %' + ')')
 
 
