@@ -760,8 +760,14 @@ lng_lat_tmp.push(lng_lat);
 }
 lng_lat_poly[i] = lng_lat_tmp;
 }
+ if (poly.geometry.type = 'Polygon')
+ {
  var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
-
+ }
+ else
+ {
+var cercle_mange = new L.multiPolygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
+ }
 cercle_mange.addTo(layer_cercles_CS) ;
 });
 	 
