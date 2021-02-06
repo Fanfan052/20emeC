@@ -510,7 +510,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 };
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
-	 ' adresses relèvent d\'un quartier NQPV (en noir).' + String.Format("Value: {0:P2}.", adresses_NQPV.features.length / adresses_turf.length ) + '<br/>' +
+	 ' adresses relèvent d\'un quartier NQPV (en noir).' + parseFloat(adresses_NQPV.features.length / adresses_turf.length * 100).toFixed(2)+"%" ) + '<br/>' +
 	 adresses_QVA.features.length +
 	 ' adresses relèvent d\'un quartier QVA (en jaune).' + '<br/>' +
 	 adresses_AQV.features.length +
