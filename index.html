@@ -632,6 +632,13 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     }
     };
     
+    // on calcule le nombre total de points pour générer les pourcentages
+    var nb_total_points = 0 ;
+    PS.forEach(function(element)
+    {
+    nb_total_points += PS[indexOf(element)].length ;
+    }) ;
+    console.log(nb_total_points) ;
     
     color_fr.forEach(function(element){
     var texte_zone ;
