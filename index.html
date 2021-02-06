@@ -766,8 +766,9 @@ lng_lat_poly[i] = lng_lat_tmp;
  }
  else
  {
+console.log(lng_lat_poly) ;
 var cercle_mange = new L.multiPolygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
- console.log(cercle_mange) ;
+ 
  }
 cercle_mange.addTo(layer_cercles_CS) ;
 });
