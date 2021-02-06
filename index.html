@@ -750,6 +750,7 @@ console.log(poly.geometry.type) ;
 // attention également au cas des multipolygones !!
 console.log(poly) ;
 var lng_lat_poly = [];
+var composant_lng_lat_poly = [];
 // on teste le cas de multipolygones et on compte dans ce cas le nombre de polygones
 var nb_poly ;
 if (poly.geometry.type == 'Polygon')
@@ -777,12 +778,12 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
  	// on doit inverser les coordonnées de poly issue de turf
  		for (j=0 ; j < poly.geometry.coordinates[k][i].length ; j++)
  			{
-			console.log(poly.geometry.coordinates[k][i].length) ;
 			var lng_lat = [poly.geometry.coordinates[k][i][j][1], poly.geometry.coordinates[k][i][j][0]];
 			lng_lat_tmp.push(lng_lat);
 			}
-		lng_lat_poly[k][i] = lng_lat_tmp;
+		composant_lng_lat_poly[i] = lng_lat_tmp;
 		}
+	lng_lat_poly[k] = composant_lng_lat_poly ;
 
 	}
 }
