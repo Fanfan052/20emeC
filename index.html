@@ -711,9 +711,7 @@ function unify(polyList,color) {
   for (var i = 0; i < polyList.length; ++i) {
     if (i == 0) {
       var unionTemp = polyList[i].toGeoJSON();
-    } else {
-      console.log(i) ;
-      console.log(polyList[i]) ;	    
+    } else {    
       unionTemp = turf.union(unionTemp, polyList[i].toGeoJSON());
     }
   }
@@ -748,6 +746,7 @@ layer_adresses_CS.eachLayer(function(layer) {
  
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
+console.log(poly) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 var lng_lat_poly = [];
 for (i=0 ; i < poly.geometry.coordinates.length ; i++)
