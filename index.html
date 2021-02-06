@@ -752,7 +752,7 @@ console.log(poly) ;
 var lng_lat_poly = [];
 // on teste le cas de multipolygones et on compte dans ce cas le nombre de polygones
 var nb_poly ;
-if (poly.geometry.type = 'Polygon')
+if (poly.geometry.type == 'Polygon')
 { // cas d'un polygone unique, éventuellement à trous
 for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 	{var lng_lat_tmp = [];
