@@ -638,7 +638,6 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     {
     nb_total_points += PS[PS.indexOf(element)].length ;
     }) ;
-    console.log(nb_total_points) ;
     
     color_fr.forEach(function(element){
     var texte_zone ;
@@ -763,14 +762,14 @@ lng_lat_poly[i] = lng_lat_tmp;
 
 cercle_mange.addTo(layer_cercles_CS) ;
 });
-
-console.log('hello') ;	 
+	 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);
 
+console.log('hello') ;
 	 
 //var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
 // console.log(poly);
