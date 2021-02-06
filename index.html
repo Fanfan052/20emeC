@@ -746,7 +746,6 @@ layer_adresses_CS.eachLayer(function(layer) {
  
  
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
-console.log(layer.getLayerId) ;
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 var lng_lat_poly = [];
@@ -761,10 +760,11 @@ lng_lat_tmp.push(lng_lat);
 lng_lat_poly[i] = lng_lat_tmp;
 }
  var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
+
 cercle_mange.addTo(layer_cercles_CS) ;
 });
 
-	 
+console.log('hello') ;	 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
