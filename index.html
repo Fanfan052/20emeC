@@ -337,7 +337,7 @@ localStorage.setItem("filtre_final", string_filtre ) ;
 localStorage.setItem("comment_final_act", string_comment_act ) ;
 localStorage.setItem("comment_final_nb_act", string_comment_nb_act ) ;
 localStorage.setItem("comment_final_bene", string_comment_bene ) ;
-localStorage.setItem("rayon_cercles",document.getElementById(JSON.stringify("rayon_cercles_influence").value)) ;
+localStorage.setItem("rayon_cercles",JSON.stringify(document.getElementById("rayon_cercles_influence").value)) ;
 // après toute la récupération, on rafraichit la page
 window.location.reload();
 };
