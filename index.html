@@ -749,6 +749,7 @@ layer_adresses_CS.eachLayer(function(layer) {
 console.log(poly.geometry.type) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 // attention également au cas des multipolygones !!
+console.log(poly) ;
 var lng_lat_poly = [];
 for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 {var lng_lat_tmp = [];
