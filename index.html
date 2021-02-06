@@ -743,7 +743,10 @@ ZI_20C.addTo(Layer_ZI_20C);
 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer) {
-  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
+ 
+ 
+ var Test = LGeo.circle(layer.getLatLng(), radius, opts);
+console.log(Test) ;
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 var lng_lat_poly = [];
