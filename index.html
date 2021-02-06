@@ -45,7 +45,7 @@
         <section id="main-content">
 <p> - extraction de 902 adresses de Noe <br>
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
-    - on travaille au niveau familles et non au niveau individus <br>
+    - on choisit de travailler au niveau famille et non au niveau individu <br>
     - on va étudier :  <br>
     &nbsp Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
     &nbsp&nbsp aux quartiers de veille active et aux anciens quartiers de veille  <br>
@@ -511,13 +511,17 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 
  document.getElementById("comment_1").innerHTML = adresses_NQPV.features.length +
 	 ' adresses relèvent d\'un quartier NQPV (en noir) '
-	 + '(' + parseFloat(adresses_NQPV.features.length / adresses_turf.length * 100).toFixed(0)+ '%' + ')' + '<br/>' +
+	 + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_NQPV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_QVA.features.length +
-	 ' adresses relèvent d\'un quartier QVA (en jaune).' + '<br/>' +
+	 ' adresses relèvent d\'un quartier QVA (en jaune).'
+	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_QVA.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_AQV.features.length +
-	 ' adresses relèvent d\'un quartier AQV (en violet).' + '<br/>'+
+	 ' adresses relèvent d\'un quartier AQV (en violet).'
+	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_AQV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 (adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu).'
+	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_turf.length - adresses_NQPV.features.length
+	- adresses_QVA.features.length - adresses_AQV.features.length) / adresses_turf.length * 100).toFixed(0)+ ' %' + ')')
 
 
  }
