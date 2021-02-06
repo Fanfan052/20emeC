@@ -337,6 +337,7 @@ localStorage.setItem("filtre_final", string_filtre ) ;
 localStorage.setItem("comment_final_act", string_comment_act ) ;
 localStorage.setItem("comment_final_nb_act", string_comment_nb_act ) ;
 localStorage.setItem("comment_final_bene", string_comment_bene ) ;
+localStorage.setItem("rayon_cercles",document.getElementById("rayon_cercles_influence").value) ;
 // après toute la récupération, on rafraichit la page
 window.location.reload();
 };
@@ -352,7 +353,8 @@ if (localStorage.getItem("filtre_final").length == 0)
 {
 tableau_test = data ;
 document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
-	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
+	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
+	+ '<br>' + ' - Rayon des cercles d\'influence des centres sociaux : ' + '750' + ' mètres';
 }
 else
 {
