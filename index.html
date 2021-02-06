@@ -647,7 +647,8 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     superficie = Separateur_Milliers(Math.round(surface[color_fr.indexOf(element)])) +' mètres carrés' ;
     document.getElementById("comment_2").innerHTML = document.getElementById("comment_2").innerHTML + PS[color_fr.indexOf(element)].length + ' adresses '
 	    + 'en ' + color_fr[color_fr.indexOf(element)] + ' sont dans une zone qui se trouve '
-	    + texte_zone  + ' minutes de la 20ème Chaise.'
+	    + texte_zone  + ' minutes de la 20ème Chaise '
+	    + (nb_total_points === 0 ? '' : '(' + parseFloat(PS[color_fr.indexOf(element)].length / nb_total_points * 100).toFixed(0)+ ' %' + ')') 
 	    + '<br/>';
     });
    
