@@ -513,13 +513,13 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	 ' adresses relèvent d\'un quartier NQPV (en noir) '
 	 + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_NQPV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_QVA.features.length +
-	 ' adresses relèvent d\'un quartier QVA (en jaune).'
+	 ' adresses relèvent d\'un quartier QVA (en jaune) '
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_QVA.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_AQV.features.length +
-	 ' adresses relèvent d\'un quartier AQV (en violet).'
+	 ' adresses relèvent d\'un quartier AQV (en violet) '
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_AQV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 (adresses_turf.length - adresses_NQPV.features.length
-	- adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu).'
+	- adresses_QVA.features.length - adresses_AQV.features.length) + ' n\'en relèvent pas (en bleu) '
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat((adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) / adresses_turf.length * 100).toFixed(0)+ ' %' + ')')
 
