@@ -590,7 +590,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     var rayon_max = 0 ;
     var adresse_ref = L.latLng(48.864891,2.389828) ;
     element.forEach(function(latlng)
-    { rayon_max = Math.max(rayon_max, L.GeometryUtil.length([latlng,adresse_ref])) ;})
+    { rayon_max = Math.max(rayon_max, latlng.distanceTo(adresse_ref)) ;})
     var circle = L.circle([48.864891,2.389828], {weight: 2, color : color[poly.length], fillopacity : 0.9, radius: rayon_max}).addTo(map_2);
 		}
     });
