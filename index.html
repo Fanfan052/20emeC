@@ -746,8 +746,9 @@ layer_adresses_CS.eachLayer(function(layer) {
  
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
-console.log(poly) ;
+console.log(poly.geometry.type) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
+// attention également au cas des multipolygones !!
 var lng_lat_poly = [];
 for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 {var lng_lat_tmp = [];
