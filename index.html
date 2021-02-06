@@ -47,10 +47,10 @@
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
     - on travaille au niveau familles et non au niveau individus <br>
     - on va étudier :  <br>
-	- Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
-	aux quartiers de veille active et aux anciens quartiers de veille  <br>
-	- Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise <br>
-	- Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
+    &nbsp - Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
+    &nbsp&nbsp aux quartiers de veille active et aux anciens quartiers de veille  <br>
+    &nbsp - Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise <br>
+    &nbsp - Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
 <fieldset style= "border: 1px solid #666;
@@ -353,7 +353,7 @@ if (localStorage.getItem("filtre_final").length == 0)
 {
 tableau_test = data ;
 document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
-	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
+	+ '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
 	+ '<br>' + ' - Rayon des cercles d\'influence des centres sociaux : ' + '750' + ' mètres';
 }
 else
@@ -362,7 +362,8 @@ tableau_test = data.filter(function(element) {
     return (eval(localStorage.getItem("filtre_final")));});
 document.getElementById('resume_requete').innerHTML = (localStorage.getItem("comment_final_act") === '' ? " - Aucun filtre sur les activités." : localStorage.getItem("comment_final_act"))
 	+ '<br>' + localStorage.getItem("comment_final_nb_act") + '<br>' + localStorage.getItem("comment_final_bene")
-	+ '<br>' + '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length ;
+	+ '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
+	+ '<br>' + localStorage.getItem("rayon_cercles") ;
 }
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
@@ -650,7 +651,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 
 <p> - récupération des polygones définissant les IRIS via une source de type GeoJSON <br>
     - on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS) (zone en fond bleu)  <br>
-    - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres <br>
+    - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l\'utilisateur ne saisit pas un autre rayon<br>
     - la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants <br>
     - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br>
     - survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS
