@@ -604,6 +604,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
     element.forEach(function(latlng)
     { rayon_max = Math.max(rayon_max, L.GeometryUtil.length([map_2.latLngToLayerPoint(latlng),map_2.latLngToLayerPoint(adresse_ref)])) ;})
     var circle = L.circle([48.864891,2.389828], {weight: 2, color : color[poly.length], fillopacity : 0.9, radius: rayon_max}).addTo(map_2);
+    console.log(circle) ;
     }
     };
     
