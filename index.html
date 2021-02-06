@@ -821,10 +821,15 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
 
 
  document.getElementById("comment_3").innerHTML = inside_20C.features.length +
-	 ' sont dans la zone d\'influence de la 20ème Chaise.' + '<br/>' +
+	 ' sont dans la zone d\'influence de la 20ème Chaise '
+	  + (layer_adresses.getLayers().length === 0 ? '' : '(' + parseFloat(inside_20C.features.length / layer_adresses.getLayers().length * 100).toFixed(0)+ ' %' + ')')
+	  + '<br/>' +
 	 inside.features.length +
-	 ' sont dans une zone d\'influence d\'un autre centre social.' + '<br/>' +
-	 (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) + ' sont hors zones d\'influence.'
+	 ' sont dans une zone d\'influence d\'un autre centre social '
+	 + (layer_adresses.getLayers().length === 0 ? '' : '(' + parseFloat(inside.features.length / layer_adresses.getLayers().length * 100).toFixed(0)+ ' %' + ')') 
+	 + '<br/>' +
+	 (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) + ' sont hors zones d\'influence '
+	 + (layer_adresses.getLayers().length === 0 ? '' : '(' + parseFloat((layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) / layer_adresses.getLayers().length * 100).toFixed(0)+ ' %' + ')') 
    
   
     // var markers_adresses_CS = {'markers': layer_adresses_CS};
