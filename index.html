@@ -165,12 +165,13 @@ cases.forEach(function(checkbox) {
 	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : inline" ;} ;
     }
     else
-    {for (i=0 ; i < document.getElementsByClassName('radio_'+ this.getAttribute("num_cb")).length ; i++)
-	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : none" ;
+    {
+    for (i=0 ; i < document.getElementsByClassName('radio_'+ this.getAttribute("num_cb")).length ; i++)
+    	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : none" ;} ;
 	// on remet les choix de filtre à zéro si on désélectionne un filtre
 	// on doit gérer les cas de figures car on a des contrôles différents
-	 switch(this.getAttribute("num_cb"))
-	  	{
+    switch(this.getAttribute("num_cb"))
+    	{
 		case '1':
 	        type_act.forEach(function(element,index)
 			{
@@ -182,9 +183,9 @@ cases.forEach(function(checkbox) {
 		document.getElementById("slider").noUiSlider.reset() ;
 		case '3':
 		document.getElementById("bene_non").checked = true ;
-		}
+	}
 		 
-	} ;
+
     }	    
   })
 });
