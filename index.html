@@ -181,7 +181,6 @@ cases.forEach(function(checkbox) {
 		document.getElementById("choix_aumoins").checked = true ;
 		break ;
 		case '2':
-		console.log('hello') ;
 		document.getElementById("slider").noUiSlider.reset() ;
 		break ;
 		case '3':
@@ -547,7 +546,8 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 <p> - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
          à la 20ème Chaise par Google Map API <br>
  <s>  - détermination des enveloppes convexes(-concaves) par algorithme externe </s> &nbsp (laissé en suspens car non adapté aux petits groupes de points asymétriques) <br>
-      - détermination des cercles correspondant à chaque zone
+      - détermination des cercles correspondant à chaque zone (certains points ne sont pas dans leur cercle de couleur dans le cas où la distance à vol d'oiseau s'éloigne
+	du temps calculé par Google Map API pour se rendre à pied à la 20ème Chaise)
 </p>
 	      
 	      
