@@ -55,7 +55,8 @@
 
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
-  <legend><b>Vous pouvez filtrer les données selon les critères suivants (cocher les cases pour fixer les critères) :</b></legend>
+  <legend><b>Vous pouvez filtrer les données selon les critères suivants (cocher les cases pour fixer les critères) et choisir le rayon des
+	  cercles d'influence des centres sociaux :</b></legend>
 	
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
@@ -186,13 +187,11 @@ cases.forEach(function(checkbox) {
 var diff_nb_act = data.map(function(element) {
     return element.nb_tot_act ;
     });
-console.log(diff_nb_act) ;
 var unique = diff_nb_act.filter(function(value, index, self) {
   return self.indexOf(value) === index;
 });
 unique.sort(function(a, b) {
   return a - b;}) ;
-console.log(unique) ;
 
 var rangers = {}
 for (i = 0; i < unique.length; ++i) {
@@ -201,7 +200,6 @@ for (i = 0; i < unique.length; ++i) {
   else if ( i < unique.length-1 ) { rangers[pourcent +'%'] = [ unique[i],  unique[i+1] - unique[i] ] ;}
   else if ( i == unique.length-1 ) { rangers['max'] = [unique[unique.length-1]]; }
 }
-console.log(rangers) ;
 var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
     start: [unique[0], unique[unique.length-1]],
@@ -367,8 +365,6 @@ document.getElementById('resume_requete').innerHTML = (localStorage.getItem("com
 }
 // on génère un test sur la longueur du tableau
 // si elle est nulle, on ne génère aucune carte
-console.log(tableau_test) ;
-
 
 document.getElementById('resume_requete').style.color = 'red' ;
 // on gère le filtrage des données en amont de tous les exemples... si l'envoi de vient pas du bouton
@@ -381,7 +377,6 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 // on place les filtres fonction de ce qui a été sélectionné par l'utilisateur
 	tableau_sortie = tableau_test ;
 	}
-
 	
 }
 	
@@ -745,10 +740,8 @@ layer_adresses_CS.eachLayer(function(layer)
 { 
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
-console.log(poly.geometry.type) ;
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 // attention également au cas des multipolygones !!
-console.log(poly) ;
 
 // on teste le cas de multipolygones et on compte dans ce cas le nombre de polygones
 var nb_poly ;
@@ -770,11 +763,9 @@ else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
   // k est le nombre de polygones, i est le nombre de composants de chaque polygones, j est le nombre de coordonnées de chaque composant
 var lng_lat_poly = [];
-console.log(poly.geometry.coordinates.length) ;
 for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	{ // boucle sur chaque polygone : ici, on a un array de dimension 1 si poly simple, de dimension >1 si poly à trous
 	var composant_lng_lat_poly = [] ;
-	console.log(poly.geometry.coordinates[k].length) ;
 	for (i=0 ; i < poly.geometry.coordinates[k].length ; i++)
 	// on boucle sur la dimension du poly simple ou à trous
 		{var lng_lat_tmp = [];
