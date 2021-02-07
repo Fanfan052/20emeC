@@ -784,7 +784,11 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 			lng_lat_tmp.push(lng_lat);
 			}
 		composant_lng_lat_poly[i] = lng_lat_tmp;
-		console.log(composant_lng_lat_poly[i]) ;
+		for (z= 0 ; z < composant_lng_lat_poly.length ; z++)
+			{
+			console.log(z) ;
+			console.log(composant_lng_lat_poly[z]) ;
+			}
 		}
 	lng_lat_poly[k] = composant_lng_lat_poly ;
 	
