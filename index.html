@@ -795,8 +795,10 @@ console.log(lng_lat_poly) ;
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 // fin de la boucle sur chaque layer
 
-			  
+if (poly.geometry.type == 'MultiPolygon')
+{
 cercle_mange.addTo(layer_cercles_CS) ;
+}
 // fin de la boucle sur chaque layer
 });
 	 
