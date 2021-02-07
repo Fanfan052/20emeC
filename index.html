@@ -771,6 +771,7 @@ else
 console.log(poly.geometry.coordinates.length) ;
 for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	{ // boucle sur chaque polygone : ici, on a un array de dimension 1 si poly simple, de dimension >1 si poly à trous
+	var multiPoly = turf.multiPolygon(poly).add
 	console.log(poly.geometry.coordinates[k].length) ;
 	for (i=0 ; i < poly.geometry.coordinates[k].length ; i++)
 	// on boucle sur la dimension du poly simple ou à trous
@@ -784,6 +785,7 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 		composant_lng_lat_poly[i] = lng_lat_tmp;
 		}
 	lng_lat_poly[k] = composant_lng_lat_poly ;
+	console.log(lng_lat_poly[k]) ;
 
 	}
 }
