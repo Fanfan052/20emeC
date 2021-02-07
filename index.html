@@ -56,7 +56,7 @@
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
   <legend><b>Vous pouvez filtrer les données selon les critères suivants (cocher les cases pour fixer les critères) et choisir le rayon des
-	  cercles d'influence des centres sociaux :</b></legend>
+	  cercles d'influence des centres sociaux (saisir le rayon) :</b></legend>
 	
 <fieldset style= "border: 1px solid #666;
   border-radius: 8px">
@@ -118,7 +118,7 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
   border-radius: 8px">
 <div>
 <input type="checkbox" num_cb="3" id ="filtre_benevole" name="type_filtre"/>
-<label for="filtre_benevole">Contribution bénévole<br>(au moins un membre de <b><u>la famille</b></u> a été bénévole) </label><br>
+<label for="filtre_benevole">Contribution bénévole (au moins un membre de <b><u>la famille</b></u> a été bénévole) </label><br>
 </div>
 <div class="radio_3" style="display: none;">
 <input type="radio" id ="bene_non" name="bene"/ checked>
@@ -168,10 +168,12 @@ cases.forEach(function(checkbox) {
     {for (i=0 ; i < document.getElementsByClassName('radio_'+ this.getAttribute("num_cb")).length ; i++)
 	{document.getElementsByClassName('radio_'+ this.getAttribute("num_cb"))[i].style = "display : none" ;
 	// on remet les choix de filtre à zéro si on désélectionne un filtre
-	 switch(i) {
-	            
+	// on doit gérer les cas de figures car on a des contrôles différents
+	 switch(this.getAttribute("num_cb"))
+	  	{
+	        console.log(this.getAttribute("num_cb")) ;
 		
-		   }
+		}
 		 
 	} ;
     }	    
@@ -781,7 +783,6 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	
 	}
 }
-console.log(lng_lat_poly) ;
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 cercle_mange.addTo(layer_cercles_CS) ;
