@@ -793,12 +793,7 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 console.log(lng_lat_poly) ;
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
-// fin de la boucle sur chaque layer
-
-if (poly.geometry.type == 'MultiPolygon')
-{
 cercle_mange.addTo(layer_cercles_CS) ;
-}
 // fin de la boucle sur chaque layer
 });
 	 
@@ -807,13 +802,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
  
  layer_cercles_CS.clearLayers();
- circleUnion.addTo(layer_cercles_CS);
-
-
-	 
-//var poly = turf.difference(layer_cercles_CS[0].toGeoJSON(),ZI_20C.toGeoJSON()).addTo(map_3) ;
-// console.log(poly);
-		 
+ circleUnion.addTo(layer_cercles_CS);	 
 
 // on recherche les adresses dans la zone globale circleUnion
 	 
