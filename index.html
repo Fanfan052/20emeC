@@ -47,10 +47,10 @@
     - récupération des coordonnées des adresses via https://adresse.data.gouv.fr/csv <br>
     - on choisit de travailler au niveau famille et non au niveau individu <br>
     - on va étudier :  <br>
-    &nbsp Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
-    &nbsp&nbsp aux quartiers de veille active et aux anciens quartiers de veille  <br>
-    &nbsp Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise <br>
-    &nbsp Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
+    &nbsp &nbsp &nbsp Partie 1 : la localisation des adresses par rapport aux quartiers prioritaires de la ville,  <br>
+    &nbsp &nbsp &nbsp &nbsp aux quartiers de veille active et aux anciens quartiers de veille  <br>
+    &nbsp &nbsp &nbsp Partie 2 : la répartition des adresses selon le temps de trajet à la 20ème Chaise <br>
+    &nbsp &nbsp &nbsp Partie 3 : la répartition des adresses dans les IRIS et les zones d'influence des autres centres sociaux parisiens
 </p>
 
 <fieldset style= "border: 1px solid #666;
@@ -171,7 +171,10 @@ cases.forEach(function(checkbox) {
 	// on doit gérer les cas de figures car on a des contrôles différents
 	 switch(this.getAttribute("num_cb"))
 	  	{case '1':
-	        console.log(this.getAttribute("num_cb")) ;
+	        type_act.forEach(function(element,index)
+			{
+			document.getElementById("type_act_"+ (index+1)).checked = false ;
+			}
 		
 		}
 		 
