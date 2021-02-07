@@ -774,6 +774,7 @@ console.log(poly.geometry.coordinates.length) ;
 for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	{ // boucle sur chaque polygone : ici, on a un array de dimension 1 si poly simple, de dimension >1 si poly à trous
 	var multiPoly = turf.multiPolygon(poly) ;
+	console.log(multiPoly) ;
 	L.geoJson(multiPoly).addTo(map_3) ;
 	debugger ;
 	console.log(poly.geometry.coordinates[k].length) ;
