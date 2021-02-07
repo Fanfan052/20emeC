@@ -768,6 +768,7 @@ for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 }
 else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
+  // k est le nombre de polygones, i est le nombre de composants de chaque polygones, j est le nombre de coordonnées de chaque composant
 console.log(poly.geometry.coordinates.length) ;
 for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	{ // boucle sur chaque polygone : ici, on a un array de dimension 1 si poly simple, de dimension >1 si poly à trous
