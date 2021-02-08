@@ -815,7 +815,7 @@ series.colors.list = [
     new am4core.color('orange'),
     new am4core.color('red')
 ];
-series.labels.template.text = "{category value.percent.formatNumber('0')}%";
+series.labels.template.text = "category {value.percent.formatNumber('#')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
 }); // end am4core.ready()
