@@ -560,7 +560,6 @@ am4core.useTheme(am4themes_animated);
 
 var chart = am4core.create("chartdiv", am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-chart.labelColorField: "labelColor" ;
 
 chart.data = [
   {
@@ -611,6 +610,7 @@ series.colors.list = [
     new am4core.color('purple'),
     new am4core.color('blue')
 ];
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 //chart.series.getIndex(0).labels.template.applyOnClones = true;
 // chart.series.getIndex(0).labels.template.fill.list
 
