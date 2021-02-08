@@ -1025,13 +1025,61 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
 	 (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) + ' sont hors zones d\'influence '
 	 + (layer_adresses.getLayers().length === 0 ? '' : '(' + parseFloat((layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length) / layer_adresses.getLayers().length * 100).toFixed(0)+ ' %' + ')') 
    
-  
-    // var markers_adresses_CS = {'markers': layer_adresses_CS};
-    // L.control.layers(null, markers_adresses_CS).addTo(map_3);
+// génération du graphique de synthèse
+am4core.ready(function() {
 
-    //layer_adresses_CS.eachLayer(function(layer)
-    // {console.log(layer.getTooltip()._content.replace('Centre social<br/>',''));});
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
 
+var chart = am4core.create("graphe_influence", am4charts.PieChart);
+chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+chart.data = [
+  {
+    zone: "influence 20ème Chaise",
+    value: inside_20C.features.length,
+    labelColor: new am4core.color('blue')
+  },
+  {
+    zone: "influence autres CS",
+    value: inside.features.length,
+    labelColor: new am4core.color('purple')
+  },
+  {
+    zone: "hors influence",
+    value: (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length),
+    labelColor: new am4core.color('green')
+  }
+];
+chart.radius = am4core.percent(60);
+chart.innerRadius = am4core.percent(40);
+chart.startAngle = 180;
+chart.endAngle = 360;  
+
+var series = chart.series.push(new am4charts.PieSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "zone";
+
+series.slices.template.cornerRadius = 5;
+series.slices.template.innerCornerRadius = 5;
+series.slices.template.draggable = true;
+series.slices.template.inert = true;
+series.alignLabels = false;
+
+series.hiddenState.properties.startAngle = 90;
+series.hiddenState.properties.endAngle = 90;
+series.labels.template.fontSize = 11;
+series.labels.template.maxWidth = 50;
+series.labels.template.wrap = true;
+series.colors.list = [
+    new am4core.color('blue'),
+    new am4core.color('purple'),
+    new am4core.color('green')
+];
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
+
+}); // end am4core.ready()
 
  }
 </script>
