@@ -24,6 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet-draw@0.4.13/docs/examples/libs/leaflet.geometryutil.js"></script>
     <script src="//cdn.amcharts.com/lib/4/core.js"></script>
     <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
     <script src="./javascripts/qpv_qva.json"></script>
     <script src="./javascripts/IRIS.json"></script>
@@ -148,66 +149,7 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
 
 </style>
 
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
-<!-- Chart code -->
-<script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-var chart = am4core.create("chartdiv", am4charts.PieChart);
-chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
-
-chart.data = [
-  {
-    country: "NQPV",
-    value: 183
-  },
-  {
-    country: "QVA",
-    value: 329
-  },
-  {
-    country: "AQV",
-    value: 5
-  },
-  {
-    country: "Autres",
-    value: 385
-  }
-];
-chart.radius = am4core.percent(70);
-chart.innerRadius = am4core.percent(40);
-chart.startAngle = 180;
-chart.endAngle = 360;  
-
-var series = chart.series.push(new am4charts.PieSeries());
-series.dataFields.value = "value";
-series.dataFields.category = "country";
-
-series.slices.template.cornerRadius = 10;
-series.slices.template.innerCornerRadius = 7;
-series.slices.template.draggable = true;
-series.slices.template.inert = true;
-series.alignLabels = false;
-
-series.hiddenState.properties.startAngle = 90;
-series.hiddenState.properties.endAngle = 90;
-series.labels.template.fontSize = 11;
-series.labels.template.maxWidth = 50;
-series.labels.template.wrap = true;
-
-}); // end am4core.ready()
-</script>
-
-<!-- HTML -->
-<div id="chartdiv"></div>
 
 <div>	
 <input type="button" id = "bouton_envoi" name="bout" value="Générer l'analyse en fonction des filtres" onClick="envoi_analyse()"
@@ -225,7 +167,7 @@ En attente des résultats...
 </div>
 </fieldset>
 
-
+<div id="chartdiv"></div>
 
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -605,6 +547,59 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat((adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) / adresses_turf.length * 100).toFixed(0)+ ' %' + ')')
 
+
+<!-- Chart code -->
+
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartdiv", am4charts.PieChart);
+chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+chart.data = [
+  {
+    country: "NQPV",
+    value: adresses_NQPV.features.length
+  },
+  {
+    country: "QVA",
+    value: adresses_QVA.features.length
+  },
+  {
+    country: "AQV",
+    value: adresses_AQV.features.length
+  },
+  {
+    country: "Autres",
+    value: (adresses_turf.length - adresses_NQPV.features.length
+	- adresses_QVA.features.length - adresses_AQV.features.length)
+  }
+];
+chart.radius = am4core.percent(70);
+chart.innerRadius = am4core.percent(40);
+chart.startAngle = 180;
+chart.endAngle = 360;  
+
+var series = chart.series.push(new am4charts.PieSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "country";
+
+series.slices.template.cornerRadius = 10;
+series.slices.template.innerCornerRadius = 7;
+series.slices.template.draggable = true;
+series.slices.template.inert = true;
+series.alignLabels = false;
+
+series.hiddenState.properties.startAngle = 90;
+series.hiddenState.properties.endAngle = 90;
+series.labels.template.fontSize = 11;
+series.labels.template.maxWidth = 50;
+series.labels.template.wrap = true;
+
+}); // end am4core.ready()
 
  }
 </script>
