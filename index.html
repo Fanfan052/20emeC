@@ -163,22 +163,25 @@ En attente des résultats...
 <!-- on génère les graphiques en synthèse-->
 <style>
 #graphe_qpv {
+  display: inline;
   width: 33%;
   height: 200px;
 }
 #graphe_trajet {
+  display: inline;
   width: 34%;
   height: 200px;
 }
 #graphe_influence {
+  display: inline;
   width: 33%;
   height: 200px;
 }
 </style>
 <div id="graphes">
 <div id="graphe_qpv"></div>
-<span id="graphe_trajet"></span>
-<span id="graphe_influence"></span>
+<div id="graphe_trajet"></div>
+<div id="graphe_influence"></div>
 </div>
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
