@@ -619,6 +619,7 @@ series.colors.list = [
     new am4core.color('purple'),
     new am4core.color('blue')
 ];
+series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
 }); // end am4core.ready()
@@ -1078,6 +1079,7 @@ series.colors.list = [
     new am4core.color('purple'),
     new am4core.color('green')
 ];
+series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
 }); // end am4core.ready()
