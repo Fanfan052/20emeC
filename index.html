@@ -606,9 +606,14 @@ series.colors.list = [
     new am4core.color('yellow'),
     new am4core.color('purple'),
     new am4core.color('blue')
-]
+];
 chart.series.getIndex(0).labels.template.applyOnClones = true;
-chart.series.getIndex(0).labels.template.fill = new am4core.color('blue');
+chart.series.getIndex(0).labels.template.fill.list = [
+    new am4core.color('black'),
+    new am4core.color('yellow'),
+    new am4core.color('purple'),
+    new am4core.color('blue')
+];
 
 }); // end am4core.ready()
 
