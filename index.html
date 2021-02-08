@@ -564,7 +564,8 @@ chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 chart.data = [
   {
     type_quartier: "NQPV",
-    value: adresses_NQPV.features.length
+    value: adresses_NQPV.features.length,
+    labelColorField: new am4core.color('black')
   },
   {
     type_quartier: "QVA",
@@ -606,8 +607,8 @@ series.colors.list = [
     new am4core.color('purple'),
     new am4core.color('blue')
 ]
-// chart.series.getIndex(0).labels.template.applyOnClones = true;
-chart.series.getIndex(0).labels.getIndex(0).fill = new am4core.color('blue');
+chart.series.getIndex(0).labels.template.applyOnClones = true;
+chart.series.getIndex(0).labels.template.fill = new am4core.color('blue');
 
 }); // end am4core.ready()
 
