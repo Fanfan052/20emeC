@@ -178,6 +178,9 @@ chart.data = [{
 
 // Add and configure Series
 var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "litres";
+pieSeries.dataFields.category = "country";
+</script>
 
 <div>	
 <input type="button" id = "bouton_envoi" name="bout" value="Générer l'analyse en fonction des filtres" onClick="envoi_analyse()"
