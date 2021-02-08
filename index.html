@@ -175,11 +175,11 @@ En attente des résultats...
   height: 200px;
 }
 </style>
-
-<div id="graphe_qpv"></div>
-<div id="graphe_trajet"></div>
-<div id="graphe_influence"></div>
-
+<div id="graphes">
+<span id="graphe_qpv"></span>
+<span id="graphe_trajet"></span>
+<span id="graphe_influence"></span>
+</div>
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
 var cases = document.querySelectorAll('input[name="type_filtre"]');
