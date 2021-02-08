@@ -162,14 +162,23 @@ En attente des résultats...
 
 <!-- on génère les graphiques en synthèse-->
 <style>
-#chartdiv {
+#graphe_qpv {
   width: 33%;
   height: 200px;
 }
-
+#graphe_trajet {
+  width: 34%;
+  height: 200px;
+}
+#graphe_influence {
+  width: 33%;
+  height: 200px;
+}
 </style>
 
 <div id="graphe_qpv"></div>
+<div id="graphe_trajet"></div>
+<div id="graphe_influence"></div>
 
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -549,9 +558,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat((adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length) / adresses_turf.length * 100).toFixed(0)+ ' %' + ')')
 
-
-<!-- Chart code -->
-
+// génération du graphique de synthèse
 am4core.ready(function() {
 
 // Themes begin
@@ -741,6 +748,74 @@ chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 	    + (nb_total_points === 0 ? '' : '(' + parseFloat(PS[color_fr.indexOf(element)].length / nb_total_points * 100).toFixed(0)+ ' %' + ')') 
 	    + '<br/>';
     });
+
+// génération du graphique de synthèse
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("graphe_trajet", am4charts.PieChart);
+chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+chart.data = [
+  {
+    zone: "- de 5 min",
+    value: PS[0].length,
+    labelColor: new am4core.color('blue')
+  },
+  {
+    zone: "entre 5 et 10 min",
+    value: PS[1].length,
+    labelColor: new am4core.color('green')
+  },
+  {
+    zone: "entre 10 et 15 min",
+    value: PS[2].length,
+    labelColor: new am4core.color('yellow')
+  },
+  {
+    zone: "entre 15 et 30 min",
+    value: PS[3].length,
+    labelColor: new am4core.color('orange')
+  },
+  {
+    zone: "+ de 30 min",
+    value: PS[4].length,
+    labelColor: new am4core.color('red')
+  }
+];
+chart.radius = am4core.percent(60);
+chart.innerRadius = am4core.percent(40);
+chart.startAngle = 180;
+chart.endAngle = 360;  
+
+var series = chart.series.push(new am4charts.PieSeries());
+series.dataFields.value = "value";
+series.dataFields.category = "zone";
+
+series.slices.template.cornerRadius = 5;
+series.slices.template.innerCornerRadius = 5;
+series.slices.template.draggable = true;
+series.slices.template.inert = true;
+series.alignLabels = false;
+
+series.hiddenState.properties.startAngle = 90;
+series.hiddenState.properties.endAngle = 90;
+series.labels.template.fontSize = 11;
+series.labels.template.maxWidth = 50;
+series.labels.template.wrap = true;
+series.colors.list = [
+    new am4core.color('blue'),
+    new am4core.color('green'),
+    new am4core.color('yellow'),
+    new am4core.color('orange'),
+    new am4core.color('red')
+];
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
+
+}); // end am4core.ready()
    
 	 
   }
