@@ -560,25 +560,29 @@ am4core.useTheme(am4themes_animated);
 
 var chart = am4core.create("chartdiv", am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+chart.labelColorField: "labelColor",
 
 chart.data = [
   {
     type_quartier: "NQPV",
     value: adresses_NQPV.features.length,
-    labelColorField: new am4core.color('black')
+    labelColor: new am4core.color('black')
   },
   {
     type_quartier: "QVA",
-    value: adresses_QVA.features.length
+    value: adresses_QVA.features.length,
+    labelColor: new am4core.color('yellow')
   },
   {
     type_quartier: "AQV",
-    value: adresses_AQV.features.length
+    value: adresses_AQV.features.length,
+    labelColor: new am4core.color('purple')
   },
   {
     type_quartier: "Autres",
     value: (adresses_turf.length - adresses_NQPV.features.length
-	- adresses_QVA.features.length - adresses_AQV.features.length)
+	- adresses_QVA.features.length - adresses_AQV.features.length),
+    labelColor: new am4core.color('blue')
   }
 ];
 chart.radius = am4core.percent(60);
@@ -607,13 +611,8 @@ series.colors.list = [
     new am4core.color('purple'),
     new am4core.color('blue')
 ];
-chart.series.getIndex(0).labels.template.applyOnClones = true;
-chart.series.getIndex(0).labels.template.fill.list = [
-    new am4core.color('yellow'),
-    new am4core.color('black'),
-    new am4core.color('purple'),
-    new am4core.color('blue')
-];
+//chart.series.getIndex(0).labels.template.applyOnClones = true;
+// chart.series.getIndex(0).labels.template.fill.list
 
 }); // end am4core.ready()
 
