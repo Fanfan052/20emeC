@@ -141,15 +141,6 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
 	
 </fieldset>
 
-<style>
-#chartdiv {
-  width: 33%;
-  height: 200px;
-}
-
-</style>
-
-
 
 <div>	
 <input type="button" id = "bouton_envoi" name="bout" value="Générer l'analyse en fonction des filtres" onClick="envoi_analyse()"
@@ -168,8 +159,17 @@ En attente des résultats...
 </fieldset>
 
 <h3><a name="synthèse" class="anchor" ><span class="octicon octicon-link"></span>Synthèse des résultats</a></h3>
-		
-<div id="chartdiv"></div>
+
+<!-- on génère les graphiques en synthèse-->
+<style>
+#chartdiv {
+  width: 33%;
+  height: 200px;
+}
+
+</style>
+
+<div id="graphe_qpv"></div>
 
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -558,7 +558,7 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart = am4core.create("chartdiv", am4charts.PieChart);
+var chart = am4core.create("graphe_qpv", am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
@@ -611,8 +611,6 @@ series.colors.list = [
     new am4core.color('blue')
 ];
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
-//chart.series.getIndex(0).labels.template.applyOnClones = true;
-// chart.series.getIndex(0).labels.template.fill.list
 
 }); // end am4core.ready()
 
