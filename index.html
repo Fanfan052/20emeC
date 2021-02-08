@@ -167,6 +167,8 @@ En attente des résultats...
 </div>
 </fieldset>
 
+<h3><a name="synthèse" class="anchor" ><span class="octicon octicon-link"></span>Synthèse des résultats</a></h3>
+		
 <div id="chartdiv"></div>
 
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
@@ -598,6 +600,12 @@ series.hiddenState.properties.endAngle = 90;
 series.labels.template.fontSize = 11;
 series.labels.template.maxWidth = 50;
 series.labels.template.wrap = true;
+series.colors.list = [
+    new am4core.color('black'),
+    new am4core.color('yellow'),
+    new am4core.color('purple'),
+    new am4core.color('blue')
+]
 
 }); // end am4core.ready()
 
