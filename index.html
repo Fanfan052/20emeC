@@ -563,19 +563,19 @@ chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
   {
-    country: "NQPV",
+    type_quartier: "NQPV",
     value: adresses_NQPV.features.length
   },
   {
-    country: "QVA",
+    type_quartier: "QVA",
     value: adresses_QVA.features.length
   },
   {
-    country: "AQV",
+    type_quartier: "AQV",
     value: adresses_AQV.features.length
   },
   {
-    country: "Autres",
+    type_quartier: "Autres",
     value: (adresses_turf.length - adresses_NQPV.features.length
 	- adresses_QVA.features.length - adresses_AQV.features.length)
   }
@@ -587,7 +587,7 @@ chart.endAngle = 360;
 
 var series = chart.series.push(new am4charts.PieSeries());
 series.dataFields.value = "value";
-series.dataFields.category = "country";
+series.dataFields.category = "type_quartier";
 
 series.slices.template.cornerRadius = 5;
 series.slices.template.innerCornerRadius = 5;
@@ -607,7 +607,7 @@ series.colors.list = [
     new am4core.color('blue')
 ]
 chart.series.getIndex(0).labels.template.applyOnClones = true;
-chart.series.getIndex(0).labels.getIndex(0).template.fill = new am4core.color('blue');
+chart.series.getIndex(0).labels.getIndex(0).fill = new am4core.color('blue');
 
 }); // end am4core.ready()
 
