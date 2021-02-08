@@ -579,7 +579,7 @@ chart.data = [
   {
     type_quartier: "QVA",
     value: adresses_QVA.features.length,
-    labelColor: new am4core.color('#fefe33')
+    labelColor: new am4core.color('#ffff66')
   },
   {
     type_quartier: "AQV",
@@ -615,7 +615,7 @@ series.labels.template.maxWidth = 50;
 series.labels.template.wrap = true;
 series.colors.list = [
     new am4core.color('black'),
-    new am4core.color('#fefe33'),
+    new am4core.color('#ffff66'),
     new am4core.color('purple'),
     new am4core.color('blue')
 ];
@@ -775,7 +775,7 @@ chart.data = [
   {
     zone: "entre 10 et 15 min",
     value: PS[2].length,
-    labelColor: new am4core.color('#fefe33')
+    labelColor: new am4core.color('#ffff66')
   },
   {
     zone: "entre 15 et 30 min",
@@ -789,7 +789,7 @@ chart.data = [
   }
 ];
 chart.radius = am4core.percent(50);
-chart.innerRadius = am4core.percent(40);
+chart.innerRadius = am4core.percent(30);
 chart.startAngle = 180;
 chart.endAngle = 360;  
 
@@ -811,10 +811,11 @@ series.labels.template.wrap = true;
 series.colors.list = [
     new am4core.color('blue'),
     new am4core.color('green'),
-    new am4core.color('#fefe33'),
+    new am4core.color('#ffff66'),
     new am4core.color('orange'),
     new am4core.color('red')
 ];
+series.labels.template.text = "{value.percent.formatNumber('#')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
 }); // end am4core.ready()
