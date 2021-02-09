@@ -920,7 +920,7 @@ chart.exporting.menu.verticalAlign = "top";
    
    var PS = centres_sociaux;
  
-    var layer_adresses_CS = L.layerGroup().addTo(map_3);
+    var layer_adresses_CS = L.layerGroup()
 
 // fonction qui génère l'union de polygones
 function unify(polyList,color) {
@@ -952,7 +952,7 @@ ZI_20C.addTo(Layer_ZI_20C);
     PS.forEach(
     function(element) {
 	if ( element.nom_centre_social != 'La 20eme Chaise') {
-        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 4, color : 'red'}).bindTooltip(element.nom_centre_social,{permanent: true, opacity: 0.5, fillcolor : 'yellow'}).addTo(map_3));
+        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 4, color : 'red'}).bindTooltip(element.nom_centre_social,{permanent: false, opacity: 0.5, fillColor : 'white', fillOpacity : 0.1});
 	}
     });
 
@@ -1061,6 +1061,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_3);
  }, {permanent: false, opacity: 0.8}  //then add your options
  ).addTo(map_3);
 
+layer_adresses_CS.addTo(map_3);
 
  document.getElementById("comment_3").innerHTML = inside_20C.features.length +
 	 ' sont dans la zone d\'influence de la 20ème Chaise '
