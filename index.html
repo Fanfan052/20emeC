@@ -828,6 +828,10 @@ series.colors.list = [
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
+chart.exporting.menu = new am4core.ExportMenu();
+chart.exporting.menu.align = "left";
+chart.exporting.menu.verticalAlign = "top";
+
 }); // end am4core.ready()
    
 	 
@@ -1090,6 +1094,10 @@ series.colors.list = [
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
+
+chart.exporting.menu = new am4core.ExportMenu();
+chart.exporting.menu.align = "left";
+chart.exporting.menu.verticalAlign = "top";
 
 }); // end am4core.ready()
 
