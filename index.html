@@ -393,7 +393,14 @@ var tableau_test = [] ;
 	
 function chargement_donnees()
 {
-if (localStorage.getItem("filtre_final").length == 0)
+if (localStorage.getItem("filtre_final") === null)
+{
+tableau_test = data ;
+document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
+	+ '<br>' + '- Nombre de familles obtenu : ' + tableau_test.length
+	+ '<br>' + ' - Rayon des cercles d\'influence des centres sociaux : ' + '750' + ' mètres';
+}
+else if (localStorage.getItem("filtre_final").length == 0)
 {
 tableau_test = data ;
 document.getElementById('resume_requete').innerHTML = '- Aucun filtre.'
