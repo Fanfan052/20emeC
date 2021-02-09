@@ -659,6 +659,12 @@ chart.exporting.menu.verticalAlign = "top";
   <script>
  function exemple2() {
     var map_2 = L.map('map_2').setView([48.864891,2.389828], 14);
+  	 
+    L.easyPrint({
+	title: 'Imprimer',
+	position: 'topleft',
+	sizeModes: ['A4Portrait', 'A4Landscape']
+	}).addTo(map_2);
 	 
     var bornes = [0,5,10,15,30,10000];
     var key = 'duree_pieds';
@@ -863,7 +869,12 @@ chart.exporting.menu.verticalAlign = "top";
   <script>
  function exemple3() {
     var map_3 = L.map('map_3').setView([48.864891,2.389828], 14);
-    // var tableau_sortie = data;
+  	 
+    L.easyPrint({
+	title: 'Imprimer',
+	position: 'topleft',
+	sizeModes: ['A4Portrait', 'A4Landscape']
+	}).addTo(map_3);
   
     tableau_sortie.map( adresse => {
     let properties = {
