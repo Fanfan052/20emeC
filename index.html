@@ -952,7 +952,7 @@ ZI_20C.addTo(Layer_ZI_20C);
     PS.forEach(
     function(element) {
 	if ( element.nom_centre_social != 'La 20eme Chaise') {
-        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 4, color : 'red'}).bindTooltip(element.nom_centre_social,{permanent: false, opacity: 0.5, fillColor : 'white', fillOpacity : 0.1});
+        layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 4, color : 'red'}).bindTooltip(element.nom_centre_social,{permanent: false, opacity: 0.5, fillColor : 'white', fillOpacity : 0.1}));
 	}
     });
 
