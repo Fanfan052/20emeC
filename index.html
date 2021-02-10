@@ -892,18 +892,27 @@ chart.exporting.menu.verticalAlign = "top";
 <!-- Exemple 3 -->
 <h3><a name="ex3" class="anchor" ><span class="octicon octicon-link"></span>IRIS et zones d'influence des centres sociaux parisiens</a></h3>
 
-<p> <i> <font size = "2">
-	- récupération des polygones définissant les IRIS via une source de type GeoJSON <br>
-       - on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS) (zone en fond bleu)  <br>
-       - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon<br>
-       - la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants <br>
-       - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br> </i> </font>
-	<br>
-       <ul>
-	<li> survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS </li>
-	<li> survoler les points rouges pour voir apparaître le nom du centre social concerné </li>
-	</ul>
-</p>
+<font size = "2">
+
+<fieldset style= "border: 1px solid #666; border-radius: 8px; background-color: #BEBEBE">
+<legend><b> démarche </b></legend>
+<i>
+<ul>
+<li>récupération des polygones définissant les IRIS via une source de type GeoJSON</li>
+<li>on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS) (zone en fond bleu)</li>
+<li>les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon</li>
+<li>la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants</li>
+<li>recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon</li>
+</ul>
+</i>
+</fieldset>
+
+</font>
+	
+<ul>
+<li> survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS </li>
+<li> survoler les points rouges pour voir apparaître le nom du centre social concerné </li>
+</ul>
 
 <p>
   <div id="map_3" style="width: 100%; height: 560px"></div>
