@@ -442,7 +442,8 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 <p> <i> <font size = "2">
        - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON <br>
        - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon <br> </i> </font>
-       - survoler les quartiers prioritaires pour voir apparaître le nom de la zone
+       <br>
+       - survoler les quartiers prioritaires pour voir apparaître le nom du quartier "prioritaire"
 </p>
 
 <p>
@@ -878,6 +879,7 @@ chart.exporting.menu.verticalAlign = "top";
        - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon<br>
        - la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants <br>
        - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br> </i> </font>
+	<br>
        - survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS <br>
        - survoler les points rouges pour voir apparaître le nom du centre social concerné
 </p>
