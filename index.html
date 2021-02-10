@@ -960,10 +960,11 @@ ZI_20C.addTo(Layer_ZI_20C);
 layer_adresses_CS.eachLayer(function(layer)
 { 
  var Test = LGeo.circle(layer.getLatLng(), radius, opts);
-console.log(turf.polygon(Test.toGeoJSON().geometry.coordinates)) ;
-console.log(turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
  var poly = turf.difference(turf.polygon(Test.toGeoJSON().geometry.coordinates),turf.polygon(ZI_20C.toGeoJSON().features[0].geometry.coordinates)) ;
 
+// attention, avec Firefox et Edge, poly est null si aucune intersection !!
+if (poly == null)
+{poly = turf.polygon(Test.toGeoJSON().geometry.coordinates) ;}
 // on doit gérer le cas où la surface différence est un polygone à trou(s) !!
 // attention également au cas des multipolygones !!
 
