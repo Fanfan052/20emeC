@@ -1008,6 +1008,7 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 }
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
+console.log(cercle_mange) ;
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
 });
@@ -1015,7 +1016,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
- 
+ console.log(circleUnion) ;
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);	 
 
