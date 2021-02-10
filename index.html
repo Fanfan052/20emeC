@@ -448,7 +448,7 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
   <script>
 	  
  function exemple1() {
-    var map_1 = L.map('map_1').setView([48.864891,2.389828], 14);
+    var map_1 = L.map('map_1',{ scrollWheelZoom: false }).setView([48.864891,2.389828], 14);
   	 
     L.easyPrint({
 	title: 'Imprimer',
