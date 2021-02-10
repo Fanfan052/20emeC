@@ -439,9 +439,9 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 <!-- Exemple 1 -->
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
 
-<p> - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON <br>
-    - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon <br>
-    - survoler les quartiers prioritaires pour voir apparaître le nom de la zone
+<p> <i>- récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON <br>
+       - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon <br> </i>
+       - survoler les quartiers prioritaires pour voir apparaître le nom de la zone
 </p>
 
 <p>
@@ -657,11 +657,11 @@ chart.exporting.menu.verticalAlign = "top";
 <!-- Exemple 2 -->
 <h3><a name="ex2" class="anchor" ><span class="octicon octicon-link"></span>Temps de trajet à pied</a></h3>
 
-<p> - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
+<p> <i> - récupération des temps de trajet et distance (à pied, en voiture, en transports en commun) <br>
          à la 20ème Chaise par Google Map API <br>
- <s>  - détermination des enveloppes convexes(-concaves) par algorithme externe </s> &nbsp (laissé en suspens car non adapté aux petits groupes de points asymétriques) <br>
-      - détermination des cercles correspondant à chaque zone (certains points ne sont pas dans leur cercle de couleur dans le cas où la distance à vol d'oiseau s'éloigne
-	du temps calculé par Google Map API pour se rendre à pied à la 20ème Chaise)
+ <s>    - détermination des enveloppes convexes(-concaves) par algorithme externe </s> &nbsp (laissé en suspens car non adapté aux petits groupes de points asymétriques) <br>
+        - détermination des cercles correspondant à chaque zone (certains points ne sont pas dans leur cercle de couleur dans le cas où la distance à vol d'oiseau s'éloigne
+	du temps calculé par Google Map API pour se rendre à pied à la 20ème Chaise) </i>
 </p>
 	      
 	      
@@ -870,12 +870,13 @@ chart.exporting.menu.verticalAlign = "top";
 <!-- Exemple 3 -->
 <h3><a name="ex3" class="anchor" ><span class="octicon octicon-link"></span>IRIS et zones d'influence des centres sociaux parisiens</a></h3>
 
-<p> - récupération des polygones définissant les IRIS via une source de type GeoJSON <br>
-    - on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS) (zone en fond bleu)  <br>
-    - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon<br>
-    - la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants <br>
-    - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br>
-    - survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS
+<p><I> - récupération des polygones définissant les IRIS via une source de type GeoJSON <br>
+       - on exclut les adresses relevant de la zone de première influence de la 20ème Chaise (liste d'IRIS) (zone en fond bleu)  <br>
+       - les zones d'influence des centres sociaux parisiens sont définies par un rayon de 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon<br>
+       - la réunion des cercles d'influence apparaît en mauve ainsi que les points correspondants <br>
+       - recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon <br> </i>
+       - survoler les zones d'IRIS pour voir apparaître le numéro et le nom de l'IRIS
+       - survoler les points rouges pour voir apparaître le nom du centre social concerné
 </p>
 
 <p>
