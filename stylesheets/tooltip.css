@@ -1,0 +1,14 @@
+/* tooltip-class*/
+
+.leaflet-tooltip.class-tooltip {
+  background: green;
+  border: 2px solid cyan
+}
+
+.leaflet-tooltip-left.class-tooltip::before {
+  border-left-color: cyan;
+}
+
+.leaflet-tooltip-right.class-tooltip::before {
+  border-right-color: cyan;
+}
