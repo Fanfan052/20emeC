@@ -439,10 +439,18 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 <!-- Exemple 1 -->
 <h3><a name="ex1" class="anchor" ><span class="octicon octicon-link"></span>QPV, QVA et AQV</a></h3>
 
-<p> <i> <font size = "2">
+<font size = "2">
+<i>
+<fieldset style= "border: 1px solid #666; border-radius: 8px">
+<legend> démarche </legend>
+<p>
        - récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON <br>
-       - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon <br> </i> </font>
-       <br>
+       - recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon
+</fieldset>
+</p>
+</i>
+</font>
+    
        <ul>
        <li> survoler les quartiers prioritaires pour voir apparaître le nom du quartier "prioritaire" </li>
        </ul>
