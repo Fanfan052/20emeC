@@ -163,10 +163,13 @@ En attente des résultats...
 <!-- on génère les graphiques en synthèse-->
 
 // Create and configure the container
+<script>
 var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
-container.height = 300 px;
+container.height = am4core.percent(100);
 container.layout = "horizontal";
+var chart1 = container.createChild(graphe_qpv);
+</script>
 
 <style>
 #graphe_qpv {
