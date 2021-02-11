@@ -172,35 +172,13 @@ container.height = am4core.percent(100);
 container.layout = "horizontal";
 
 </script>
-		
-<style>
-#graphe_qpv {
-  display: inline-block;
-  width: 33%;
-  height: 300px;
-}
-#graphe_trajet {
-  display: inline-block;
-  width: 33%;
-  height: 300px;
-}
-#graphe_influence {
-  display: inline-block;  
-  width: 33%;
-  height: 300px;
-}
-</style>
 
 <ul>
 <li>survoler les secteurs des graphiques pour visualiser le nombre d'adresses recensées</li>
 </ul>
+		
 <div id="chartdiv"></div>
 
-<!--
-<div class="graphes" id="graphe_qpv"></div>
-<div class="graphes" id="graphe_trajet"></div>
-<div class="graphes" id="graphe_influence"></div>
--->
 		
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -1145,7 +1123,7 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart = am4core.create("graphe_influence", am4charts.PieChart);
+var chart = container.createChild(am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
@@ -1196,8 +1174,6 @@ chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
-
-chart.parent = container;
 
 }); // end am4core.ready()
 
