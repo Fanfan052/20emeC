@@ -161,6 +161,13 @@ En attente des résultats...
 <h3><a name="synthèse" class="anchor" ><span class="octicon octicon-link"></span>Synthèse des résultats (vue détaillée dans les cartes ci-dessous)</a></h3>
 
 <!-- on génère les graphiques en synthèse-->
+
+// Create and configure the container
+var container = am4core.create("chartdiv", am4core.Container);
+container.width = am4core.percent(100);
+container.height = 300 px;
+container.layout = "horizontal";
+
 <style>
 #graphe_qpv {
   display: inline-block;
