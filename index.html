@@ -164,11 +164,13 @@ En attente des résultats...
 
 <script>
 // Create and configure the container
+am4core.ready(function() {
 var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
 var graphe_qpv = container.createChild(am4charts.PieChart);
+}) ;
 </script>
 
 <style>
