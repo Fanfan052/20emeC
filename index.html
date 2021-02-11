@@ -170,7 +170,6 @@ var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
-container.background = new am4core.color('grey');
 container.fill = new am4core.color('grey');
 container.fillOpacity = 0.6;
 
@@ -652,6 +651,7 @@ series.colors.list = [
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
+chart.background = new am4core.color('#C0C0C0');
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
@@ -873,6 +873,7 @@ series.colors.list = [
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
+chart.background = new am4core.color('#C0C0C0');
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
@@ -1174,6 +1175,7 @@ series.colors.list = [
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
+chart.background = new am4core.color('#C0C0C0');
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
