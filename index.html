@@ -169,10 +169,9 @@ var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
+chart1 = container.createChild("graphe_qpv");
 }) ;
 </script>
-
-<div id="container"></div>
 		
 <style>
 #graphe_qpv {
@@ -195,6 +194,7 @@ container.layout = "horizontal";
 <ul>
 <li>survoler les secteurs des graphiques pour visualiser le nombre d'adresses recensées</li>
 </ul>
+<div id="container"></div>
 <div class="graphes" id="graphe_qpv"></div>
 <div class="graphes" id="graphe_trajet"></div>
 <div class="graphes" id="graphe_influence"></div>
