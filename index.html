@@ -170,7 +170,6 @@ var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
-chart_test = container.createChild(am4charts.PieChart);
 }) ;
 </script>
 		
@@ -673,7 +672,7 @@ chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
 
-chart_test = chart ;
+chart.parent = container;
 	
 }); // end am4core.ready()
 
