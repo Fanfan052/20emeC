@@ -832,10 +832,10 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart2 = am4core.create("graphe_trajet", am4charts.PieChart);
-chart2.hiddenState.properties.opacity = 0; // this creates initial fade-in
+var chart = container.createChild(am4charts.PieChart);
+chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-chart2.data = [
+chart.data = [
   {
     zone: "- de 5 min",
     value: PS[0].length,
@@ -862,12 +862,12 @@ chart2.data = [
     labelColor: new am4core.color('red')
   }
 ];
-chart2.radius = am4core.percent(50);
-chart2.innerRadius = am4core.percent(35);
-chart2.startAngle = 180;
-chart2.endAngle = 360;  
+chart.radius = am4core.percent(50);
+chart.innerRadius = am4core.percent(35);
+chart.startAngle = 180;
+chart.endAngle = 360;  
 
-var series = chart2.series.push(new am4charts.PieSeries());
+var series = chart.series.push(new am4charts.PieSeries());
 series.dataFields.value = "value";
 series.dataFields.category = "zone";
 
@@ -890,13 +890,11 @@ series.colors.list = [
     new am4core.color('red')
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
-chart2.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
-chart2.exporting.menu = new am4core.ExportMenu();
-chart2.exporting.menu.align = "left";
-chart2.exporting.menu.verticalAlign = "top";
-
-chart2.parent = container;
+chart.exporting.menu = new am4core.ExportMenu();
+chart.exporting.menu.align = "left";
+chart.exporting.menu.verticalAlign = "top";
 
 }); // end am4core.ready()
    
