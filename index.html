@@ -162,13 +162,13 @@ En attente des résultats...
 
 <!-- on génère les graphiques en synthèse-->
 
-// Create and configure the container
 <script>
+// Create and configure the container
 var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
-var chart1 = container.createChild(graphe_qpv);
+var graphe_qpv = container.createChild(am4charts.PieChart);
 </script>
 
 <style>
@@ -610,7 +610,7 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart = am4core.create("graphe_qpv", am4charts.PieChart);
+var chart = am4core.create(container, am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
