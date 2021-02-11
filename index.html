@@ -169,7 +169,6 @@ var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
 container.height = am4core.percent(100);
 container.layout = "horizontal";
-var graphe_qpv = container.createChild(am4charts.PieChart);
 }) ;
 </script>
 
@@ -612,10 +611,10 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-// var chart = am4core.create(, am4charts.PieChart);
-graphe_qpv.hiddenState.properties.opacity = 0; // this creates initial fade-in
+var chart = am4core.create("graphe_qpv", am4charts.PieChart);
+chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-graphe_qpv.data = [
+chart.data = [
   {
     type_quartier: "NQPV",
     value: adresses_NQPV.features.length,
@@ -638,12 +637,12 @@ graphe_qpv.data = [
     labelColor: new am4core.color('blue')
   }
 ];
-graphe_qpv.radius = am4core.percent(50);
-graphe_qpv.innerRadius = am4core.percent(35);
-graphe_qpv.startAngle = 180;
-graphe_qpv.endAngle = 360;  
+chart.radius = am4core.percent(50);
+chart.innerRadius = am4core.percent(35);
+chart.startAngle = 180;
+chart.endAngle = 360;  
 
-var series = graphe_qpv.series.push(new am4charts.PieSeries());
+var series = chart.series.push(new am4charts.PieSeries());
 series.dataFields.value = "value";
 series.dataFields.category = "type_quartier";
 
@@ -665,11 +664,11 @@ series.colors.list = [
     new am4core.color('blue')
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
-graphe_qpv.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
-graphe_qpv.exporting.menu = new am4core.ExportMenu();
-graphe_qpv.exporting.menu.align = "left";
-graphe_qpv.exporting.menu.verticalAlign = "top";
+chart.exporting.menu = new am4core.ExportMenu();
+chart.exporting.menu.align = "left";
+chart.exporting.menu.verticalAlign = "top";
 	
 }); // end am4core.ready()
 
