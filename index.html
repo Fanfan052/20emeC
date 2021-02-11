@@ -616,7 +616,7 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-var chart = am4core.create("graphe_qpv", am4charts.PieChart);
+var chart = container.createChild(am4charts.PieChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
 chart.data = [
@@ -674,8 +674,6 @@ chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
-
-chart.parent = container;
 	
 }); // end am4core.ready()
 
