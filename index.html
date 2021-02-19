@@ -1126,7 +1126,7 @@ console.log(layer.feature.geometry.coordinates);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- layer.feature.geometry.coordinates.toGeoJSON()
+ turf.polygon(layer.feature.geometry.coordinates)
   );
 console.log(inside.length);
 });
