@@ -1119,11 +1119,15 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 	var lnglat = [inside_20C.features[i].geometry.coordinates[1], inside_20C.features[i].geometry.coordinates[0]];
 	points_turf.push(lnglat);
 	};
-console.log(points_turf);
 	 
 Layer_IRIS_ZI_20C.eachLayer(function(layer)
 {
-
+var inside = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ layer.toGeoJSON()
+  );
+console.log(inside.length);
 });
 
 
