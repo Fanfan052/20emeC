@@ -1122,11 +1122,11 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 	 
 Layer_IRIS_ZI_20C.eachLayer(function(layer)
 {
-console.log(turf.flip(turf.polygon(layer.feature.geometry.coordinates)));	
+console.log(turf.flip(turf.polygon(layer.feature.geometry.coordinates)));
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- turf.flip(turf.polygon(layer.feature.geometry.coordinates)).toGeoJSON()
+ turf.flip(turf.polygon(layer.feature.geometry.coordinates))
   );
 console.log(inside.length);
 });
