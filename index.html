@@ -1133,6 +1133,7 @@ console.log(points_turf);
 // Layer_IRIS_ZI_20C.eachLayer(function(layer)
 Layer_IRIS.eachLayer(function(layer)
 {
+console.log(layer.feature.geometry.coordinates);
 // on doit gérer le cas des multipolygones !
 if (layer.feature.geometry.type == 'Polygon')
 {
