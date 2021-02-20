@@ -1123,8 +1123,8 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 
 layer_adresses.eachLayer(function(element)
 {
-var lnglat = [element._latlng.lng, element._latlng.lat];
-points_turf.push(lnglat);
+var latlng = [element._latlng.lat, element._latlng.lng];
+points_turf.push(latlng);
 }
 )
 
