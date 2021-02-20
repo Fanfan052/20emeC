@@ -1124,12 +1124,27 @@ console.log(layer_adresses);
 // Layer_IRIS_ZI_20C.eachLayer(function(layer)
 Layer_IRIS.eachLayer(function(layer)
 {
+// on doit gérer le cas des multipolygones !
+if (layer.feature.geometry.type == 'Polygon')
+{
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(layer.feature.geometry.coordinates))
   );
 console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+}
+else
+{
+var inside = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ turf.flip(turf.multiPolygon(layer.feature.geometry.coordinates))
+  );
+console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+}
+
+	
 });
 
 
