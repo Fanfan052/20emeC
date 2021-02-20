@@ -1058,7 +1058,6 @@ cercle_mange.addTo(layer_cercles_CS) ;
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
- console.log(circleUnion) ;
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);	 
 
@@ -1127,7 +1126,7 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(layer.feature.geometry.coordinates))
   );
-console.log(inside.feature.length);
+console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
 });
 
 
