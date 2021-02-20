@@ -1051,7 +1051,6 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 }
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
-console.log(cercle_mange) ;
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
 });
@@ -1122,14 +1121,13 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 	 
 Layer_IRIS_ZI_20C.eachLayer(function(layer)
 {
-console.log(turf.points(points_turf));
-console.log(turf.flip(turf.polygon(layer.feature.geometry.coordinates)));
+console.log(layer);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(layer.feature.geometry.coordinates))
   );
-console.log(inside);
+console.log(inside.feature.length);
 });
 
 
