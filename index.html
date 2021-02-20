@@ -1113,14 +1113,21 @@ layer_adresses_CS.addTo(map_3);
 var Layer_IRIS_ZI_20C = L.geoJson(iris, {filter: Filtre_influence_20C, style:  {color: 'black',weight: 1.5, opacity : 0.7, fill : true, fillColor : 'orange', fillOpacity : 0.5}})
 var points_turf = [];
 
+/*
 for (let i=0 ; i < inside_20C.features.length; i++)
 	{
 	var lnglat = [inside_20C.features[i].geometry.coordinates[1], inside_20C.features[i].geometry.coordinates[0]];
 	points_turf.push(lnglat);
 	};
+*/
 
-	 
-console.log(layer_adresses);
+layer_adresses.eachLayer(function(element)
+{
+var lnglat = [element._latlng.lng, element._latlng.lat];
+points_turf.push(lnglat);
+}
+)
+	
 // Layer_IRIS_ZI_20C.eachLayer(function(layer)
 Layer_IRIS.eachLayer(function(layer)
 {
