@@ -1122,6 +1122,8 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 	};
 */
 
+var Layer_IRIS_IDF = L.geoJson(IRIS_IDF, { style:  {color: 'black', weight: 1.0, opacity : 0.7, fillColor : 'white', fillOpacity : 0.0}});
+
 layer_adresses.eachLayer(function(element)
 {
 var latlng = [element._latlng.lat, element._latlng.lng];
