@@ -1132,7 +1132,7 @@ points_turf.push(latlng);
 )
 	
 // Layer_IRIS_ZI_20C.eachLayer(function(layer)
-Layer_IRIS.eachLayer(function(layer)
+Layer_IRIS_IDF.eachLayer(function(layer)
 {
 // on doit gérer le cas des multipolygones !
 if (layer.feature.geometry.type == 'Polygon')
@@ -1142,7 +1142,8 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(layer.feature.geometry.coordinates))
   );
-console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+// console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+console.log('IRIS' + ' ' + layer.feature.properties.code_iris + ' ' + layer.feature.properties.nom_iris + ' : ' + inside.features.length);
 }
 else
 {
@@ -1151,7 +1152,8 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.multiPolygon(layer.feature.geometry.coordinates))
   );
-console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+// console.log('IRIS' + ' ' + layer.feature.properties.C_IR + ' ' + layer.feature.properties.L_IR + ' : ' + inside.features.length);
+console.log('IRIS' + ' ' + layer.feature.properties.code_iris + ' ' + layer.feature.properties.nom_iris + ' : ' + inside.features.length);
 }
 
 	
