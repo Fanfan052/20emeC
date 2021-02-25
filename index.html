@@ -1061,6 +1061,7 @@ console.log(cercle_mange);
 for (let i=0 ; i < cercle_mange._latlngs.length; i++)
 {
 // construction du vecteur d'adresses
+var points_turf = [];
 layer_adresses.eachLayer(function(element)
 {
 var latlng = [element._latlng.lat, element._latlng.lng];
