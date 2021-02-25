@@ -999,6 +999,8 @@ var TooltipClass = {
         layer_adresses_CS.addLayer(L.circleMarker([element.lat, element.lng], {radius: 4, color : 'red'}).bindTooltip(element.nom_centre_social,{'className': 'class-tooltip', permanent: false, color : 'red', opacity: 0.7, fillColor : 'red', fillOpacity : 0.3}));
 	}
     });
+
+console.log(layer_adresses_CS);
 	 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer)
