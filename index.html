@@ -1053,6 +1053,7 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	}
 }
 
+console.log(layer._tooltip._content);
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
