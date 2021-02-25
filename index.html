@@ -1074,12 +1074,12 @@ points_turf.push(latlng);
 )
 // recherche des adresses dans cercle_mange
 console.log(points_turf);
-console.log(cercle_mange.toGeoJSON().geometry.coordinates);
+console.log(cercle_mange.toGeoJSON().geometry.coordinates[0]);
 
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- turf.flip(cercle_mange.toGeoJSON().geometry.coordinates)
+ turf.flip(cercle_mange.toGeoJSON().geometry.coordinates[0])
   );
 var nb_points ;
 nb_points += inside.length;
