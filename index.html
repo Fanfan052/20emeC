@@ -1069,7 +1069,14 @@ points_turf.push(latlng);
 }
 )
 // recherche des adresses dans cercle_mange
-
+var inside = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ turf.flip(turf.polygon(cercle_mange._latlngs[i]))
+  );
+var nb_points ;
+nb_points += inside.length;
+console.log(nb_points);
 }
 
 cercle_mange.addTo(layer_cercles_CS) ;
