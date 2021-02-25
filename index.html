@@ -1060,8 +1060,11 @@ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'bl
 
 // on calcule le nombre d'adresses contenu dans chaque cercle_mange
 console.log(layer._tooltip._content);
-console.log(cercle_mange);
-
+for (i=0 ; i < cercle_mange._latlngs.length ; i++)
+{
+console.log(cercle_mange._latlngs[i].length);
+}
+	
 {
 // construction du vecteur d'adresses
 var points_turf = [];
