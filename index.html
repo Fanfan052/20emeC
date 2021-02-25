@@ -1078,7 +1078,7 @@ console.log(turf.polygon(cercle_mange));
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- turf.flip(turf.polygon(cercle_mange))
+ turf.polygon(cercle_mange)
   );
 var nb_points ;
 nb_points += inside.length;
