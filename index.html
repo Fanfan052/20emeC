@@ -1057,11 +1057,11 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 
-/*
+
 // on calcule le nombre d'adresses contenu dans chaque cercle_mange
 console.log(layer._tooltip._content);
 console.log(cercle_mange._latlngs.length);
-for (let i=0 ; i < cercle_mange._latlngs.length; i++)
+
 {
 // construction du vecteur d'adresses
 var points_turf = [];
@@ -1077,13 +1077,13 @@ console.log(cercle_mange._latlngs[i]);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- turf.flip(turf.polygon(cercle_mange._latlngs[i]))
+ turf.flip(turf.polygon(cercle_mange))
   );
 var nb_points ;
 nb_points += inside.length;
 console.log(nb_points);
 }
-*/
+
 
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
