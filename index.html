@@ -196,7 +196,7 @@ container_2.fillOpacity = 0.95;
 <li>nombre d'adresses dans chaque cercle d'influence des autres centres sociaux parisiens</li>
 </ul>
 		
-<div id="chartdiv_2" style="height:200px"></div>
+<div id="chartdiv_2" style="height:600px"></div>
 
 
 		
@@ -1287,7 +1287,7 @@ chart.endAngle = 260;
 chart.data = [
   {
     country: "USA",
-    visits: 23725
+    visits: 2000
   },
   {
     country: "China",
@@ -1348,25 +1348,11 @@ categoryAxis.renderer.labels.template.radius = 7;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 valueAxis.min = 0;
-valueAxis.max = 24000;
+valueAxis.max = 2000;
 valueAxis.strictMinMax = true;
 valueAxis.renderer.minGridDistance = 30;
 valueAxis.renderer.grid.template.strokeOpacity = 0.08;
 valueAxis.tooltip.disabled = true;
-
-// axis break
-var axisBreak = valueAxis.axisBreaks.create();
-axisBreak.startValue = 2100;
-axisBreak.endValue = 22900;
-axisBreak.breakSize = 0.02;
-
-// make break expand on hover
-var hoverState = axisBreak.states.create("hover");
-hoverState.properties.breakSize = 1;
-hoverState.properties.opacity = 0.1;
-hoverState.transitionDuration = 1500;
-
-axisBreak.defaultState.transitionDuration = 1000;
 
 var series = chart.series.push(new am4charts.RadarColumnSeries());
 series.dataFields.categoryX = "country";
