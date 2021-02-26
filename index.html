@@ -1046,7 +1046,6 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(lng_lat_poly))
   );
-console.log(inside);
 console.log(inside.features.length);
 
 }
@@ -1071,40 +1070,18 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	lng_lat_poly[k] = composant_lng_lat_poly ;
 	
 	}
-}
-
-var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
-
-
-// on calcule le nombre d'adresses contenu dans chaque cercle_mange
-
-console.log(cercle_mange.toGeoJSON());
-
-/*
-	
-{
-// construction du vecteur d'adresses
-var points_turf = [];
-layer_adresses.eachLayer(function(element)
-{
-var latlng = [element._latlng.lat, element._latlng.lng];
-points_turf.push(latlng);
-}
-)
-// recherche des adresses dans cercle_mange
-console.log(points_turf);
-console.log(turf.flip(turf.polygon(cercle_mange.toGeoJSON().geometry.coordinates)));
-
+// on calcule le nombre de points dans ce cercle_mange
+console.log(layer._tooltip._content);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
- turf.flip(turf.polygon(cercle_mange.toGeoJSON().geometry.coordinates))
+ turf.flip(turf.multiPolygon(lng_lat_poly))
   );
-console.log(inside);
 console.log(inside.features.length);
+
 }
 
-*/
+var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
 
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
@@ -1115,9 +1092,6 @@ cercle_mange.addTo(layer_cercles_CS) ;
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);	 
-
-
-
 
 // identification des points dans zone 20eme Chaise
 var inside_20C = 
