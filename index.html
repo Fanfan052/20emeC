@@ -1027,6 +1027,7 @@ points_turf.push(lnglat);
 )
 // on crée le tableau contenant les données du graphique adresses par CS
 var donnees_graphe_CS = [];
+var donnees_graphe_2_CS = [];
 // on initialise le nb d'adresses max pour générer les graphiques en fonction
 var max_graphe_CS = 0;
 // on crée le layer des cercles d'influence des autres CS
@@ -1071,6 +1072,14 @@ console.log(inside.features.length);
 		nom_cs: layer._tooltip._content,
 		nb_adresses:inside.features.length
 	});
+	}
+	else
+	{
+	donnees_graphe_2_CS.push({
+		nom_cs: layer._tooltip._content,
+		nb_adresses:inside.features.length
+	});
+	}
 	// on actualise le max
 	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
 	}
@@ -1111,6 +1120,14 @@ console.log(inside.features.length);
 		nom_cs: layer._tooltip._content,
 		nb_adresses:inside.features.length
 	});
+	}
+	else
+	{
+	donnees_graphe_2_CS.push({
+		nom_cs: layer._tooltip._content,
+		nb_adresses:inside.features.length
+	});
+	}
 	// on actualise le max
 	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
 	}
@@ -1123,6 +1140,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
 });
 
 console.log(donnees_graphe_CS);
+console.log(donnees_graphe_2_CS);
 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
