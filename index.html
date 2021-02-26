@@ -1082,7 +1082,7 @@ console.log(inside.features.length);
 	}
 	// on actualise le max
 	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
-	}
+	
 }
 else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
@@ -1130,7 +1130,7 @@ console.log(inside.features.length);
 	}
 	// on actualise le max
 	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
-	}
+	
 }
 
 var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'black',  opacity : 0.8, fill : true, fillColor : 'black', fillOpacity : 1.0}});
