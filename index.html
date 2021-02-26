@@ -1002,7 +1002,15 @@ var TooltipClass = {
 	}
     });
 
-console.log(layer_adresses_CS);
+// on construit le vecteur d'adresses pour tous les tests à venir
+	 
+var points_turf = [];
+layer_adresses.eachLayer(function(element)
+{
+var lnglat = [element._latlng.lng, element._latlng.lat];
+points_turf.push(lnglat);
+}
+)
 	 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer)
@@ -1031,6 +1039,16 @@ for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 		}
 	lng_lat_poly[i] = lng_lat_tmp;
 	}
+// on calcule le nombre de points dans ce cercle_mange
+console.log(layer._tooltip._content);
+var inside = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ turf.flip(turf.polygon(lng_lat_poly))
+  );
+console.log(inside);
+console.log(inside.features.length);
+
 }
 else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
@@ -1059,7 +1077,7 @@ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'bl
 
 
 // on calcule le nombre d'adresses contenu dans chaque cercle_mange
-console.log(layer._tooltip._content);
+
 console.log(cercle_mange.toGeoJSON());
 
 /*
@@ -1098,15 +1116,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
  layer_cercles_CS.clearLayers();
  circleUnion.addTo(layer_cercles_CS);	 
 
-// on recherche les adresses dans la zone globale circleUnion
-	 
-var points_turf = [];
-layer_adresses.eachLayer(function(element)
-{
-var lnglat = [element._latlng.lng, element._latlng.lat];
-points_turf.push(lnglat);
-}
-)
+
 
 
 // identification des points dans zone 20eme Chaise
