@@ -1017,8 +1017,7 @@ var TooltipClass = {
 	}
     });
 
-// on construit le vecteur d'adresses pour tous les tests à venir
-	 
+// on construit le vecteur d'adresses pour tous les tests à venir 
 var points_turf = [];
 layer_adresses.eachLayer(function(element)
 {
@@ -1026,6 +1025,8 @@ var lnglat = [element._latlng.lng, element._latlng.lat];
 points_turf.push(lnglat);
 }
 )
+// on crée le tableau contenant les données du graphique adresses par CS
+var donnees_graphe_CS = [];
 	 
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer)
@@ -1055,14 +1056,18 @@ for (i=0 ; i < poly.geometry.coordinates.length ; i++)
 	lng_lat_poly[i] = lng_lat_tmp;
 	}
 // on calcule le nombre de points dans ce cercle_mange
-console.log(layer._tooltip._content);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(lng_lat_poly))
   );
+console.log(layer._tooltip._content);
 console.log(inside.features.length);
-
+	// on ajoute les données du graphique
+	donnees_graphe_CS.push({
+		nom_cs: layer._tooltip._content,
+		nb_adresses:inside.features.length
+	});
 }
 else
 { // cas d'un multipolygone : on doit aller opérer sur chacun des polygones, éventuellement à trous, chaque élément du tableau de coordonnées est un polygone
@@ -1086,13 +1091,14 @@ for (k=0 ; k < poly.geometry.coordinates.length ; k++)
 	
 	}
 // on calcule le nombre de points dans ce cercle_mange
-console.log(layer._tooltip._content);
 var inside = 
 turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.multiPolygon(lng_lat_poly))
   );
+console.log(layer._tooltip._content);
 console.log(inside.features.length);
+	// on ajoute les données du graphique
 
 }
 
@@ -1101,7 +1107,9 @@ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'bl
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
 });
-	 
+
+console.log(donnees_graphe_CS);
+
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
