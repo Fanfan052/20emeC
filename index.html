@@ -1069,14 +1069,14 @@ console.log(inside.features.length);
 	if (donnees_graphe_CS.length <= 14)
 	{
 	donnees_graphe_CS.push({
-		nom_cs: layer._tooltip._content,
+		nom_cs:  (layer._tooltip._content.includes("Torcy") ? "Espace Torcy" : layer._tooltip._content),
 		nb_adresses:inside.features.length
 	});
 	}
 	else
 	{
 	donnees_graphe_2_CS.push({
-		nom_cs: layer._tooltip._content,
+		nom_cs:  (layer._tooltip._content.includes("Torcy") ? "Espace Torcy" : layer._tooltip._content),
 		nb_adresses:inside.features.length
 	});
 	}
@@ -1117,14 +1117,14 @@ console.log(inside.features.length);
 	if (donnees_graphe_CS.length <= 14)
 	{
 	donnees_graphe_CS.push({
-		nom_cs: layer._tooltip._content,
+		nom_cs: (layer._tooltip._content.includes("Torcy") ? "Espace Torcy" : layer._tooltip._content),
 		nb_adresses:inside.features.length
 	});
 	}
 	else
 	{
 	donnees_graphe_2_CS.push({
-		nom_cs: layer._tooltip._content,
+		nom_cs: (layer._tooltip._content.includes("Torcy") ? "Espace Torcy" : layer._tooltip._content),
 		nb_adresses:inside.features.length
 	});
 	}
