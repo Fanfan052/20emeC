@@ -1027,7 +1027,8 @@ points_turf.push(lnglat);
 )
 // on crée le tableau contenant les données du graphique adresses par CS
 var donnees_graphe_CS = [];
-	 
+// on initialise le nb d'adresses max pour générer les graphiques en fonction
+var max_graphe_CS = 0;
 // on crée le layer des cercles d'influence des autres CS
 layer_adresses_CS.eachLayer(function(layer)
 { 
@@ -1070,6 +1071,8 @@ console.log(inside.features.length);
 		nom_cs: layer._tooltip._content,
 		nb_adresses:inside.features.length
 	});
+	// on actualise le max
+	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
 	}
 }
 else
@@ -1108,6 +1111,8 @@ console.log(inside.features.length);
 		nom_cs: layer._tooltip._content,
 		nb_adresses:inside.features.length
 	});
+	// on actualise le max
+	max_graphe_CS = Math.max(max_graphe_CS,inside.features.length);
 	}
 }
 
@@ -1318,7 +1323,7 @@ categoryAxis.renderer.labels.template.radius = 7;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 valueAxis.min = 0;
-valueAxis.max = 2000;
+valueAxis.max = max_graphe_CS;
 valueAxis.strictMinMax = true;
 valueAxis.renderer.minGridDistance = 30;
 valueAxis.renderer.grid.template.strokeOpacity = 0.08;
