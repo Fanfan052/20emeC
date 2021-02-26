@@ -167,7 +167,7 @@ En attente des résultats...
 
 <script>
 
-// Create and configure the container
+// Création des containers des graphiques
 
 var container = am4core.create("chartdiv", am4core.Container);
 container.width = am4core.percent(100);
@@ -176,6 +176,14 @@ container.layout = "horizontal";
 container.fill = new am4core.color('grey');
 container.fillOpacity = 0.95;
 
+var container_2 = am4core.create("chartdiv_2", am4core.Container);
+container_2.width = am4core.percent(100);
+container_2.height = am4core.percent(100);
+container_2.layout = "horizontal";
+container_2.fill = new am4core.color('grey');
+container_2.fillOpacity = 0.95;
+
+
 </script>
 
 <ul>
@@ -183,6 +191,13 @@ container.fillOpacity = 0.95;
 </ul>
 		
 <div id="chartdiv" style="height:200px"></div>
+
+<ul>
+<li>nombre d'adresses dans chaque cercle d'influence des autres centres sociaux parisiens</li>
+</ul>
+		
+<div id="chartdiv_2" style="height:200px"></div>
+
 
 		
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
