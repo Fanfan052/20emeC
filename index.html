@@ -621,17 +621,17 @@ chart.data = [
   {
     type_quartier: "NQPV",
     value: adresses_NQPV.features.length,
-    labelColor: new am4core.color('black')
+    labelColor: new am4core.color('black').lighten(0.5)
   },
   {
     type_quartier: "QVA",
     value: adresses_QVA.features.length,
-    labelColor: new am4core.color('#f4c430')
+    labelColor: new am4core.color('#f4c430').lighten(0.5)
   },
   {
     type_quartier: "AQV",
     value: adresses_AQV.features.length,
-    labelColor: new am4core.color('purple')
+    labelColor: new am4core.color('purple').lighten(0.5)
   },
   {
     type_quartier: "Autres",
@@ -662,9 +662,9 @@ series.labels.template.maxWidth = 60;
 series.labels.template.wrap = true;
 series.colors.list = [
     new am4core.color('black'),
-    new am4core.color('#f4c430'),
-    new am4core.color('purple'),
-    new am4core.color('blue')
+    new am4core.color('#f4c430').lighten(0.5),
+    new am4core.color('purple').lighten(0.5),
+    new am4core.color('blue').lighten(0.5)
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
