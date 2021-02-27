@@ -1258,17 +1258,17 @@ chart.data = [
   {
     zone: "influence 20ème Chaise",
     value: inside_20C.features.length,
-    labelColor: new am4core.color('blue')
+    labelColor: new am4core.color('blue').lighten(0.3)
   },
   {
     zone: "influence autres CS",
     value: inside.features.length,
-    labelColor: new am4core.color('purple')
+    labelColor: new am4core.color('purple').lighten(0.3)
   },
   {
     zone: "hors influence",
     value: (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length),
-    labelColor: new am4core.color('green')
+    labelColor: new am4core.color('green').lighten(0.3)
   }
 ];
 chart.radius = am4core.percent(50);
@@ -1292,15 +1292,13 @@ series.labels.template.fontSize = 11;
 series.labels.template.maxWidth = 60;
 series.labels.template.wrap = true;
 series.colors.list = [
-    new am4core.color('blue'),
-    new am4core.color('purple'),
-    new am4core.color('green')
+    new am4core.color('blue').lighten(0.3),
+    new am4core.color('purple').lighten(0.3),
+    new am4core.color('green').lighten(0.3)
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
-chart.background.fill = new am4core.color('#C0C0C0');
-chart.background.opacity = 0.5;
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
@@ -1365,8 +1363,6 @@ cursor.lineY.disabled = true;
 cursor.xAxis = categoryAxis;
 chart.cursor = cursor;
 
-chart.background.fill = new am4core.color('#C0C0C0');
-chart.background.opacity = 0.5;
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
