@@ -1349,7 +1349,7 @@ valueAxis.tooltip.disabled = true;
 var series = chart.series.push(new am4charts.RadarColumnSeries());
 series.dataFields.categoryX = "nom_cs";
 series.dataFields.valueY = "nb_adresses";
-series.columns.template.tooltipText = "{categoryX} {valueY.value}";
+series.columns.template.tooltipText = "{categoryX} : {valueY.value}";
 series.columns.template.tooltipY = 0;
 series.columns.template.strokeOpacity = 0;
 
@@ -1413,7 +1413,7 @@ valueAxis.tooltip.disabled = true;
 var series = chart.series.push(new am4charts.RadarColumnSeries());
 series.dataFields.categoryX = "nom_cs";
 series.dataFields.valueY = "nb_adresses";
-series.columns.template.tooltipText = "{valueY.value}";
+series.columns.template.tooltipText = "{categoryX} : {valueY.value}";
 series.columns.template.tooltipY = 0;
 series.columns.template.strokeOpacity = 0;
 
