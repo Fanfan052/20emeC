@@ -1363,8 +1363,8 @@ series.columns.template.adapter.add("fill", function(fill, target) {
  if (target.dataItem && (target.dataItem.valueY / max_graphe_CS <= 0.25)) {
     return am4core.color("blue");
   }
-  else {
-    return fill;
+  else if (target.dataItem && (target.dataItem.valueY / max_graphe_CS > 0.25) && (target.dataItem.valueY / max_graphe_CS <= 0.50)) {
+    return am4core.color("powderblue");
   }
 });
 
