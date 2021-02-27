@@ -838,27 +838,27 @@ chart.data = [
   {
     zone: "- de 5 min",
     value: PS[0].length,
-    labelColor: new am4core.color('blue')
+    labelColor: new am4core.color('blue').lighten(0.3)
   },
   {
     zone: "entre 5 et 10 min",
     value: PS[1].length,
-    labelColor: new am4core.color('green')
+    labelColor: new am4core.color('green').lighten(0.3)
   },
   {
     zone: "entre 10 et 15 min",
     value: PS[2].length,
-    labelColor: new am4core.color('#f4c430')
+    labelColor: new am4core.color('#f4c430').lighten(0.3)
   },
   {
     zone: "entre 15 et 30 min",
     value: PS[3].length,
-    labelColor: new am4core.color('orange')
+    labelColor: new am4core.color('orange').lighten(0.3)
   },
   {
     zone: "+ de 30 min",
     value: PS[4].length,
-    labelColor: new am4core.color('red')
+    labelColor: new am4core.color('red').lighten(0.3)
   }
 ];
 chart.radius = am4core.percent(50);
@@ -882,17 +882,15 @@ series.labels.template.fontSize = 11;
 series.labels.template.maxWidth = 60;
 series.labels.template.wrap = true;
 series.colors.list = [
-    new am4core.color('blue'),
-    new am4core.color('green'),
-    new am4core.color('#f4c430'),
-    new am4core.color('orange'),
-    new am4core.color('red')
+    new am4core.color('blue').lighten(0.3),
+    new am4core.color('green').lighten(0.3),
+    new am4core.color('#f4c430').lighten(0.3),
+    new am4core.color('orange').lighten(0.3),
+    new am4core.color('red').lighten(0.3)
 ];
 series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 
-chart.background.fill = new am4core.color('#C0C0C0');
-chart.background.opacity = 0.5;
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
