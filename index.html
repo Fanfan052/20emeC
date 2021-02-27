@@ -1337,9 +1337,6 @@ categoryAxis.tooltip.disabled = true;
 categoryAxis.renderer.labels.template.bent = true;
 categoryAxis.renderer.labels.template.padding(0,0,0,0);
 categoryAxis.renderer.labels.template.radius = 7;
-categoryAxis.renderer.labels.template.fontSize = 11;
-categoryAxis.renderer.labels.template.maxWidth = 20;
-categoryAxis.renderer.labels.template.wrap = true;
 
 var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 valueAxis.min = 0;
@@ -1352,7 +1349,7 @@ valueAxis.tooltip.disabled = true;
 var series = chart.series.push(new am4charts.RadarColumnSeries());
 series.dataFields.categoryX = "nom_cs";
 series.dataFields.valueY = "nb_adresses";
-series.columns.template.tooltipText = "{valueY.value}";
+series.columns.template.tooltipText = "{categoryX} {valueY.value}";
 series.columns.template.tooltipY = 0;
 series.columns.template.strokeOpacity = 0;
 
