@@ -1309,9 +1309,12 @@ series.colors.list = [
     new am4core.color('purple').lighten(0.3),
     new am4core.color('green').lighten(0.3)
 ];
+chart.legend.markers.template.width = 10;
+chart.legend.markers.template.height = 10;
 chart.legend = new am4charts.Legend();
 chart.legend.fontSize = 10;
 chart.legend.maxHeight = 50;
+chart.legend.maxWidth = 200;
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
