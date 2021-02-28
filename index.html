@@ -647,29 +647,42 @@ chart.endAngle = 360;
 
 var series = chart.series.push(new am4charts.PieSeries());
 series.dataFields.value = "value";
-series.dataFields.category = "type_quartier";
+series.dataFields.category = "zone";
 
 series.slices.template.cornerRadius = 5;
 series.slices.template.innerCornerRadius = 5;
 series.slices.template.draggable = true;
 series.slices.template.inert = true;
 series.alignLabels = false;
-
 series.hiddenState.properties.startAngle = 90;
 series.hiddenState.properties.endAngle = 90;
+
 series.labels.template.fontSize = 10;
 series.labels.template.maxWidth = 60;
 series.labels.template.wrap = true;
+series.labels.template.bent = true;
+series.labels.template.padding(0,0,0,0);
+series.labels.template.radius = 15;
+series.labels.template.text = "{value.percent.formatNumber('#.')}%";
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
     new am4core.color('black').lighten(0.3),
     new am4core.color('#f4c430').lighten(0.3),
     new am4core.color('purple').lighten(0.3),
     new am4core.color('blue').lighten(0.3)
 ];
-series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
-/*
-chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
-*/
+
+chart.legend = new am4charts.Legend();
+chart.legend.markers.template.width = 15;
+chart.legend.markers.template.height = 15;
+chart.legend.fontSize = 10;
+chart.legend.maxHeight = 30;
+chart.legend.maxWidth = undefined;
+chart.legend.valueLabels.template.disabled = true;
+chart.legend.itemContainers.template.paddingTop = 2;
+chart.legend.itemContainers.template.paddingBottom = 2;
+chart.legend.itemContainers.template.paddingLeft = 2;
+chart.legend.itemContainers.template.paddingRight = 2;
 
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
@@ -876,12 +889,17 @@ series.slices.template.innerCornerRadius = 5;
 series.slices.template.draggable = true;
 series.slices.template.inert = true;
 series.alignLabels = false;
-
 series.hiddenState.properties.startAngle = 90;
 series.hiddenState.properties.endAngle = 90;
+
 series.labels.template.fontSize = 10;
 series.labels.template.maxWidth = 60;
 series.labels.template.wrap = true;
+series.labels.template.bent = true;
+series.labels.template.padding(0,0,0,0);
+series.labels.template.radius = 15;
+series.labels.template.text = "{value.percent.formatNumber('#.')}%";
+chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
     new am4core.color('blue').lighten(0.3),
     new am4core.color('green').lighten(0.3),
@@ -889,11 +907,19 @@ series.colors.list = [
     new am4core.color('orange').lighten(0.3),
     new am4core.color('red').lighten(0.3)
 ];
-series.labels.template.text = "{category} {value.percent.formatNumber('#.')}%";
-/*
-chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
-*/
 
+chart.legend = new am4charts.Legend();
+chart.legend.markers.template.width = 15;
+chart.legend.markers.template.height = 15;
+chart.legend.fontSize = 10;
+chart.legend.maxHeight = 30;
+chart.legend.maxWidth = undefined;
+chart.legend.valueLabels.template.disabled = true;
+chart.legend.itemContainers.template.paddingTop = 2;
+chart.legend.itemContainers.template.paddingBottom = 2;
+chart.legend.itemContainers.template.paddingLeft = 2;
+chart.legend.itemContainers.template.paddingRight = 2;
+	
 chart.exporting.menu = new am4core.ExportMenu();
 chart.exporting.menu.align = "left";
 chart.exporting.menu.verticalAlign = "top";
@@ -1288,11 +1314,6 @@ series.slices.template.innerCornerRadius = 5;
 series.slices.template.draggable = true;
 series.slices.template.inert = true;
 series.alignLabels = false;
-/*
-series.labels.template.disabled = true;
-series.ticks.template.disabled = true;
-series.legendSettings.labelText = "{category}";
-*/
 series.hiddenState.properties.startAngle = 90;
 series.hiddenState.properties.endAngle = 90;
 
