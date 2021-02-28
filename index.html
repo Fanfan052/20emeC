@@ -647,7 +647,7 @@ chart.endAngle = 360;
 
 var series = chart.series.push(new am4charts.PieSeries());
 series.dataFields.value = "value";
-series.dataFields.category = "zone";
+series.dataFields.category = "type_quartier";
 
 series.slices.template.cornerRadius = 5;
 series.slices.template.innerCornerRadius = 5;
@@ -673,6 +673,7 @@ series.colors.list = [
 ];
 
 chart.legend = new am4charts.Legend();
+chart.legend.align = "center";
 chart.legend.markers.template.width = 15;
 chart.legend.markers.template.height = 15;
 chart.legend.fontSize = 10;
@@ -909,6 +910,7 @@ series.colors.list = [
 ];
 
 chart.legend = new am4charts.Legend();
+chart.legend.align = "center";
 chart.legend.markers.template.width = 15;
 chart.legend.markers.template.height = 15;
 chart.legend.fontSize = 10;
@@ -1137,8 +1139,7 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.multiPolygon(lng_lat_poly))
   );
-console.log(layer._tooltip._content);
-console.log(inside.features.length);
+
 	// on ajoute les données du graphique en remplissant un vecteur pour chacun
 	if (donnees_graphe_CS.length <= 14)
 	{
@@ -1164,9 +1165,6 @@ var cercle_mange = new L.Polygon(lng_lat_poly, {style: {weight: 5.0, color : 'bl
 cercle_mange.addTo(layer_cercles_CS) ;
 // fin de la boucle sur chaque layer
 });
-
-console.log(donnees_graphe_CS);
-console.log(donnees_graphe_2_CS);
 
 // on crée la zone unique réunion des cercles pour faciliter le calcul des adresses en faisant partie
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
@@ -1333,6 +1331,7 @@ series.colors.list = [
 ];
 
 chart.legend = new am4charts.Legend();
+chart.legend.align = "center";
 chart.legend.markers.template.width = 15;
 chart.legend.markers.template.height = 15;
 chart.legend.fontSize = 10;
