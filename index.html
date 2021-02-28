@@ -1288,6 +1288,9 @@ series.slices.template.innerCornerRadius = 5;
 series.slices.template.draggable = true;
 series.slices.template.inert = true;
 series.alignLabels = false;
+series.labels.template.disabled = true;
+series.ticks.template.disabled = true;
+
 
 series.hiddenState.properties.startAngle = 90;
 series.hiddenState.properties.endAngle = 90;
@@ -1306,7 +1309,6 @@ series.colors.list = [
     new am4core.color('purple').lighten(0.3),
     new am4core.color('green').lighten(0.3)
 ];
-chart.labelsEnabled = false;
 chart.legend = new am4charts.Legend();
 chart.legend.fontSize = 10;
 chart.legend.maxHeight = 50;
