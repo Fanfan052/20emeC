@@ -470,7 +470,7 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 <i>
 <ul style= "list-style: none">
 <li></i><font size = "4">&#10112<i></font> récupération des polygones définissant les quartiers prioritaires via une source de type GeoJSON </li>
-<li></i><font size = "4">&#10113<i></font> recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière jaune) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon </li>
+<li></i><font size = "4">&#10113<i></font> recherche des adresses relevant d'un NQPV (frontière noire), QVA (frontière orange) ou AQV (frontière violette) via fonction turf.js PointsWithinPolygon </li>
 </ul>
 </i>
 </fieldset>
@@ -523,7 +523,7 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 
   var Layer_QVA = L.geoJson(geojsonFeature,  {filter : function(feature) {
         return feature.properties.c_nat_qpv == 'QVA'}, style : function(feature) {
-		return {color: 'yellow', weight : 2.0, opacity : 0.7, fillOpacity : 0.2}}}
+		return {color: '#F6A600', weight : 2.0, opacity : 0.7, fillOpacity : 0.2}}}
 );
 
   var Layer_AQV = L.geoJson(geojsonFeature,  {filter : function(feature) {
@@ -591,7 +591,7 @@ for (let i=0 ; i < adresses_QVA.features.length; i++)
 var coords = [];
 coords[0] = adresses_QVA.features[i].geometry.coordinates[1];
 coords[1] = adresses_QVA.features[i].geometry.coordinates[0];	
-L.circleMarker(coords, {radius: 2, color : 'yellow'}).addTo(map_1);
+L.circleMarker(coords, {radius: 2, color : '#F6A600'}).addTo(map_1);
 };
 
 var adresses_AQV = inside(adresses_turf,Layer_AQV);
@@ -608,7 +608,7 @@ L.circleMarker(coords, {radius: 2, color : 'purple'}).addTo(map_1);
 	 ' adresses relèvent d\'un quartier NQPV (en noir) '
 	 + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_NQPV.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_QVA.features.length +
-	 ' adresses relèvent d\'un quartier QVA (en jaune) '
+	 ' adresses relèvent d\'un quartier QVA (en orange) '
 	  + (adresses_turf.length === 0 ? '' : '(' + parseFloat(adresses_QVA.features.length / adresses_turf.length * 100).toFixed(0)+ ' %' + ')') + '<br/>' +
 	 adresses_AQV.features.length +
 	 ' adresses relèvent d\'un quartier AQV (en violet) '
@@ -637,7 +637,7 @@ chart.data = [
   {
     type_quartier: "QVA",
     value: adresses_QVA.features.length,
-    labelColor: new am4core.color('#F9C907')
+    labelColor: new am4core.color('#F6A600')
   },
   {
     type_quartier: "AQV",
@@ -678,7 +678,7 @@ series.labels.template.text = "[bold]{value.percent.formatNumber('#.')}%[/]";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
     new am4core.color('black'),
-    new am4core.color('#F9C907'),
+    new am4core.color('#F6A600'),
     new am4core.color('#875692'),
     new am4core.color('#0067A5')
 ];
