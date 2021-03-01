@@ -1053,6 +1053,9 @@ coords[1] = inside_20C.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
 };
 
+// on met à jour le tableau d'adresses en lui ôtant les adresses contenues dans la zone 20ème Chaise pour alléger les traitement à venir
+console.log(points_turf);
+console.log(inside_20C.features.geometry.coordinates);
 
 // on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
 var TooltipClass = {
