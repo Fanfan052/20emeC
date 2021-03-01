@@ -945,7 +945,7 @@ chart.exporting.menu.verticalAlign = "top";
 <li></i><font size = "4">&#10114<i></font> construction des zones d'influence des centres sociaux parisiens : cercle de rayon 750 mètres par défaut si l'utilisateur ne saisit pas un autre rayon</li>
 <li></i><font size = "4">&#10115<i></font> construction des zones d'influence des centres sociaux hors influence de la 20ème Chaise via fonction turf.js Difference</li>
 <li></i><font size = "4">&#10116<i></font> construction de la zone réunion des cercles d'influence rognés via fonction truf.js Union (elle apparaît en mauve)</li>
-<li></i><font size = "4">&#10117<i></font> recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon (ils apparaissent en mauve)</li>
+<li></i><font size = "4">&#10117<i></font> recherche des adresses relevant d'une zone d'influence des autres CS via fonction turf.js PointsWithinPolygon (elles apparaissent en mauve)</li>
 </ul>
 </i>
 </fieldset>
@@ -1028,8 +1028,33 @@ var ZI_20C = unify(Layer_ZI_20C.getLayers(),'blue')
 Layer_ZI_20C.clearLayers();
 ZI_20C.addTo(Layer_ZI_20C);
 
-// on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
+// on construit le vecteur d'adresses le test à venir sur la zone 20ème Chaise
+// on utilisera ensuite la différence entre ce tableau et les adresses de la zone 20ème Chaise pour accélérer le traitement
+var points_turf = [];
+layer_adresses.eachLayer(function(element)
+{
+var lnglat = [element._latlng.lng, element._latlng.lat];
+points_turf.push(lnglat);
+}
+)
 
+// identification des points dans zone 20eme Chaise
+var inside_20C = 
+turf.pointsWithinPolygon(
+ turf.points(points_turf), 
+ ZI_20C.toGeoJSON()
+  );
+  
+for (let i=0 ; i < inside_20C.features.length; i++)
+{
+var coords = [];
+coords[0] = inside_20C.features[i].geometry.coordinates[1];
+coords[1] = inside_20C.features[i].geometry.coordinates[0];	
+L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
+};
+
+
+// on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
 var TooltipClass = {
   'className': 'class-tooltip'
 }
@@ -1041,14 +1066,7 @@ var TooltipClass = {
 	}
     });
 
-// on construit le vecteur d'adresses pour tous les tests à venir 
-var points_turf = [];
-layer_adresses.eachLayer(function(element)
-{
-var lnglat = [element._latlng.lng, element._latlng.lat];
-points_turf.push(lnglat);
-}
-)
+
 // on crée le tableau contenant les données du graphique adresses par CS
 var donnees_graphe_CS = [];
 var donnees_graphe_2_CS = [];
@@ -1166,22 +1184,7 @@ cercle_mange.addTo(layer_cercles_CS) ;
 // on prend la différence avec ces cercles et la zone d'influence de la 20ème Chaise
  var circleUnion = unify(layer_cercles_CS.getLayers(),'purple');
  layer_cercles_CS.clearLayers();
- circleUnion.addTo(layer_cercles_CS);	 
-
-// identification des points dans zone 20eme Chaise
-var inside_20C = 
-turf.pointsWithinPolygon(
- turf.points(points_turf), 
- ZI_20C.toGeoJSON()
-  );
-  
-for (let i=0 ; i < inside_20C.features.length; i++)
-{
-var coords = [];
-coords[0] = inside_20C.features[i].geometry.coordinates[1];
-coords[1] = inside_20C.features[i].geometry.coordinates[0];	
-L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
-};
+ circleUnion.addTo(layer_cercles_CS);
 
 // identification des points hors zone 20eme Chaise dans zone influence autres CS
 var inside = 
