@@ -1061,6 +1061,7 @@ points_ZI_20C.push(coords.reverse());
 console.log(points_turf);
 console.log(JSON.stringify(points_ZI_20C));
 console.log(points_turf.some(a => points_ZI_20C[0].every((v, i) => v === a[i])));
+console.log(points_turf.filter(function(item) {return !JSON.stringify(points_ZI_20C.includes(JSON.stringify(item))); }));
 let points_turf_new = points_turf.filter(x => !points_ZI_20C.includes(x));
 console.log(points_turf_new);
 	
