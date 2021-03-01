@@ -869,7 +869,7 @@ chart.data = [
   {
     zone: "+ de 30 min",
     value: PS[4].length,
-    labelColor: new am4core.color('red').lighten(0.3)
+    labelColor: new am4core.color('#F90E07')
   }
 ];
 chart.radius = am4core.percent(50);
@@ -902,7 +902,7 @@ series.colors.list = [
     new am4core.color('#1D8348'),
     new am4core.color('#F9C907'),
     new am4core.color('#F6A600'),
-    new am4core.color('red').lighten(0.3)
+    new am4core.color('#F90E07')
 ];
 
 chart.legend = new am4charts.Legend();
@@ -1291,7 +1291,7 @@ chart.data = [
   {
     zone: "hors influence",
     value: (layer_adresses.getLayers().length - inside_20C.features.length - inside.features.length),
-    labelColor: new am4core.color('green').lighten(0.3)
+    labelColor: new am4core.color('#1D8348')
   }
 ];
 chart.radius = am4core.percent(50);
@@ -1323,7 +1323,7 @@ chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
     new am4core.color('#0067A5'),
     new am4core.color('#875692'),
-    new am4core.color('green').lighten(0.3)
+    new am4core.color('#1D8348')
 ];
 
 chart.legend = new am4charts.Legend();
