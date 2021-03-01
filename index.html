@@ -1052,13 +1052,16 @@ var coords = [];
 coords[0] = inside_20C.features[i].geometry.coordinates[1];
 coords[1] = inside_20C.features[i].geometry.coordinates[0];
 L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
+// la ligne ci-dessous doit venir après l'édition des markers car l'instruction reverse modifie coords
 points_ZI_20C.push(coords.reverse());
 };
 
 // on met à jour le tableau d'adresses en lui ôtant les adresses contenues dans la zone 20ème Chaise pour alléger les traitement à venir
 console.log(points_turf);
 console.log(points_ZI_20C);
-
+points_turf = points_turf.filter(x => !points_ZI_20C.includes(x));
+console.log(points_turf);
+	
 // on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
 var TooltipClass = {
   'className': 'class-tooltip'
