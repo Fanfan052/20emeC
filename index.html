@@ -617,17 +617,17 @@ chart.data = [
   {
     type_quartier: "NQPV",
     value: adresses_NQPV.features.length,
-    labelColor: new am4core.color('black').lighten(0.3)
+    labelColor: new am4core.color('black')
   },
   {
     type_quartier: "QVA",
     value: adresses_QVA.features.length,
-    labelColor: new am4core.color('#f4c430').lighten(0.3)
+    labelColor: new am4core.color('#FBFB07')
   },
   {
     type_quartier: "AQV",
     value: adresses_AQV.features.length,
-    labelColor: new am4core.color('purple').lighten(0.3)
+    labelColor: new am4core.color('#875692')
   },
   {
     type_quartier: "Autres",
@@ -662,9 +662,9 @@ series.labels.template.radius = 15;
 series.labels.template.text = "{value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
-    new am4core.color('black').lighten(0.3),
+    new am4core.color('black'),
     new am4core.color('#f4c430').lighten(0.3),
-    new am4core.color('purple').lighten(0.3),
+    new am4core.color('#875692'),
     new am4core.color('#0067A5')
 ];
 
@@ -854,17 +854,17 @@ chart.data = [
   {
     zone: "entre 5 et 10 min",
     value: PS[1].length,
-    labelColor: new am4core.color('green').lighten(0.3)
+    labelColor: new am4core.color('#1D8348')
   },
   {
     zone: "entre 10 et 15 min",
     value: PS[2].length,
-    labelColor: new am4core.color('#f4c430').lighten(0.3)
+    labelColor: new am4core.color('#FBFB07')
   },
   {
     zone: "entre 15 et 30 min",
     value: PS[3].length,
-    labelColor: new am4core.color('#F38400')
+    labelColor: new am4core.color('#F6A600')
   },
   {
     zone: "+ de 30 min",
@@ -899,9 +899,9 @@ series.labels.template.text = "{value.percent.formatNumber('#.')}%";
 chart.series.getIndex(0).labels.template.propertyFields.fill = "labelColor";
 series.colors.list = [
     new am4core.color('#0067A5'),
-    new am4core.color('green').lighten(0.3),
-    new am4core.color('#f4c430').lighten(0.3),
-    new am4core.color('#F38400'),
+    new am4core.color('#1D8348'),
+    new am4core.color('#FBFB07'),
+    new am4core.color('#F6A600'),
     new am4core.color('red').lighten(0.3)
 ];
 
