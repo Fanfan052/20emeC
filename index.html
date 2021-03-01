@@ -1059,8 +1059,8 @@ points_ZI_20C.push(coords.reverse());
 // on met à jour le tableau d'adresses en lui ôtant les adresses contenues dans la zone 20ème Chaise pour alléger les traitement à venir
 console.log(points_turf);
 console.log(points_ZI_20C);
-points_turf = points_turf.filter(x => !points_ZI_20C.includes(x));
-console.log(points_turf);
+let points_turf_new = points_turf.filter(x => !points_ZI_20C.includes(x));
+console.log(points_turf_new);
 	
 // on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
 var TooltipClass = {
