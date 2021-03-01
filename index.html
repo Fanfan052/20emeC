@@ -1051,8 +1051,8 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 var coords = [];
 coords[0] = inside_20C.features[i].geometry.coordinates[1];
 coords[1] = inside_20C.features[i].geometry.coordinates[0];
-points_ZI_20C.push(coords.reverse());
 L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
+points_ZI_20C.push(coords.reverse());
 };
 
 // on met à jour le tableau d'adresses en lui ôtant les adresses contenues dans la zone 20ème Chaise pour alléger les traitement à venir
