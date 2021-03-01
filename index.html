@@ -128,10 +128,12 @@ document.getElementsByClassName('radio_1')[0].appendChild(label);
 <label for="filtre_benevole">Contribution bénévole (au moins un membre de <b><u>la famille</b></u> a été bénévole) </label><br>
 </div>
 <div class="radio_3" style="display: none;">
-<input type="radio" id ="bene_non" name="bene"/ checked>
-<label for="bene_non">pas de filtre bénévole</label>
+<input type="radio" id ="bene_sans" name="bene"/ checked>
+<label for="bene_non">pas de filtre sur ce thème</label>
 <input type="radio" id ="bene_oui" name="bene"/>
 <label for="bene_oui">bénévole sur au moins un type d'activité</label>
+<input type="radio" id ="bene_non" name="bene"/>
+<label for="bene_non">non bénévole</label>
 </div>
 </fieldset>
 <fieldset style= "border: 1px solid #666;
@@ -226,7 +228,7 @@ cases.forEach(function(checkbox) {
 		document.getElementById("slider").noUiSlider.reset() ;
 		break ;
 		case '3':
-		document.getElementById("bene_non").checked = true ;
+		document.getElementById("bene_sans").checked = true ;
 		break ;
 	}
 		 
@@ -380,6 +382,18 @@ if (document.getElementById('bene_oui').checked)
 		{
 		string_filtre += ' && ' ;
 		string_filtre += 'element.bene' + ' > ' + '0' ;
+		}
+string_comment_bene = '- Au moins un membre de la famille bénévole.' ; 
+}
+else if (document.getElementById('bene_non').checked)
+{if (string_filtre == '')
+		{
+		string_filtre += 'element.bene' + ' == ' + '0' ;	
+		}
+	 	else
+		{
+		string_filtre += ' && ' ;
+		string_filtre += 'element.bene' + ' == ' + '0' ;
 		}
 string_comment_bene = '- Au moins un membre de la famille bénévole.' ; 
 }
