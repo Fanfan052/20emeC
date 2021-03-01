@@ -1051,7 +1051,7 @@ for (let i=0 ; i < inside_20C.features.length; i++)
 var coords = [];
 coords[0] = inside_20C.features[i].geometry.coordinates[1];
 coords[1] = inside_20C.features[i].geometry.coordinates[0];
-points_ZI_20C.push(coords);
+points_ZI_20C.push(coords.reverse());
 L.circleMarker(coords, {radius: 2, color : 'blue'}).addTo(map_3);
 };
 
