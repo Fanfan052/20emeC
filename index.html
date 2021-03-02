@@ -462,7 +462,7 @@ tableau_sortie.forEach(function(element)
 		       {
 			type_act.forEach(function(act,index,key)
 					{
-				        console.log(eval('element' + '.' + key[index]));
+				        part_croisee[index] += (eval('element' + '.' + key[index]) > 0 ? 1 : 0);
 					}
 					 )
 			}
