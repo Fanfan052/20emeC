@@ -462,8 +462,7 @@ tableau_sortie.forEach(function(element)
 		       {
 			type_act.forEach(function(act)
 					 {
-					part_croisee[k] += (element.act >0 ? 1 : 0);
-					k += 1;
+					part_croisee[part_croisee.length] += (element.act >0 ? 1 : 0);
 					}
 					 )
 			}
