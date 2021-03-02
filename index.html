@@ -457,26 +457,26 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	}
 
 // on génère les éléments de participation croisée aux différentes activités
-var part_croisee = [0,0,0,0,0,0,0,0,0,0,0,0];
-var type_act_2 = type_act;
+var part_interne = 0;
+var part_croisee = 0;
 tableau_sortie.forEach(function(element)
 		       {
-			type_act.forEach(function(act,index,key)
+			for (let k=0 ; k < 1; k++)
 					{
-				 	type_act_2.forEach(function(act,index,key)
+				 	for (let l=k ; l < type_act.length; l++)
 						{
-					console.log(eval('element' + '.' + key[type_act.index]));
-					if (type_act_2.index == 1)
-					{
-					console.log(eval('element' + '.' + key[type_act_2.index]));
-					}
-				        /*
-					part_croisee[index] += ( donnees > 0 && donnees_2 > 0 ? 1 : 0);
-					*/
+						if (l == k)
+							{
+							part_interne += (eval('element' + '.' + key[k]) > 0 && eval('element' + '.' + key[l]) > 0);
+							}
+						else
+							{
+							part_croisee += (eval('element' + '.' + key[k]) > 0 && eval('element' + '.' + key[l]) > 0);
+							}
+							
 						}
-							  )
 					}
-					 )
+				       
 			}
 		      )
 for (let i=0 ; i < part_croisee.length; i++)
