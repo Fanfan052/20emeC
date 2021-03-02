@@ -467,11 +467,11 @@ tableau_sortie.forEach(function(element)
 						{
 						if (l == k)
 							{
-							part_interne += (eval('element' + '.' + key[k]) > 0 && eval('element' + '.' + key[l]) > 0);
+							part_interne += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
 							}
 						else
 							{
-							part_croisee += (eval('element' + '.' + key[k]) > 0 && eval('element' + '.' + key[l]) > 0);
+							part_croisee += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
 							}
 							
 						}
