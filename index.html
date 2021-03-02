@@ -455,7 +455,19 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 // on place les filtres fonction de ce qui a été sélectionné par l'utilisateur
 	tableau_sortie = tableau_test ;
 	}
-	
+
+// on génère les éléments de participation croisée aux différentes activités
+part_croisee = [];
+tableau_sortie.forEach(function(element)
+		       {
+			type_act.forEach(function(act)
+					 {
+					part_croisee[k] += (element.act >0 ? 1 : 0);
+					k += 1;
+					}
+					 )
+			}
+		      )
 }
 	
 </script>
