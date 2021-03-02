@@ -460,9 +460,10 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 part_croisee = [];
 tableau_sortie.forEach(function(element)
 		       {
-			type_act.forEach(function(act)
+			
+			type_act.forEach(function(act,index)
 					 {
-					part_croisee[part_croisee.length] += (element.act >0 ? 1 : 0);
+					part_croisee[index] += (element.act > 0 ? 1 : 0);
 					}
 					 )
 			}
