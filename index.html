@@ -465,9 +465,14 @@ tableau_sortie.forEach(function(element)
 					{
 				 	type_act_2.forEach(function(act,index,key)
 						{
-					var donnees = eval('element' + '.' + key[type_act.index]);
-					var donnees_2 =  eval('element' + '.' + key[type_act_2.index]);
-				        part_croisee[index] += ( donnees > 0 && donnees_2 > 0 ? 1 : 0);
+					console.log(eval('element' + '.' + key[type_act.index]));
+					if (type_act_2.index == 1)
+					{
+					console.log(eval('element' + '.' + key[type_act_2.index]));
+					}
+				        /*
+					part_croisee[index] += ( donnees > 0 && donnees_2 > 0 ? 1 : 0);
+					*/
 						}
 							  )
 					}
