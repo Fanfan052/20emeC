@@ -464,10 +464,8 @@ tableau_sortie.forEach(function(element)
 			type_act.forEach(function(act,index,key)
 					{
 					console.log(key[index]);
-				        var donnees = 'element' + '.' + key[index] ;
-					console.log(donnees);
-					console.log(JSON.parse(donnees));
-					part_croisee[index] += (JSON.parse(donnees) > 0 ? 1 : 0);
+				        var donnees = 'element' + '.' + key[index];
+					part_croisee[index] += (eval(donnees) > 0 ? 1 : 0);
 					}
 					 )
 			}
