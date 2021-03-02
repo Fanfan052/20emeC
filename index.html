@@ -458,12 +458,12 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 
 // on génère les éléments de participation croisée aux différentes activités
 part_croisee = [];
-tableau_sortie.forEach(function(element)
+tableau_sortie.forEach(function(element,key)
 		       {
 			console.log(element);
-			type_act.forEach(function(act,index,key)
+			type_act.forEach(function(act,index,key2)
 					{
-					console.log(key);
+					console.log(key2);
 					part_croisee[index] += (element.act > 0 ? 1 : 0);
 					}
 					 )
