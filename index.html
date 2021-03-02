@@ -460,10 +460,8 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 part_croisee = [];
 tableau_sortie.forEach(function(element)
 		       {
-			console.log(element);
 			type_act.forEach(function(act,index,key)
 					{
-					console.log(key[index]);
 				        var donnees = 'element' + '.' + key[index];
 					part_croisee[index] += (eval(donnees) > 0 ? 1 : 0);
 					}
