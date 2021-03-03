@@ -464,6 +464,12 @@ for (let i=0 ; i < type_act.length; i++)
 {
 composante[i] = 0;
 }
+for (let i=0 ; i < type_act.length; i++)
+{
+part_croisee.push(composante);
+}
+
+console.log(part_croisee);
 
 tableau_sortie.forEach(function(element,index)
 		       {
@@ -471,26 +477,25 @@ tableau_sortie.forEach(function(element,index)
 			{
 			for (let k=0 ; k < type_act.length; k++)
 					{
-					var composante = [];
-						for (let i=0 ; i < type_act.length; i++)
-						{
-						composante[i] = 0;
-						}
 				 	for (let l=k ; l < type_act.length; l++)
 						{
 						console.log(k + ' ' + l);
 						if (l === k)
 							{
-							composante[l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
+							console.log(part_croisee[k][l]);
+							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
+							console.log(part_croisee[k][l]);
 							}
 						else
 							{
-							composante[l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
+							console.log(part_croisee[k][l]);
+							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
+							console.log(part_croisee[k][l]);
 							}
 							
 						}
 					
-					console.log(composante);
+					console.log(part_croisee);
 					}
 			console.log(part_croisee);
 			}
