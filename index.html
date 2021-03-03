@@ -480,16 +480,15 @@ tableau_sortie.forEach(function(element,index)
 						console.log(k + ' ' + l);
 						if (l === k)
 							{
-							console.log(k + ' ' + l + ' ' + eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0'));	    
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
 							}
 						else
 							{
-							console.log(k + ' ' + l + ' ' + eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0'));	
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
 							}
 							
 						}
+					console.log(k);
 					console.log(part_croisee[k]);
 					console.log(part_croisee);
 					}
