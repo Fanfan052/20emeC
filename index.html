@@ -471,7 +471,7 @@ part_croisee[i] = composante;
 
 tableau_sortie.forEach(function(element,index)
 		       {
-			if (index <= 1)
+			if (index <= 0)
 			{
 			for (let k=0 ; k < type_act.length; k++)
 					{
@@ -479,11 +479,15 @@ tableau_sortie.forEach(function(element,index)
 						{
 						if (l === k)
 							{
+							console.log(k + ' ' + eval('element' + '.' + type_act[k] + '> 0'));
+							console.log(l + ' ' + eval('element' + '.' + type_act[l] + '> 0'));	    
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0'));
 							break;
 							}
 						else
 							{
+							console.log(k + ' ' + eval('element' + '.' + type_act[k] + '> 0'));
+							console.log(l + ' ' + eval('element' + '.' + type_act[l] + '> 0'));
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0'));
 							}
 							
@@ -495,8 +499,6 @@ tableau_sortie.forEach(function(element,index)
 			}
 		      )
 
-
-console.log(part_croisee);
 
 }
 	
