@@ -478,7 +478,6 @@ tableau_sortie.forEach(function(element,index)
 					{
 				 	for (let l=k ; l < type_act.length; l++)
 						{
-						console.log(k + ' ' + l);
 						if (l === k)
 							{
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
@@ -486,8 +485,7 @@ tableau_sortie.forEach(function(element,index)
 						else
 							{
 							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);	
-							}
-							
+							}				
 						}
 					}
 			}
