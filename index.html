@@ -469,11 +469,11 @@ for (let i=0 ; i < type_act.length; i++)
 part_croisee[i] = composante;
 }
 
-for (let i=0 ; i < tableau_sortie.length; i++)
+tableau_sortie.forEach(function(element,index)
 		       {
-			if (i <= 0)
+			if (index <= 0)
 			{
-			console.log(eval(tableau_sortie[i] +'.' + type_act[0]));
+			console.log(eval(element +'.' + type_act[0]));
 			for (let k=0 ; k < type_act.length; k++)
 					{
 				 	for (let l=k ; l < type_act.length; l++)
@@ -481,11 +481,11 @@ for (let i=0 ; i < tableau_sortie.length; i++)
 						console.log(k + ' ' + l);
 						if (l === k)
 							{
-							part_croisee[k][l] += (eval(tableau_sortie[i] + '.' + type_act[k] + '> 0' + ' && ' + tableau_sortie[i] + '.' + type_act[l] + '> 0') ? 1 : 0);
+							part_croisee[k][l] += (eval(element + '.' + type_act[k] + '> 0' + ' && ' + element + '.' + type_act[l] + '> 0') ? 1 : 0);
 							}
 						else
 							{
-							part_croisee[k][l] += (eval(tableau_sortie[i] + '.' + type_act[k] + '> 0' + ' && ' + tableau_sortie[i] + '.' + type_act[l] + '> 0') ? 1 : 0);
+							part_croisee[k][l] += (eval(element + '.' + type_act[k] + '> 0' + ' && ' + element + '.' + type_act[l] + '> 0') ? 1 : 0);
 							}
 							
 						}
@@ -497,6 +497,7 @@ for (let i=0 ; i < tableau_sortie.length; i++)
 			}
 			
 			}
+			)
 		      
 
 
