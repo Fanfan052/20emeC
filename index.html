@@ -457,8 +457,18 @@ if (JSON.parse(localStorage.getItem("btn_click")) === false)
 	}
 
 // on génère les éléments de participation croisée aux différentes activités
-var part_interne = 0;
-var part_croisee = 0;
+
+var part_croisee = [];
+var composante = [];
+for (let i=0 ; i < type_act.length; i++)
+{
+composante[i] = 0;
+}
+for (let i=0 ; i < type_act.length; i++)
+{
+part_croisee[i] = composante;
+}
+
 tableau_sortie.forEach(function(element)
 		       {
 			for (let k=0 ; k < type_act.length; k++)
@@ -467,11 +477,11 @@ tableau_sortie.forEach(function(element)
 						{
 						if (l == k)
 							{
-							part_interne += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
+							part_croisee[k][l] += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
 							}
 						else
 							{
-							part_croisee += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
+							part_croisee[k][l] += (eval('element' + '.' + type_act[k]) > 0 && eval('element' + '.' + type_act[l]) > 0);
 							}
 							
 						}
@@ -481,7 +491,6 @@ tableau_sortie.forEach(function(element)
 		      )
 
 
-console.log(part_interne);
 console.log(part_croisee);
 
 }
