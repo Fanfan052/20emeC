@@ -469,8 +469,10 @@ for (let i=0 ; i < type_act.length; i++)
 part_croisee[i] = composante;
 }
 
-tableau_sortie.forEach(function(element)
+tableau_sortie.forEach(function(element,index)
 		       {
+			if (index <= 10)
+			{
 			for (let k=0 ; k < type_act.length; k++)
 					{
 				 	for (let l=k ; l < type_act.length; l++)
@@ -485,9 +487,9 @@ tableau_sortie.forEach(function(element)
 							}
 							
 						}
-					console.log(part_croisee);
+					console.log(part_croisee);	
 					}
-				       
+			}	       
 			}
 		      )
 
