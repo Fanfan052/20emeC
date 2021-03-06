@@ -1114,8 +1114,6 @@ points_ZI_20C.push(coords.reverse());
 };
 
 // on met à jour le tableau d'adresses en lui ôtant les adresses contenues dans la zone 20ème Chaise pour alléger les traitement à venir
-console.log(points_turf);
-console.log(points_ZI_20C);
 points_turf = points_turf.filter(function(item) {return !JSON.stringify(points_ZI_20C).includes(JSON.stringify(item)); });
 	
 // on ajoute des éléments CSS pour générer des tooltips sur mesure pour les CS
@@ -1169,8 +1167,6 @@ turf.pointsWithinPolygon(
  turf.points(points_turf), 
  turf.flip(turf.polygon(lng_lat_poly))
   );
-console.log(layer._tooltip._content);
-console.log(inside.features.length);
 	// on ajoute les données du graphique en remplissant un vecteur pour chacun
 	if (donnees_graphe_CS.length <= 14)
 	{
