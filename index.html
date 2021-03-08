@@ -572,8 +572,9 @@ am4core.useTheme(am4themes_animated);
 
 var chart = container_3.createChild(am4charts.ChordDiagram);
 
-
+chart.innerRadius = am4core.percent(95);
 chart.data = donnees_graphiques[index];
+chart.nodes.template.label.fontSize = 8;
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
