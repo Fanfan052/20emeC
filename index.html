@@ -202,7 +202,7 @@ container_2.layout = "horizontal";
 <li>pour chaque activité, pourcentage de participation aux autres activités</li>
 </ul>
 
-<div id="chartdiv_test" style="height:500px"></div>	
+<div id="chartdiv_test" style="height:200px"></div>	
 		
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -552,6 +552,10 @@ for (let i=0 ; i < 1 ; i++)
 	
 console.log(donnees_graphiques);
 
+type_act.forEach(function(element,index)
+{
+if (index <= 0)
+{
 am4core.ready(function() {
 // Themes begin
 am4core.useTheme(am4themes_material);
@@ -593,7 +597,11 @@ function animateBullet(bullet) {
     })
 }
 }
-)	    
+)
+// fin du if
+}
+// fin de la fonction qui génère les graphiques
+}
 
 
 
