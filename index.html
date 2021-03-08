@@ -524,17 +524,17 @@ console.log(part_totale);
 
 
 var donnees_graphiques = [];
-for (let i=0 ; i < type_act.length ; i++)
+
+for (let i=0 ; i < 1 ; i++)
 	{
-	var obj = {from : type_act[i], value : 1};
-	console.log(obj);
+	for (let j=0 ; j < type_act.length ; j++)
+	{
+	var obj = {from : type_act[j], value : part_croisee[i][j] };
 	donnees_graphiques.push(obj);
 	}
-console.log(donnees_graphiques);
-for (let i=0 ; i < type_act.length ; i++)
-	{
-console.log(donnees_graphiques[i].from);
 	}
+	
+console.log(donnees_graphiques);
 
 
 
