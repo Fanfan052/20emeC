@@ -514,7 +514,7 @@ for (let k=0 ; k < type_act.length; k++)
 							}
 						else
 							{
-							part_croisee[k][l] = Number.parseFloat(part_croisee[k][l] / (denominateur) * 100).toFixed(1);
+							part_croisee[k][l] = Number.parseInt(Number.parseFloat(part_croisee[k][l] / (denominateur) * 100).toFixed(1),10);
 							}
 						}
 					}
