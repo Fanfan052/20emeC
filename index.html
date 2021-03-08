@@ -595,9 +595,9 @@ chart.events.on("ready", function() {
     }
 })
 
-function animateBullet(bullet,lien) {
+function animateBullet(bullet,num_lien) {
     var duration = 2000;
-    var animation = bullet.animate([{ property: "locationX", from: 0, to: (lien == index+1 ? 0.5 : 1) }], duration)
+    var animation = bullet.animate([{ property: "locationX", from: 0, to: (num_lien === index+1 ? 0.5 : 1) }], duration)
     animation.events.on("animationended", function(event) {
         animateBullet(event.target.object);
     })
