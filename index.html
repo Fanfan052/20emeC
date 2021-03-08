@@ -501,7 +501,7 @@ tableau_sortie.forEach(function(element,index)
 					}
 			}
 		       )
-/*
+
 // on reconstruit le tableau pour générer les pourcentages souhaités
 for (let k=0 ; k < type_act.length; k++)
 					{
@@ -514,11 +514,11 @@ for (let k=0 ; k < type_act.length; k++)
 							}
 						else
 							{
-							part_croisee[k][l] = part_croisee[k][l] / (denominateur) * 100;
+							part_croisee[k][l] = Number.parseFloat(xpart_croisee[k][l] / (denominateur) * 100).toFixed(2);
 							}
 						}
 					}
-*/
+
 console.log(part_croisee);
 console.log(part_totale);		      
 
