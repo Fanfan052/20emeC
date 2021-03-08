@@ -183,6 +183,10 @@ container_2.width = am4core.percent(100);
 container_2.height = am4core.percent(100);
 container_2.layout = "horizontal";
 
+var container_3 = am4core.create("chartdiv_3", am4core.Container);
+container_3.width = am4core.percent(100);
+container_3.height = am4core.percent(100);
+container_3.layout = "horizontal";
 
 </script>	
 	
@@ -202,7 +206,7 @@ container_2.layout = "horizontal";
 <li>pour chaque activité, pourcentage de participation aux autres activités</li>
 </ul>
 
-<div id="chartdiv_test" style="height:200px"></div>	
+<div id="chartdiv_3" style="height:300px"></div>	
 		
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -556,7 +560,7 @@ console.log(donnees_graphiques);
 
 type_act.forEach(function(element,index)
 {
-if (index <= 0)
+if (index <= 1)
 {
 am4core.ready(function() {
 // Themes begin
@@ -566,7 +570,7 @@ am4core.useTheme(am4themes_animated);
 
 
 
-var chart = am4core.create("chartdiv_test", am4charts.ChordDiagram);
+var chart = container_3.createChild(am4charts.ChordDiagram);
 
 
 chart.data = donnees_graphiques[index];
