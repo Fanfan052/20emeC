@@ -488,7 +488,7 @@ tableau_sortie.forEach(function(element,index)
 								{
 								if (m != k)
 								{
-								tmp *= (eval('element' + '.' + type_act[m] + '== 0') ? 1 : 0);
+								tmp *= (eval('element' + '.' + type_act[k] + '> 0' + ' && ' +'element' + '.' + type_act[m] + '== 0') ? 1 : 0);
 								}
 								}
 							part_croisee[k][l] += tmp;
