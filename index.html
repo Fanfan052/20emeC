@@ -591,13 +591,13 @@ chart.events.on("ready", function() {
         var link = chart.links.getIndex(i);
         var bullet = link.bullets.getIndex(0);
 
-        animateBullet(bullet);
+        animateBullet(bullet,i);
     }
 })
 
-function animateBullet(bullet) {
+function animateBullet(bullet,lien) {
     var duration = 2000;
-    var animation = bullet.animate([{ property: "locationX", from: 0, to: 1 }], duration)
+    var animation = bullet.animate([{ property: "locationX", from: 0, to: (lien == index+1 ? 0.5 : 1) }], duration)
     animation.events.on("animationended", function(event) {
         animateBullet(event.target.object);
     })
