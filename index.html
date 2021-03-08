@@ -529,7 +529,8 @@ function creation_objet(from, value) {
 var donnees_graphiques = [];
 for (let i=0 ; i < type_act.length ; i++)
 	{
-	var obj = creation_objet(type_act[i], '1');
+	var obj = new creation_objet(type_act[i], '1');
+	console.log(obj);
 	donnees_graphiques.push(obj);
 	}
 console.log(donnees_graphiques);
