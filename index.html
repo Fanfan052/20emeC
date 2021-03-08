@@ -482,7 +482,16 @@ tableau_sortie.forEach(function(element,index)
 						if (l === k)
 							{
 							part_totale[k] +=  (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
-							part_croisee[k][l] += (eval('element' + '.' + type_act[k] + '> 0' + ' && ' + 'element' + '.' + type_act[l] + '> 0') ? 1 : 0);
+							// on recherche le nombre de personnes ne participant qu'à cette activité
+							var tmp = 1;
+							for (let m=0 ; m < type_act.length; m++)
+								{
+								if (m != k)
+								{
+								tmp *= (eval('element' + '.' + type_act[m] + '== 0') ? 1 : 0);
+								}
+								}
+							part_croisee[k][l] += tmp;
 							}
 						else
 							{
