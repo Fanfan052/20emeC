@@ -522,6 +522,19 @@ for (let k=0 ; k < type_act.length; k++)
 console.log(part_croisee);
 console.log(part_totale);
 
+var donnees_graphiques = [];
+for (let i=0 ; i < type_act.length ; i++)
+	{
+	donnees_graphiques.push({
+        key: 'from',
+	value: type_act[i],
+        sortable: true,
+        resizeable: true
+    				});
+	}
+
+console.log(donnees_graphiques);
+
 }
 	
 </script>
