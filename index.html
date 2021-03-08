@@ -185,6 +185,8 @@ container_2.layout = "horizontal";
 
 </script>
 
+<div id="chartdiv_test"></div>		
+	
 <ul>
 <li>survoler les secteurs des graphiques pour visualiser le nombre d'adresses recensées</li>
 </ul>
@@ -546,6 +548,48 @@ for (let i=0 ; i < 1 ; i++)
 	
 	
 console.log(donnees_graphiques);
+
+am4core.ready(function() {
+// Themes begin
+am4core.useTheme(am4themes_material);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+
+
+var chart = am4core.create("chartdiv_test", am4charts.ChordDiagram);
+
+
+chart.data = donnees_graphiques;
+
+chart.dataFields.fromName = "from";
+chart.dataFields.toName = "to";
+chart.dataFields.value = "value";
+
+var nodeLink = chart.links.template;
+var bullet = nodeLink.bullets.push(new am4charts.CircleBullet());
+bullet.fillOpacity = 1;
+bullet.circle.radius = 5;
+bullet.locationX = 0.5;
+
+// create animations
+chart.events.on("ready", function() {
+    for (var i = 0; i < chart.links.length; i++) {
+        var link = chart.links.getIndex(i);
+        var bullet = link.bullets.getIndex(0);
+
+        animateBullet(bullet);
+    }
+})
+
+function animateBullet(bullet) {
+    var duration = 3000 * Math.random() + 2000;
+    var animation = bullet.animate([{ property: "locationX", from: 0, to: 1 }], duration)
+    animation.events.on("animationended", function(event) {
+        animateBullet(event.target.object);
+    })
+}
+}
 
 
 
