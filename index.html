@@ -586,7 +586,7 @@ chart.events.on("ready", function() {
 })
 
 function animateBullet(bullet) {
-    var duration = 3000 * Math.random() + 2000;
+    var duration = 2000;
     var animation = bullet.animate([{ property: "locationX", from: 0, to: 1 }], duration)
     animation.events.on("animationended", function(event) {
         animateBullet(event.target.object);
