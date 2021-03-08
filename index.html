@@ -213,7 +213,7 @@ container_5.layout = "horizontal";
 <div id="chartdiv_2" style="height:500px"></div>
 
 <ul>
-<li>pour chaque activité, pourcentage de participation de chaque activité aux autres activités (survoler </li>
+<li>pour chaque activité, pourcentage de participation aux autres activités (survoler les secteurs pour visualiser les pourcentages de participation)</li>
 </ul>
 
 <div id="chartdiv_3" style="height:300px"></div>	
@@ -602,15 +602,15 @@ chart.events.on("ready", function() {
         var link = chart.links.getIndex(i);
 	if (i == index)
 	{
-	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +" : {value}%";
+	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +" : {value.formatNumber('#.#)}%";
 	}
 	else if (i == index + 1)
 	{
-	link.tooltipText = "familles participant à d'autres activités que " + type_act[index] +" : {value}%";
+	link.tooltipText = "familles participant à d'autres activités que " + type_act[index] +" : {value.formatNumber('#.#)}%";
 	}
 	else
 	{
-	link.tooltipText = "familles de l'activité " + type_act[index] + " participant à {from} : {value}%" ;
+	link.tooltipText = "familles de l'activité " + type_act[index] + " participant à {from} : {value.formatNumber('#.#)}%" ;
 	}
         var bullet = link.bullets.getIndex(0);
 
