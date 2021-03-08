@@ -531,7 +531,7 @@ for (let k=0 ; k < type_act.length; k++)
 						var denominateur = (part_totale[k] > 0 ? part_totale[k] : 1);
 						if (l < k)
 							{
-							part_croisee[k][l] = part_croisee[l][k];
+							part_croisee[k][l] = part_croisee[l][k] * (part_totale[l] > 0 ? part_totale[l] : 1) / denominateur ;
 							}
 						else
 							{
@@ -594,6 +594,11 @@ else
 var chart = container_5.createChild(am4charts.ChordDiagram);
 }
 
+var title = chart.titles.create();
+title.text = "Participation depuis l'activité " + type_act[index];
+title.fontSize = 10;
+title.marginBottom = 5;
+	
 chart.innerRadius = am4core.percent(95);
 chart.data = donnees_graphiques[index];
 chart.nodes.template.label.fontSize = 9;
