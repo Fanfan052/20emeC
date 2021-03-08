@@ -188,6 +188,16 @@ container_3.width = am4core.percent(100);
 container_3.height = am4core.percent(100);
 container_3.layout = "horizontal";
 
+var container_4 = am4core.create("chartdiv_4", am4core.Container);
+container_4.width = am4core.percent(100);
+container_4.height = am4core.percent(100);
+container_4.layout = "horizontal";
+
+var container_5 = am4core.create("chartdiv_5", am4core.Container);
+container_5.width = am4core.percent(100);
+container_5.height = am4core.percent(100);
+container_5.layout = "horizontal";
+
 </script>	
 	
 <ul>
@@ -203,7 +213,7 @@ container_3.layout = "horizontal";
 <div id="chartdiv_2" style="height:500px"></div>
 
 <ul>
-<li>pour chaque activité, pourcentage de participation aux autres activités</li>
+<li>pour chaque activité, pourcentage de participation de chaque activité aux autres activités (survoler </li>
 </ul>
 
 <div id="chartdiv_3" style="height:300px"></div>	
@@ -590,6 +600,18 @@ bullet.locationX = 0.5;
 chart.events.on("ready", function() {
     for (var i = 0; i < chart.links.length; i++) {
         var link = chart.links.getIndex(i);
+	if (i == index)
+	{
+	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +": {value}";
+	}
+	else if (i == index + 1)
+	{
+	link.tooltipText = "autre 2";
+	}
+	else
+	{
+	link.tooltipText = "autre 3";
+	}
         var bullet = link.bullets.getIndex(0);
 
         animateBullet(bullet,i,index);
