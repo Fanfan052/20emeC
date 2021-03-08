@@ -216,7 +216,9 @@ container_5.layout = "horizontal";
 <li>pour chaque activité, pourcentage de participation aux autres activités (survoler les secteurs pour visualiser les pourcentages de participation)</li>
 </ul>
 
-<div id="chartdiv_3" style="height:300px"></div>	
+<div id="chartdiv_3" style="height:300px"></div>
+<div id="chartdiv_4" style="height:300px"></div>
+<div id="chartdiv_5" style="height:300px"></div>
 		
 <!--on ajoute des listeners qui font apparaître-disparaître les choix possibles pour chaque filtre-->
 <script>
@@ -570,7 +572,7 @@ console.log(donnees_graphiques);
 
 type_act.forEach(function(element,index)
 {
-if (index <= 3)
+if (index <= 11)
 {
 am4core.ready(function() {
 // Themes begin
@@ -579,8 +581,18 @@ am4core.useTheme(am4themes_animated);
 // Themes end
 
 
-
+if (index <= 3)
+{
 var chart = container_3.createChild(am4charts.ChordDiagram);
+}
+else if (index <= 7)
+{
+var chart = container_4.createChild(am4charts.ChordDiagram);
+}
+else
+{
+var chart = container_5.createChild(am4charts.ChordDiagram);
+}
 
 chart.innerRadius = am4core.percent(95);
 chart.data = donnees_graphiques[index];
@@ -602,15 +614,15 @@ chart.events.on("ready", function() {
         var link = chart.links.getIndex(i);
 	if (i == index)
 	{
-	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +" : {value.formatNumber('#')}%";
+	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +" : {value.formatNumber('#.')}%";
 	}
 	else if (i == index + 1)
 	{
-	link.tooltipText = "familles participant à d'autres activités que " + type_act[index] +" : {value.formatNumber('#')}%";
+	link.tooltipText = "familles participant à d'autres activités que " + type_act[index] +" : {value.formatNumber('#.')}%";
 	}
 	else
 	{
-	link.tooltipText = "familles de l'activité " + type_act[index] + " participant à {from} : {value.formatNumber('#')}%" ;
+	link.tooltipText = "familles de l'activité " + type_act[index] + " participant à {from} : {value.formatNumber('#.')}%" ;
 	}
         var bullet = link.bullets.getIndex(0);
 
