@@ -522,29 +522,23 @@ for (let k=0 ; k < type_act.length; k++)
 console.log(part_croisee);
 console.log(part_totale);
 
+function creation_objet(from, value) {
+  this.from = from;
+  this.value = value;
+}
 var donnees_graphiques = [];
 for (let i=0 ; i < type_act.length ; i++)
 	{
-	donnees_graphiques.push({
-        key: 'from',
-	value: type_act[i],
-        sortable: true,
-        resizeable: true
-    				});
+	var obj = creation_objet(type_act[i], '1');
+	donnees_graphiques.push(obj);
 	}
+console.log(donnees_graphiques);
 for (let i=0 ; i < type_act.length ; i++)
 	{
 console.log(donnees_graphiques[i].from);
 	}
 
-var test = [
-    { from: "1", to: "leaving", value: 6 },
-    { from: "2", to: "leaving", value: 4 },  
-    { from: "2", to: "res", value: 1 },
-    { from: "2", to: "ser", value: 2 }
-	  ]
 
-console.log(test);
 
 }
 	
