@@ -602,15 +602,15 @@ chart.events.on("ready", function() {
         var link = chart.links.getIndex(i);
 	if (i == index)
 	{
-	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +": {value}";
+	link.tooltipText = "familles ne participant qu'à l'activité " + type_act[index] +" : {value}%";
 	}
 	else if (i == index + 1)
 	{
-	link.tooltipText = "autre 2";
+	link.tooltipText = "familles participant à d'autres activités que " + type_act[index] +" : {value}%";
 	}
 	else
 	{
-	link.tooltipText = "autre 3";
+	link.tooltipText = "familles de l'activité " + type_act[index] + " participant à {from} : {value}%" ;
 	}
         var bullet = link.bullets.getIndex(0);
 
