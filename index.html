@@ -597,11 +597,13 @@ var chart = container_5.createChild(am4charts.ChordDiagram);
 var title = chart.titles.create();
 title.text = "Participation depuis l'activité " + type_act[index];
 title.fontSize = 10;
+title.fontWeight = 600;
 title.marginBottom = 5;
 	
 chart.innerRadius = am4core.percent(95);
 chart.data = donnees_graphiques[index];
 chart.nodes.template.label.fontSize = 9;
+chart.nodes.getIndex(index).label.color = "red";
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
