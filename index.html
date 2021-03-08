@@ -529,10 +529,21 @@ for (let i=0 ; i < 1 ; i++)
 	{
 	for (let j=0 ; j < type_act.length ; j++)
 	{
+	if (j==i)
+	{
+	var obj = {from : type_act[j], value : part_croisee[i][j] };
+	donnees_graphiques.push(obj);
+	var obj = {from : type_act[j], value : 100 - part_croisee[i][j] };
+	donnees_graphiques.push(obj);
+	}
+	else
+	{
 	var obj = {from : type_act[j], value : part_croisee[i][j] };
 	donnees_graphiques.push(obj);
 	}
 	}
+	}
+	
 	
 console.log(donnees_graphiques);
 
