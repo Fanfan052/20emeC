@@ -502,6 +502,22 @@ tableau_sortie.forEach(function(element,index)
 			}
 		       )
 
+// on reconstruit le tableau pour générer les pourcentages souhaités
+for (let k=0 ; k < type_act.length; k++)
+					{
+				 	for (let l=k ; l < type_act.length; l++)
+						{
+						var denominateur = (part_totale[k] > 0 ? part_totale[k] : 1);
+						if (l < k)
+							{
+							part_croisee[k][l] = part_croisee[l][k];
+							}
+						else
+							{
+							part_croisee[k][l] = part_croisee[k][l] / (denominateur) * 100;
+							}
+						}
+					}
 console.log(part_croisee);
 console.log(part_totale);		      
 
