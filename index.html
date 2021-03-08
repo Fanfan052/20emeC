@@ -532,21 +532,23 @@ var donnees_graphiques = [];
 
 for (let i=0 ; i < 1 ; i++)
 	{
+	var donnees_graphique = [];
 	for (let j=0 ; j < type_act.length ; j++)
 	{
 	if (j==i)
 	{
 	var obj = {from : type_act[j], value : part_croisee[i][j] };
-	donnees_graphiques.push(obj);
+	donnees_graphique.push(obj);
 	var obj = {from : type_act[j], value : 100 - part_croisee[i][j] };
-	donnees_graphiques.push(obj);
+	donnees_graphique.push(obj);
 	}
 	else
 	{
 	var obj = {from : type_act[j], value : part_croisee[i][j] };
-	donnees_graphiques.push(obj);
+	donnees_graphique.push(obj);
 	}
 	}
+	donnees_graphiques.push(donnees_graphique);
 	}
 	
 	
@@ -567,7 +569,7 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv_test", am4charts.ChordDiagram);
 
 
-chart.data = donnees_graphiques;
+chart.data = donnees_graphiques[index];
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
