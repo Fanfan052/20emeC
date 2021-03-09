@@ -640,12 +640,12 @@ function animateBullet(bullet,num_lien,index) {
     {
     setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1 }], duration/2);},duration/2);   
     }
-    /*
+    
     else if (num_lien === index+1)
     {
-    var animation = bullet.animate([{ property: "locationX", from: 0, to: 0.5 }], duration/2);
-    var animation_2 = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);   
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0, to: 0.5 }], duration/2);},duration/2);   
     }
+    /*
     else
     {
     var animation = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);
