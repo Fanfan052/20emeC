@@ -635,7 +635,7 @@ chart.events.on("ready", function() {
 })
 
 function animateBullet(bullet,num_lien,index) {
-    var duration = 2000;
+    var duration = 3000;
     if (num_lien === index)
     {
     setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2);   
@@ -647,7 +647,7 @@ function animateBullet(bullet,num_lien,index) {
     }
     else
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.9, to: 1.0 }], duration/2);},duration/2); 
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2); 
     }
     /*animation_2.events.on("animationended", function(event) {animateBullet(event.target.object,num_lien,index);}) */
 }
