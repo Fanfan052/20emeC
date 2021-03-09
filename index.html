@@ -639,11 +639,11 @@ function animateBullet(bullet,num_lien,index) {
     var duration = 3000;
     if (num_lien === index)
     {
-    setInterval(function() {setTimeout(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);bullet.locationX = 0.5;},duration/2);},duration);
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 1.0 }], duration);}, duration);
     }
     else if (num_lien === index+1)
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 1.0 }], duration);}, duration);
+    setInterval(function() {setTimeout(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);bullet.locationX = 0.5;},duration/2);},duration);
     }
     else
     {
