@@ -644,12 +644,13 @@ function animateBullet(bullet,num_lien,index) {
     
     else if (num_lien === index+1)
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 0.5 }], duration/2);},duration/2);   
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 0.5 }], duration/2);},duration/2); 
+    setInterval(function() {},duration/2);   
     }
     else
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2);
     setInterval(function() {},duration/2);  
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2);
     }
     /*animation_2.events.on("animationended", function(event) {animateBullet(event.target.object,num_lien,index);}) */
 }
