@@ -601,10 +601,6 @@ title.marginBottom = 5;
 chart.innerRadius = am4core.percent(95);
 chart.data = donnees_graphiques[index];
 chart.nodes.template.label.fontSize = 9;
-if (index == 1)
-{
-console.log(chart.nodes.length);
-}
 
 chart.dataFields.fromName = "from";
 chart.dataFields.toName = "to";
@@ -640,9 +636,25 @@ chart.events.on("ready", function() {
 
 function animateBullet(bullet,num_lien,index) {
     var duration = 2000;
-    var animation = bullet.animate([{ property: "locationX", from: (num_lien === index || num_lien === index+1 ? 0 : 0.5), to: (num_lien === index+1 ? 0.5 : 1) }], duration)
-    animation.events.on("animationended", function(event) {
+    if (num_lien === index)
+    {
+    var animation = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);
+    var animation_2 = bullet.animate([{ property: "locationX", from: 0.5, to: 1 }], duration/2);    
+    }
+    else if (num_lien === index+1)
+    {
+    var animation = bullet.animate([{ property: "locationX", from: 0, to: 0.5 }], duration/2);
+    var animation_2 = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);   
+    }
+    else
+    {
+    var animation = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);
+    var animation_2 = bullet.animate([{ property: "locationX", from: 0.5, to: 1 }], duration/2); 
+    // var animation = bullet.animate([{ property: "locationX", from: (num_lien === index || num_lien === index+1 ? 0 : 0.5), to: (num_lien === index+1 ? 0.5 : 1) }], duration)
+    }
+    animation_2.events.on("animationended", function(event) {
         animateBullet(event.target.object,num_lien,index);
+
     })
 }
 }
