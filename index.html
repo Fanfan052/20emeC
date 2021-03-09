@@ -570,7 +570,7 @@ console.log(donnees_graphiques);
 
 type_act.forEach(function(element,index)
 {
-if (index <= 11)
+if (part_totale[index} > 0)
 {
 am4core.ready(function() {
 // Themes begin
@@ -638,21 +638,18 @@ function animateBullet(bullet,num_lien,index) {
     var duration = 2000;
     if (num_lien === index)
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1 }], duration/2);},duration/2);   
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2);   
     }
     
     else if (num_lien === index+1)
     {
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0, to: 0.5 }], duration/2);},duration/2);   
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 0.5 }], duration/2);},duration/2);   
     }
-    /*
     else
     {
-    var animation = bullet.animate([{ property: "locationX", from: 0.5, to: 0.5 }], duration/2);
-    var animation_2 = bullet.animate([{ property: "locationX", from: 0.5, to: 1 }], duration/2); 
-    // var animation = bullet.animate([{ property: "locationX", from: (num_lien === index || num_lien === index+1 ? 0 : 0.5), to: (num_lien === index+1 ? 0.5 : 1) }], duration)
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.9, to: 1.0 }], duration/2);},duration/2); 
     }
-    animation_2.events.on("animationended", function(event) {animateBullet(event.target.object,num_lien,index);}) */
+    /*animation_2.events.on("animationended", function(event) {animateBullet(event.target.object,num_lien,index);}) */
 }
 }
 )
