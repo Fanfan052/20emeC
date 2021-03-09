@@ -647,8 +647,7 @@ function animateBullet(bullet,num_lien,index) {
     }
     else
     {
-    setInterval(function() {},duration/2);  
-    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration/2);
+    setInterval(function() {bullet.animate([{ property: "locationX", from: 0.5, to: 1.0 }], duration/2);},duration);
     }
     /*animation_2.events.on("animationended", function(event) {animateBullet(event.target.object,num_lien,index);}) */
 }
