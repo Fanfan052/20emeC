@@ -650,7 +650,7 @@ function animateBullet(bullet,num_lien,index) {
     }
     else if (num_lien === index+1)
     {
-    setInterval(function() {setTimeout(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 0.5 }], duration/2);bullet.locationX = 0.5;},0);},duration);
+    setInterval(function() {setTimeout(function() {bullet.animate([{ property: "locationX", from: 0.0, to: 0.5 }], duration/2);},0);},duration);
     }
     else
     {
