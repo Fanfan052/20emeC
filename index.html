@@ -585,6 +585,13 @@ am4core.ready(function() {
 am4core.useTheme(am4themes_animated);
 // Themes end
 var chart = container_6.createChild(am4charts.XYChart);
+
+var title = chart.titles.create();
+title.text = "Nombre de participants à chaque activité";
+title.fontSize = 11;
+title.fontWeight = 600;
+title.marginBottom = 5;
+
 chart.data = donnees_total
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
 categoryAxis.dataFields.category = "activite";
