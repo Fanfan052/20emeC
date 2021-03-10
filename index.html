@@ -540,7 +540,13 @@ for (let k=0 ; k < type_act.length; k++)
 						}
 					}
 
+var donnees_total = [];
 
+for (let i=0 ; i < type_act.length ; i++)
+	{
+	var obj = {activite : type_act[i], value : part_totale[i] };
+	donnees_total.push(obj);
+	}
 
 var donnees_graphiques = [];
 
@@ -564,9 +570,6 @@ for (let i=0 ; i < type_act.length ; i++)
 	}
 	donnees_graphiques.push(donnees_graphique);
 	}
-	
-	
-console.log(donnees_graphiques);
 
 type_act.forEach(function(element,index)
 {
