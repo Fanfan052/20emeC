@@ -602,8 +602,8 @@ var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueY = "activite";
-series.dataFields.categoryX = "value";
+series.dataFields.valueY = "value";
+series.dataFields.categoryX = "activite";
 series.name = "Nb familles";
 series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
 series.columns.template.fillOpacity = .8;
