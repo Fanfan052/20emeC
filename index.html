@@ -603,7 +603,7 @@ chart.data = donnees_graphiques[index];
 chart.nodes.template.label.fontSize = 9;
 chart.nodes.template.label.fontWeight = 600;
 
-chart.nodes.adapter.add("label", function(color) {
+chart.nodes.template.adapter.add("label", function(color) {
   if (target.dataItem.index == index) {
     return "red";
   }
