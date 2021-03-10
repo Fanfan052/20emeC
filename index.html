@@ -591,6 +591,7 @@ categoryAxis.dataFields.category = "activite";
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.minGridDistance = 30;
 categoryAxis.renderer.labels.template.fontSize = 10;
+categoryAxis.renderer.labels.template.fontWeight = 600;
 
 categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
   if (target.dataItem && target.dataItem.index & 2 == 2) {
